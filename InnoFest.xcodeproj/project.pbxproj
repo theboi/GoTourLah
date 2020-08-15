@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */; };
+		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
 		AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1BB24E50C2700B62170 /* ViewController.swift */; };
@@ -15,12 +16,13 @@
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
 		AAADC1D024E50CD300B62170 /* StallsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */; };
 		AAADC1D124E50CD300B62170 /* StallsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CE24E50CD300B62170 /* StallsTableView.swift */; };
-		AAADC1D224E50CD300B62170 /* StallsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsVC.swift */; };
+		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
 		AAADC1B424E50C2700B62170 /* InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAADC1B924E50C2700B62170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -30,7 +32,7 @@
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTableViewCell.swift; sourceTree = "<group>"; };
 		AAADC1CE24E50CD300B62170 /* StallsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTableView.swift; sourceTree = "<group>"; };
-		AAADC1CF24E50CD300B62170 /* StallsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsVC.swift; sourceTree = "<group>"; };
+		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.debug.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -90,6 +92,7 @@
 		AAADC1CB24E50C9900B62170 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AA844F9F24E78DC000D99C48 /* Stall.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -97,11 +100,19 @@
 		AAADC1CC24E50C9D00B62170 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AAADC1CE24E50CD300B62170 /* StallsTableView.swift */,
-				AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */,
-				AAADC1CF24E50CD300B62170 /* StallsVC.swift */,
+				AACF43CE24E6443000FF6A71 /* Stalls */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AACF43CE24E6443000FF6A71 /* Stalls */ = {
+			isa = PBXGroup;
+			children = (
+				AAADC1CE24E50CD300B62170 /* StallsTableView.swift */,
+				AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */,
+				AAADC1CF24E50CD300B62170 /* StallsViewController.swift */,
+			);
+			path = Stalls;
 			sourceTree = "<group>";
 		};
 		B700D5499F091F324A7B06CF /* Pods */ = {
@@ -228,11 +239,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
-				AAADC1D224E50CD300B62170 /* StallsVC.swift in Sources */,
+				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
 				AAADC1D124E50CD300B62170 /* StallsTableView.swift in Sources */,
 				AAADC1D024E50CD300B62170 /* StallsTableViewCell.swift in Sources */,
 				AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */,
+				AA844FA024E78DC000D99C48 /* Stall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

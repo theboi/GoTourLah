@@ -10,9 +10,9 @@ import UIKit
 
 class StallsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-	var parent: StallsVC!
+	var parent: StallsViewController!
 	
-	private let data = ["Hello"]
+	private let data = [Stall(named: "Chinese Rice")]
 	
 	override init(frame: CGRect, style: UITableView.Style) {
 		super.init(frame: frame, style: style)
@@ -33,7 +33,7 @@ class StallsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath)
 		
 		// Configure the cell’s contents.
-		cell.textLabel!.text = data[indexPath.row]
+		cell.textLabel!.text = data[indexPath.row].name
 		return cell
 	}
 	

@@ -18,12 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.windowScene = windowScene
 		let tabBarController = UITabBarController(nibName: nil, bundle: nil)
 
-        let stallsVC = UINavigationController(rootViewController: StallsVC())
+        let stallsVC = UINavigationController(rootViewController: StallsViewController())
 		stallsVC.navigationBar.isTranslucent = true
 		
-        let exploreVC = UINavigationController(rootViewController: StallsVC())
+        let exploreVC = UINavigationController(rootViewController: StallsViewController())
 		
-        let meVC = UINavigationController(rootViewController: StallsVC())
+        let meVC = UINavigationController(rootViewController: StallsViewController())
 
 		tabBarController.setViewControllers([stallsVC, exploreVC, meVC], animated: true)
 		let images = ["bag", "magnifyingglass", "person.crop.circle"]

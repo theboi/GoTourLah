@@ -7,17 +7,12 @@
 //
 
 import UIKit
-import SnapKit
 
-class StallsVC: UIViewController {
+class StallsViewController: UIViewController {
 	
-	var tableView: StallsTableView {
-		let tableView = StallsTableView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size), style: .plain)
-		tableView.parent = self
-		return tableView
-	}
+	lazy var tableView = StallsTableView(frame: CGRect(origin: CGPoint(x: 0, y: 0), size: UIScreen.main.bounds.size), style: .plain)
 	
-	var searchBar = UISearchBar()
+	lazy var searchBar = UISearchBar()
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -33,11 +28,14 @@ class StallsVC: UIViewController {
 		self.title = "Stalls"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()
+
 		self.view.addSubview(tableView)
+		tableView.parent = self
 	}
 	
 	func presentView() {
 		let newVC = UIViewController()
+		newVC.view.backgroundColor = .systemBackground
 		self.navigationController?.pushViewController(newVC, animated: true)
 	}
 }
