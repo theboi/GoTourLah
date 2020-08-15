@@ -25,10 +25,10 @@ class StallsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.navigationController?.navigationBar.prefersLargeTitles = true
-		self.title = "Stalls"
+		self.title = "Order"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()
-
+		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
 		self.view.addSubview(tableView)
 		tableView.parent = self
 	}
@@ -37,6 +37,14 @@ class StallsViewController: UIViewController {
 		let newVC = UIViewController()
 		newVC.view.backgroundColor = .systemBackground
 		self.navigationController?.pushViewController(newVC, animated: true)
+	}
+	
+	@objc func presentCartViewController() {
+		let cartViewController = UIViewController()
+		let cartNavigationController = UINavigationController(rootViewController: cartViewController)
+		cartViewController.view.backgroundColor = .systemBackground
+		cartViewController.title = "Cart"
+		self.navigationController?.present(cartNavigationController, animated: true, completion: nil)
 	}
 }
 

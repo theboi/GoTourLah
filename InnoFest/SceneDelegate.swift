@@ -26,8 +26,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let meVC = UINavigationController(rootViewController: StallsViewController())
 
 		tabBarController.setViewControllers([stallsVC, exploreVC, meVC], animated: true)
-		let images = ["bag", "magnifyingglass", "person.crop.circle"]
-		let titles = ["Stalls", "Explore", "Me"]
+		tabBarController.selectedIndex = 1
+		let images = ["map", "bag", "person.crop.circle"]
+		let titles = ["Explore", "Order", "Me"]
 		for (index, item) in tabBarController.tabBar.items?.enumerated() ?? [].enumerated() {
 			item.image = UIImage(systemName: images[index])
 			item.title = titles[index]
