@@ -1,16 +1,16 @@
 //
-//  MainTableView.swift
-//  CrudApp
+//  CartTableView.swift
+//  InnoFest
 //
-//  Created by Ryan The on 1/8/20.
+//  Created by Ryan The on 15/8/20.
 //  Copyright © 2020 Ryan The. All rights reserved.
 //
 
 import UIKit
 
-class StallsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
+class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-	var parent: StallsViewController!
+    var viewController: CartViewController!
 	
 	private let data = [Stall(named: "Chinese Rice")]
 	
@@ -18,7 +18,7 @@ class StallsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 		super.init(frame: frame, style: style)
 		self.delegate = self
 		self.dataSource = self
-		self.register(StallsTableViewCell.self, forCellReuseIdentifier: "MainTableViewCell")
+		self.register(CartTableViewCell.self, forCellReuseIdentifier: "MainTableViewCell")
 	}
 	
 	required init?(coder: NSCoder) {
@@ -39,7 +39,7 @@ class StallsTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		parent.presentView()
+		viewController.presentView()
 	}
-	
+
 }

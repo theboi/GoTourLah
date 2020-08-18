@@ -8,20 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */; };
+		AA049B6424EC1CB900AE4022 /* StallsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */; };
+		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
+		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
+		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
+		AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */; };
+		AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */; };
+		AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */; };
 		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
 		AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1BB24E50C2700B62170 /* ViewController.swift */; };
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
-		AAADC1D024E50CD300B62170 /* StallsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */; };
-		AAADC1D124E50CD300B62170 /* StallsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CE24E50CD300B62170 /* StallsTableView.swift */; };
 		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionReusableView.swift; sourceTree = "<group>"; };
+		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		AA37F8E724E83BC600DE51AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
+		AA37F8E924E83C4900DE51AD /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
+		AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
+		AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionView.swift; sourceTree = "<group>"; };
+		AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
 		AAADC1B424E50C2700B62170 /* InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -30,8 +42,6 @@
 		AAADC1C024E50C2A00B62170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTableViewCell.swift; sourceTree = "<group>"; };
-		AAADC1CE24E50CD300B62170 /* StallsTableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTableView.swift; sourceTree = "<group>"; };
 		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.debug.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,6 +64,16 @@
 				A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA37F8E624E83B6A00DE51AD /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				AA37F8E724E83BC600DE51AD /* CartViewController.swift */,
+				AA37F8E924E83C4900DE51AD /* CartTableView.swift */,
+				AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */,
+			);
+			path = Cart;
 			sourceTree = "<group>";
 		};
 		AAADC1AB24E50C2700B62170 = {
@@ -85,6 +105,7 @@
 				AAADC1C024E50C2A00B62170 /* Assets.xcassets */,
 				AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */,
 				AAADC1C524E50C2A00B62170 /* Info.plist */,
+				AA12885124E940B900DD5459 /* Constants.swift */,
 			);
 			path = InnoFest;
 			sourceTree = "<group>";
@@ -100,6 +121,7 @@
 		AAADC1CC24E50C9D00B62170 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AA37F8E624E83B6A00DE51AD /* Cart */,
 				AACF43CE24E6443000FF6A71 /* Stalls */,
 			);
 			path = View;
@@ -108,9 +130,10 @@
 		AACF43CE24E6443000FF6A71 /* Stalls */ = {
 			isa = PBXGroup;
 			children = (
-				AAADC1CE24E50CD300B62170 /* StallsTableView.swift */,
-				AAADC1CD24E50CD300B62170 /* StallsTableViewCell.swift */,
 				AAADC1CF24E50CD300B62170 /* StallsViewController.swift */,
+				AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */,
+				AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */,
+				AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */,
 			);
 			path = Stalls;
 			sourceTree = "<group>";
@@ -241,9 +264,14 @@
 				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
 				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
-				AAADC1D124E50CD300B62170 /* StallsTableView.swift in Sources */,
-				AAADC1D024E50CD300B62170 /* StallsTableViewCell.swift in Sources */,
+				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
+				AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */,
+				AA12885224E940B900DD5459 /* Constants.swift in Sources */,
+				AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */,
+				AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */,
 				AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */,
+				AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */,
+				AA049B6424EC1CB900AE4022 /* StallsCollectionReusableView.swift in Sources */,
 				AA844FA024E78DC000D99C48 /* Stall.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

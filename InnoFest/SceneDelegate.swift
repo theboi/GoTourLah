@@ -18,18 +18,18 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		window?.windowScene = windowScene
 		let tabBarController = UITabBarController(nibName: nil, bundle: nil)
 
-        let stallsVC = UINavigationController(rootViewController: StallsViewController())
-		stallsVC.navigationBar.isTranslucent = true
-		
         let exploreVC = UINavigationController(rootViewController: StallsViewController())
-		
+
+        let snapVC = UINavigationController(rootViewController: StallsViewController())
+		snapVC.navigationBar.isTranslucent = true
+				
         let meVC = UINavigationController(rootViewController: StallsViewController())
 
-		tabBarController.setViewControllers([stallsVC, exploreVC, meVC], animated: true)
+		tabBarController.setViewControllers([exploreVC, snapVC, meVC], animated: true)
 		tabBarController.selectedIndex = 1
 		let images = ["map", "bag", "person.crop.circle"]
-		let titles = ["Explore", "Order", "Me"]
-		for (index, item) in tabBarController.tabBar.items?.enumerated() ?? [].enumerated() {
+		let titles = ["Explore", "Eat", "Me"]
+		for (index, item) in tabBarController.tabBar.items!.enumerated() {
 			item.image = UIImage(systemName: images[index])
 			item.title = titles[index]
 		}
