@@ -27,7 +27,7 @@ class StallsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationBar.prefersLargeTitles = true
+		self.navigationController?.navigationBar.prefersLargeTitles = false
 		self.title = "Stalls"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()
@@ -36,64 +36,32 @@ class StallsViewController: UIViewController {
 		collectionView.viewController = self
 	}
 	
-	func presentView() {
-		let newVC = UIViewController()
-		newVC.view.backgroundColor = .systemBackground
-		self.navigationController?.pushViewController(newVC, animated: true)
+	func createGridLayout() -> UICollectionViewLayout {
+		let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
+			let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-self.margin*3)/2), heightDimension: .fractionalHeight(1.0))
+			
+			let item = NSCollectionLayoutItem(layoutSize: itemSize)
+			
+			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
+			
+			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+			group.interItemSpacing = NSCollectionLayoutSpacing.fixed(self.margin)
+			
+			let section = NSCollectionLayoutSection(group: group)
+			section.interGroupSpacing = self.margin
+			
+			section.contentInsets = NSDirectionalEdgeInsets(top: self.margin, leading: self.margin, bottom: self.margin, trailing: self.margin)
+			//			let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(self.supplementaryViewHeight))
+			//			section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: "header", alignment: .top)]
+			return section
+		}
+		return layout
 	}
 	
 	@objc func presentCartViewController() {
 		let cartViewController = CartViewController()
 		let cartNavigationController = UINavigationController(rootViewController: cartViewController)
-		cartViewController.view.backgroundColor = .systemBackground
-		cartViewController.navigationController?.navigationBar.prefersLargeTitles = false
-		cartViewController.title = "Cart"
 		self.navigationController?.present(cartNavigationController, animated: true, completion: nil)
-	}
-	
-	func createGridLayout() -> UICollectionViewLayout {
-		let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-			switch (sectionIndex) {
-			case 0:
-				let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
-				
-				let item = NSCollectionLayoutItem(layoutSize: itemSize)
-				
-				let groupSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-self.margin*3)/2), heightDimension: .absolute(130+44))
-				
-				let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-				
-				let section = NSCollectionLayoutSection(group: group)
-				section.interGroupSpacing = self.margin
-				section.contentInsets = NSDirectionalEdgeInsets(top: self.margin, leading: self.margin, bottom: self.margin, trailing: self.margin)
-				section.orthogonalScrollingBehavior = .continuous
-				let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(self.supplementaryViewHeight))
-				section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: "header", alignment: .top)]
-				
-				return section
-			case 1:
-				let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-self.margin*3)/2), heightDimension: .fractionalHeight(1.0))
-				
-				let item = NSCollectionLayoutItem(layoutSize: itemSize)
-				
-				let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
-				
-				let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-				group.interItemSpacing = NSCollectionLayoutSpacing.fixed(self.margin)
-				
-				let section = NSCollectionLayoutSection(group: group)
-				section.interGroupSpacing = self.margin
-
-				section.contentInsets = NSDirectionalEdgeInsets(top: self.margin, leading: self.margin, bottom: self.margin, trailing: self.margin)
-				let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(self.supplementaryViewHeight))
-				section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: "header", alignment: .top)]
-				return section
-			default:
-				fatalError("Collection index overflow or invalid.")
-			}
-		}
-		
-		return layout
 	}
 	
 	func presentFoodItemsViewController(for stall: Stall) {

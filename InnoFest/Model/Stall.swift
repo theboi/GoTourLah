@@ -8,13 +8,22 @@
 
 import Foundation
 
+enum StallModelType {
+	case select, set
+}
+
 class Stall {
 	var name: String
 	var description: String
-	
-	init(named name: String, description: String) {
+//	var model: StallModelType
+//	var isFavourite: Bool
+//	var foodItems = [String: Double]()
+	//, model: StallModelType, isFavourite: Bool, foodItems: [String: Double]
+	init(name: String, description: String) {
 		self.name = name
 		self.description = description
+//		self.model = model
+//		self.isFavourite = isFavourite
 	}
 	
 	static func getStalls() {

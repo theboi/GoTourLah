@@ -23,8 +23,8 @@ class CartViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationBar.prefersLargeTitles = true
-		self.title = "Order"
+		self.navigationController?.navigationBar.prefersLargeTitles = false
+		self.title = "Cart"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))

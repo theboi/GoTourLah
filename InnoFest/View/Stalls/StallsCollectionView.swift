@@ -10,14 +10,15 @@ import UIKit
 
 class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 	var viewController: StallsViewController!
-	let headers = ["Favourites", "Stalls"]
+//	let headers = ["Favourites", "Stalls"]
 	var stalls = [
-		Stall(named: "Chinese Noodles", description: "Overpriced delicious food!"),
-		Stall(named: "Chinese Rice", description: "Overpriced delicious food!"),
-		Stall(named: "Beverages", description: "Overpriced delicious food!"),
-		Stall(named: "Malay Noodles", description: "Overpriced delicious food!"),
-		Stall(named: "Malay Rice", description: "Overpriced delicious food!"),
-		Stall(named: "Western Fusion", description: "Overpriced delicious food!"),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!"),
+		Stall(name: "Chinese Rice", description: "Overpriced delicious food!"),
+		Stall(name: "Beverages", description: "Overpriced delicious food!"),
+		Stall(name: "Malay Noodles", description: "Overpriced delicious food!"),
+		Stall(name: "Malay Rice", description: "Overpriced delicious food!"),
+		Stall(name: "Western Fusion", description: "Overpriced delicious food!"),
+//		Stall(name: "Western Fusion", description: "Overpriced delicious food!"),
 	]
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
@@ -25,9 +26,8 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 		self.backgroundColor = .systemBackground
 		self.dataSource = self
 		self.delegate = self
-		self.delaysContentTouches = false
 		self.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
-		self.register(StallsCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "stallsCollectionViewCell")
+//		self.register(StallsCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "stallsCollectionViewCell")
 	}
 	
 	required init?(coder: NSCoder) {
@@ -45,15 +45,15 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 		return cell
 	}
 	
-	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return headers.count
-	}
-	
-	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-		let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionReusableView
-		view.label.text = headers[indexPath.section]
-		return view
-	}
+//	func numberOfSections(in collectionView: UICollectionView) -> Int {
+//		return 1
+//	}
+//
+//	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//		let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionReusableView
+//		view.label.text = headers[indexPath.section]
+//		return view
+//	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 		viewController.presentFoodItemsViewController(for: stalls[indexPath.row])

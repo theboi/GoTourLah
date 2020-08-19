@@ -12,7 +12,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     var viewController: CartViewController!
 	
-	private let data = [Stall(named: "Chinese Rice", description: "hello")]
+	private let data = [Stall(name: "Chinese Rice", description: "hello")]
 	
 	override init(frame: CGRect, style: UITableView.Style) {
 		super.init(frame: frame, style: style)
