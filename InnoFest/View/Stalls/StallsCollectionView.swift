@@ -8,13 +8,24 @@
 
 import UIKit
 
-class StallsCollectionView: UICollectionView, UICollectionViewDataSource {
+class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
 	var viewController: StallsViewController!
+	let headers = ["Favourites", "Stalls"]
+	var stalls = [
+		Stall(named: "Chinese Noodles", description: "Overpriced delicious food!"),
+		Stall(named: "Chinese Rice", description: "Overpriced delicious food!"),
+		Stall(named: "Beverages", description: "Overpriced delicious food!"),
+		Stall(named: "Malay Noodles", description: "Overpriced delicious food!"),
+		Stall(named: "Malay Rice", description: "Overpriced delicious food!"),
+		Stall(named: "Western Fusion", description: "Overpriced delicious food!"),
+	]
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
 		self.backgroundColor = .systemBackground
 		self.dataSource = self
+		self.delegate = self
+		self.delaysContentTouches = false
 		self.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
 		self.register(StallsCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "stallsCollectionViewCell")
 	}
@@ -24,23 +35,27 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource {
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 10
+		return stalls.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionViewCell
-		cell.titleLabel.text = "Title"
-		
+		cell.titleLabel.text = stalls[indexPath.row].name
 		
 		return cell
 	}
 	
+	func numberOfSections(in collectionView: UICollectionView) -> Int {
+		return headers.count
+	}
+	
 	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 		let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionReusableView
-		view.label.text = "Header"
+		view.label.text = headers[indexPath.section]
 		return view
 	}
-	func numberOfSections(in collectionView: UICollectionView) -> Int {
-		return 2
+	
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		viewController.presentFoodItemsViewController(for: stalls[indexPath.row])
 	}
 }

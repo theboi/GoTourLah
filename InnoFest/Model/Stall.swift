@@ -10,9 +10,11 @@ import Foundation
 
 class Stall {
 	var name: String
+	var description: String
 	
-	init(named name: String) {
+	init(named name: String, description: String) {
 		self.name = name
+		self.description = description
 	}
 	
 	static func getStalls() {

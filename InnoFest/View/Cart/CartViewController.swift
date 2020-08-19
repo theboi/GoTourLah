@@ -32,10 +32,10 @@ class CartViewController: UIViewController {
 		tableView.viewController = self
 	}
 	
-	func presentView() {
-		let newVC = UIViewController()
-		newVC.view.backgroundColor = .systemBackground
-		self.navigationController?.pushViewController(newVC, animated: true)
+	func presentCartItemViewController() {
+		let cartItemViewController = UIViewController()
+		cartItemViewController.view.backgroundColor = .systemBackground
+		self.navigationController?.pushViewController(cartItemViewController, animated: true)
 	}
 	
 	@objc func dismissCartViewController() {

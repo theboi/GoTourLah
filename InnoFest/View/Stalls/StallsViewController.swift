@@ -95,5 +95,11 @@ class StallsViewController: UIViewController {
 		
 		return layout
 	}
+	
+	func presentFoodItemsViewController(for stall: Stall) {
+		let foodItemsViewController = FoodItemsViewController(for: stall)
+		foodItemsViewController.view.backgroundColor = .systemBackground
+		self.navigationController?.pushViewController(foodItemsViewController, animated: true)
+	}
 }
 

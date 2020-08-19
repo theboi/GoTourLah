@@ -12,7 +12,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
     var viewController: CartViewController!
 	
-	private let data = [Stall(named: "Chinese Rice")]
+	private let data = [Stall(named: "Chinese Rice", description: "hello")]
 	
 	override init(frame: CGRect, style: UITableView.Style) {
 		super.init(frame: frame, style: style)
@@ -39,7 +39,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		viewController.presentView()
+		viewController.presentCartItemViewController()
 	}
 
 }
