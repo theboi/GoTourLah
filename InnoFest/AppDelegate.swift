@@ -11,7 +11,28 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
+//	func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
+//		
+//		if let rootViewController = self.topViewControllerWithRootViewController(rootViewController: window?.rootViewController), rootViewController.responds(to: Selector(("canRotate"))) {
+//			return .landscape;
+//		}
+//		return .allButUpsideDown;
+//	}
+//	
+//	private func topViewControllerWithRootViewController(rootViewController: UIViewController!) -> UIViewController? {
+//		guard rootViewController != nil else { return nil }
+//
+//		guard !(rootViewController.isKind(of: (UITabBarController).self)) else{
+//			return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UITabBarController).selectedViewController)
+//		}
+//		guard !(rootViewController.isKind(of:(UINavigationController).self)) else{
+//			return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UINavigationController).visibleViewController)
+//		}
+//		guard !(rootViewController.presentedViewController != nil) else{
+//			return topViewControllerWithRootViewController(rootViewController: rootViewController.presentedViewController)
+//		}
+//		return rootViewController
+//	}
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.

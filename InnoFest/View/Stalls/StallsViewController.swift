@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  CrudApp
+//  InnoFest
 //
 //  Created by Ryan The on 1/8/20.
 //  Copyright © 2020 Ryan The. All rights reserved.
@@ -11,7 +11,6 @@ import UIKit
 class StallsViewController: UIViewController {
 	
 	let margin: CGFloat = 20
-	let supplementaryViewHeight: CGFloat = 44
 	
 	lazy var collectionView = StallsCollectionView(frame: UIScreen.main.bounds, collectionViewLayout: createGridLayout())
 	
@@ -27,7 +26,7 @@ class StallsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationBar.prefersLargeTitles = false
+		self.navigationController?.navigationBar.prefersLargeTitles = true
 		self.title = "Stalls"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()
@@ -42,7 +41,7 @@ class StallsViewController: UIViewController {
 			
 			let item = NSCollectionLayoutItem(layoutSize: itemSize)
 			
-			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(200))
+			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(220))
 			
 			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
 			group.interItemSpacing = NSCollectionLayoutSpacing.fixed(self.margin)
@@ -66,7 +65,6 @@ class StallsViewController: UIViewController {
 	
 	func presentFoodItemsViewController(for stall: Stall) {
 		let foodItemsViewController = FoodItemsViewController(for: stall)
-		foodItemsViewController.view.backgroundColor = .systemBackground
 		self.navigationController?.pushViewController(foodItemsViewController, animated: true)
 	}
 }

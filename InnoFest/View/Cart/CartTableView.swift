@@ -10,9 +10,11 @@ import UIKit
 
 class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 
-    var viewController: CartViewController!
+	var viewController: CartViewController!
 	
-	private let data = [Stall(name: "Chinese Rice", description: "hello")]
+	private let data = [
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+	]
 	
 	override init(frame: CGRect, style: UITableView.Style) {
 		super.init(frame: frame, style: style)

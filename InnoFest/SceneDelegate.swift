@@ -22,7 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let snapVC = UINavigationController(rootViewController: StallsViewController())
 		snapVC.navigationBar.isTranslucent = true
-				
+		
         let meVC = UINavigationController(rootViewController: StallsViewController())
 
 		tabBarController.setViewControllers([exploreVC, snapVC, meVC], animated: true)
@@ -37,4 +37,3 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
 	}
 }
-

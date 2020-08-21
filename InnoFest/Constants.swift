@@ -6,8 +6,10 @@
 //  Copyright © 2020 Ryan The. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 class K {
-	
+	static let marginCg: CGFloat = 20
+	static let cornerRadiusCg: CGFloat = 10
+	static let borderWidthCg: CGFloat = 1
 }

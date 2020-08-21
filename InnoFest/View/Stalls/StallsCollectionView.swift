@@ -12,18 +12,17 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 	var viewController: StallsViewController!
 //	let headers = ["Favourites", "Stalls"]
 	var stalls = [
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!"),
-		Stall(name: "Chinese Rice", description: "Overpriced delicious food!"),
-		Stall(name: "Beverages", description: "Overpriced delicious food!"),
-		Stall(name: "Malay Noodles", description: "Overpriced delicious food!"),
-		Stall(name: "Malay Rice", description: "Overpriced delicious food!"),
-		Stall(name: "Western Fusion", description: "Overpriced delicious food!"),
-//		Stall(name: "Western Fusion", description: "Overpriced delicious food!"),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
 	]
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
-		self.backgroundColor = .systemBackground
+		self.backgroundColor = .none
 		self.dataSource = self
 		self.delegate = self
 		self.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
