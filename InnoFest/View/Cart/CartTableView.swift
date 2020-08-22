@@ -13,7 +13,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	var viewController: CartViewController!
 	
 	private let data = [
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, isFavourite: false, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00), FoodItem(name: "Prawn Noodles", price: 2.00)]),
+		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
 	]
 	
 	override init(frame: CGRect, style: UITableView.Style) {

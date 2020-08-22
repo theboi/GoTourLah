@@ -13,4 +13,5 @@ class K {
 	static let cornerRadiusCg: CGFloat = 10
 	static let borderWidthCg: CGFloat = 1
 	static let tintColor = UIColor.link
+	static let placeholderImage = UIImage(named: "food")
 }

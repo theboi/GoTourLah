@@ -15,20 +15,20 @@ enum StallModelType {
 struct FoodItem {
 	var name: String
 	var price: Double
+	var desc: String
+	var isFavourite: Bool
 }
 
 class Stall {
 	var name: String
 	var description: String
 	var model: StallModelType
-	var isFavourite: Bool
 	var foodItems: [FoodItem]
 	
-	init(name: String, description: String, model: StallModelType, isFavourite: Bool, foodItems: [FoodItem]) {
+	init(name: String, description: String, model: StallModelType, foodItems: [FoodItem]) {
 		self.name = name
 		self.description = description
 		self.model = model
-		self.isFavourite = isFavourite
 		self.foodItems = foodItems
 	}
 	

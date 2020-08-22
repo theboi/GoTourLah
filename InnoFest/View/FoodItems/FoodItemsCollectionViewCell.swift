@@ -9,7 +9,7 @@
 import UIKit
 
 class FoodItemsCollectionViewCell: UICollectionViewCell {
-	lazy var image = UIImage(named: "tempImage")
+	lazy var image = K.placeholderImage
 	lazy var nameLabel = UILabel()
 	lazy var priceLabel = UILabel()
 	lazy var descLabel = UILabel()

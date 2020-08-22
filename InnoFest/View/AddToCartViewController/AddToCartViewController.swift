@@ -17,7 +17,7 @@ class AddToCartViewController: UIViewController {
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
 		
-		image = UIImage(named: "tempImage")
+		image = K.placeholderImage
 		let imageView = UIImageView(image: image)
 		self.view.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -61,27 +61,32 @@ class AddToCartViewController: UIViewController {
 			addToCartButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -K.marginCg),
 			addToCartButton.heightAnchor.constraint(equalToConstant: 50),
 		])
+		addToCartButton.addTarget(self, action: #selector(onAddToCartPress), for: .touchUpInside)
 		
 		let spacer = UIView()
 		spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
 
 		let titleLabel = UILabel()
 		titleLabel.text = foodItem.name
-		titleLabel.font = UIFont.systemFont(ofSize: 23, weight: .semibold)
+		titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
 		
 		let priceLabel = UILabel()
 		priceLabel.text = String(foodItem.price)
 		priceLabel.textColor = .secondaryLabel
-		priceLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+		priceLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
 		
-		let detailsStackView = UIStackView(arrangedSubviews: [spacer, priceLabel, titleLabel])
+		let descLabel = UILabel()
+		descLabel.text = foodItem.desc
+		descLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+		
+		let detailsStackView = UIStackView(arrangedSubviews: [titleLabel, priceLabel, descLabel, spacer])
 		detailsStackView.axis = .vertical
-		detailsStackView.spacing = K.marginCg
+		detailsStackView.spacing = 10
 		self.view.addSubview(detailsStackView)
 		detailsStackView.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addConstraints([
-			detailsStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: K.marginCg),
-			detailsStackView.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor, constant: -K.marginCg),
+			detailsStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 40),
+			detailsStackView.bottomAnchor.constraint(equalTo: addToCartButton.topAnchor, constant: -40),
 			detailsStackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: K.marginCg),
 			detailsStackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -K.marginCg),
 		])
@@ -92,7 +97,12 @@ class AddToCartViewController: UIViewController {
 		super.init(coder: coder)
 	}
 	
-	@objc func dismissCartViewController() {
+	@objc func dismissCartViewController() -> Void {
+		self.dismiss(animated: true)
+	}
+	
+	@objc func onAddToCartPress() -> Void {
+		// TODO: Add stuff here
 		self.dismiss(animated: true)
 	}
 }

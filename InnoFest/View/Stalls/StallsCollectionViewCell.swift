@@ -10,7 +10,7 @@ import UIKit
 
 class StallsCollectionViewCell: UICollectionViewCell {
 	
-	lazy var image = UIImage(named: "tempImage")
+	lazy var image = K.placeholderImage
 	lazy var titleLabel = UILabel()
 	
 	override init(frame: CGRect) {
