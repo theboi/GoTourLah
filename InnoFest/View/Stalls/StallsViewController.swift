@@ -26,7 +26,6 @@ class StallsViewController: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.navigationController?.navigationBar.prefersLargeTitles = true
 		self.title = "Stalls"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = UISearchController()

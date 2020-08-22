@@ -76,6 +76,8 @@ class FoodItemsViewController: UIViewController {
 	
 	func presentAddToCartViewController(indexPath: IndexPath) {
 		let addToCartViewController = AddToCartViewController(stall: stall, foodItem: stall.foodItems[indexPath.row])
-		self.navigationController?.present(addToCartViewController, animated: true)
+		let navigationController = UINavigationController(rootViewController: addToCartViewController)
+
+		self.navigationController?.present(navigationController, animated: true)
 	}
 }

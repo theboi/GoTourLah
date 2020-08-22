@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */; };
+		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
 		AA049B6424EC1CB900AE4022 /* StallsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
 		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
@@ -31,6 +32,7 @@
 /* Begin PBXFileReference section */
 		A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionReusableView.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA37F8E724E83BC600DE51AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
@@ -72,6 +74,15 @@
 				A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AA02F67D24F161840042C8CF /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				AA12885124E940B900DD5459 /* Constants.swift */,
+				AA02F67E24F161AA0042C8CF /* GradientView.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 		AA37F8E624E83B6A00DE51AD /* Cart */ = {
@@ -123,6 +134,7 @@
 		AAADC1B624E50C2700B62170 /* InnoFest */ = {
 			isa = PBXGroup;
 			children = (
+				AA02F67D24F161840042C8CF /* Utils */,
 				AAADC1CC24E50C9D00B62170 /* View */,
 				AAADC1CB24E50C9900B62170 /* Model */,
 				AAADC1B724E50C2700B62170 /* AppDelegate.swift */,
@@ -131,7 +143,6 @@
 				AAADC1C024E50C2A00B62170 /* Assets.xcassets */,
 				AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */,
 				AAADC1C524E50C2A00B62170 /* Info.plist */,
-				AA12885124E940B900DD5459 /* Constants.swift */,
 			);
 			path = InnoFest;
 			sourceTree = "<group>";
@@ -294,6 +305,7 @@
 				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
 				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
+				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
 				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
 				AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */,
 				AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */,

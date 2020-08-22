@@ -12,4 +12,5 @@ class K {
 	static let marginCg: CGFloat = 20
 	static let cornerRadiusCg: CGFloat = 10
 	static let borderWidthCg: CGFloat = 1
+	static let tintColor = UIColor.link
 }
