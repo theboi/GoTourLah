@@ -14,13 +14,17 @@ class AddToCartViewController: UIViewController {
 	var stall: Stall!
 	var foodItem: FoodItem!
 	
-	convenience init(stall: Stall, foodItem: FoodItem) {
-		self.init(nibName: nil, bundle: nil)
+	init(stall: Stall, foodItem: FoodItem) {
+		super.init(nibName: nil, bundle: nil)
 		self.stall = stall
 		self.foodItem = foodItem
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
 		setupUi()
+	}
+	
+	required init?(coder: NSCoder) {
+		super.init(coder: coder)
 	}
 	
 	private func setupUi() {
@@ -57,6 +61,10 @@ class AddToCartViewController: UIViewController {
 		
 		let addToCartButton = UIButton(type: .roundedRect)
 		self.view.addSubview(addToCartButton)
+		addToCartButton.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
+		addToCartButton.imageEdgeInsets.right += 10
+		addToCartButton.titleEdgeInsets.left = 10
+
 		addToCartButton.backgroundColor = K.tintColor
 		addToCartButton.tintColor = .white
 		addToCartButton.layer.cornerRadius = K.cornerRadiusCg
@@ -104,7 +112,8 @@ class AddToCartViewController: UIViewController {
 	}
 	
 	@objc func onAddToCartPress() -> Void {
-		self.view.window?.presentToast(message: "Added to Cart")
+		Cart.addToCart(foodItem: foodItem, fromStall: stall)
+		self.view.window?.presentToast(message: "Added to Cart 🛒")
 		self.dismiss(animated: true)
 	}
 }

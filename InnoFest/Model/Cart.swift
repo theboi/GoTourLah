@@ -13,7 +13,7 @@ class Cart {
 		
 	}
 	
-	static func addToCart(foodItem: FoodItem) {
+	static func addToCart(foodItem: FoodItem, fromStall: Stall) {
 		
 	}
 }
