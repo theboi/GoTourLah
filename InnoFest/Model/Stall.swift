@@ -14,20 +14,21 @@ enum StallModelType {
 
 struct FoodItem {
 	var name: String
-	var price: Double
 	var desc: String
+	var price: Double
 	var isFavourite: Bool
+	var stallName: String
 }
 
 class Stall {
 	var name: String
-	var description: String
+	var desc: String
 	var model: StallModelType
 	var foodItems: [FoodItem]
 	
-	init(name: String, description: String, model: StallModelType, foodItems: [FoodItem]) {
+	init(name: String, desc: String, model: StallModelType, foodItems: [FoodItem]) {
 		self.name = name
-		self.description = description
+		self.desc = desc
 		self.model = model
 		self.foodItems = foodItems
 	}

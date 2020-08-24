@@ -13,9 +13,9 @@ class GradientView: UIView {
     override var layer: CAGradientLayer {
         return super.layer as! CAGradientLayer
     }
-
-    convenience init(topColor: UIColor, bottomColor: UIColor) {
-        self.init(frame: .zero)
+	
+	convenience init(topColor: UIColor, bottomColor: UIColor) {
+		self.init(frame: .zero)
 
         backgroundColor = .clear
 

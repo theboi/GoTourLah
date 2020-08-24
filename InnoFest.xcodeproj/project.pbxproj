@@ -10,6 +10,7 @@
 		25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */; };
 		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
 		AA049B6424EC1CB900AE4022 /* StallsCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */; };
+		AA07077624F245830074D347 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA07077524F245830074D347 /* Cart.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
 		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
 		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
@@ -26,6 +27,7 @@
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
 		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
+		AAEF73FA24F367C300C31BE0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* Extensions.swift */; };
 		AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,7 @@
 		A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AA049B6324EC1CB900AE4022 /* StallsCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionReusableView.swift; sourceTree = "<group>"; };
+		AA07077524F245830074D347 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA37F8E724E83BC600DE51AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AA37F8E924E83C4900DE51AD /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
@@ -52,6 +55,7 @@
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
+		AAEF73F924F367C300C31BE0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionView.swift; sourceTree = "<group>"; };
 		E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.debug.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,7 @@
 			children = (
 				AA12885124E940B900DD5459 /* Constants.swift */,
 				AA02F67E24F161AA0042C8CF /* GradientView.swift */,
+				AAEF73F924F367C300C31BE0 /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				AA844F9F24E78DC000D99C48 /* Stall.swift */,
+				AA07077524F245830074D347 /* Cart.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -301,11 +307,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */,
+				AA07077624F245830074D347 /* Cart.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
 				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
 				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
 				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
+				AAEF73FA24F367C300C31BE0 /* Extensions.swift in Sources */,
 				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
 				AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */,
 				AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */,

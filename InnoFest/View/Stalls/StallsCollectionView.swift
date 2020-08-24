@@ -12,12 +12,36 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 	var viewController: StallsViewController!
 //	let headers = ["Favourites", "Stalls"]
 	var stalls = [
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		]),
 	]
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {

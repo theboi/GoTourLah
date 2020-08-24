@@ -9,14 +9,21 @@
 import UIKit
 
 class AddToCartViewController: UIViewController {
-
-	var image: UIImage!
 	
-	init(stall: Stall, foodItem: FoodItem) {
-		super.init(nibName: nil, bundle: nil)
+	var image: UIImage!
+	var stall: Stall!
+	var foodItem: FoodItem!
+	
+	convenience init(stall: Stall, foodItem: FoodItem) {
+		self.init(nibName: nil, bundle: nil)
+		self.stall = stall
+		self.foodItem = foodItem
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
-		
+		setupUi()
+	}
+	
+	private func setupUi() {
 		image = K.placeholderImage
 		let imageView = UIImageView(image: image)
 		self.view.addSubview(imageView)
@@ -65,13 +72,13 @@ class AddToCartViewController: UIViewController {
 		
 		let spacer = UIView()
 		spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
-
+		
 		let titleLabel = UILabel()
 		titleLabel.text = foodItem.name
 		titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
 		
 		let priceLabel = UILabel()
-		priceLabel.text = String(foodItem.price)
+		priceLabel.text = "S$" + String(format: "%.2f", foodItem.price)
 		priceLabel.textColor = .secondaryLabel
 		priceLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
 		
@@ -90,11 +97,6 @@ class AddToCartViewController: UIViewController {
 			detailsStackView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: K.marginCg),
 			detailsStackView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -K.marginCg),
 		])
-
-	}
-	
-	required init?(coder: NSCoder) {
-		super.init(coder: coder)
 	}
 	
 	@objc func dismissCartViewController() -> Void {
@@ -102,7 +104,7 @@ class AddToCartViewController: UIViewController {
 	}
 	
 	@objc func onAddToCartPress() -> Void {
-		// TODO: Add stuff here
+		self.view.window?.presentToast(message: "Added to Cart")
 		self.dismiss(animated: true)
 	}
 }

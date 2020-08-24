@@ -9,11 +9,13 @@
 import UIKit
 
 class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
-
+	
 	var viewController: CartViewController!
 	
-	private let data = [
-		Stall(name: "Chinese Noodles", description: "Overpriced delicious food!", model: .set, foodItems: [FoodItem(name: "Chicken Rice", price: 1.00, desc: "Singaporean Chicken Rice", isFavourite: false), FoodItem(name: "Prawn Noodles", price: 2.00, desc: "Prawny noodles", isFavourite: false)]),
+	var data: [FoodItem] = [
+		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 	]
 	
 	override init(frame: CGRect, style: UITableView.Style) {
@@ -35,7 +37,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath)
 		
 		// Configure the cell’s contents.
-		cell.textLabel!.text = data[indexPath.row].name
+		cell.textLabel!.text = data[indexPath.row].stallName
 		return cell
 	}
 	
@@ -43,5 +45,4 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 		tableView.deselectRow(at: indexPath, animated: true)
 		viewController.presentCartItemViewController()
 	}
-
 }
