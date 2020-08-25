@@ -20,6 +20,7 @@ class AddToCartViewController: UIViewController {
 		self.foodItem = foodItem
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: foodItem.isFavourite ? "heart.fill" : "heart"), style: .plain, target: self, action: nil)
 		setupUi()
 	}
 	
@@ -39,7 +40,7 @@ class AddToCartViewController: UIViewController {
 			imageView.heightAnchor.constraint(equalToConstant: 400),
 		])
 		
-		let imageBottomGradient = GradientView(topColor: .clear, bottomColor: .secondarySystemBackground)
+		let imageBottomGradient = GradientView(topColor: .clear, bottomColor: UIScreen.main.traitCollection.userInterfaceStyle == .dark ? .secondarySystemBackground : .black)
 		self.view.addSubview(imageBottomGradient)
 		imageBottomGradient.translatesAutoresizingMaskIntoConstraints = false
 		self.view.addConstraints([
@@ -64,7 +65,7 @@ class AddToCartViewController: UIViewController {
 		addToCartButton.setImage(UIImage(systemName: "cart.badge.plus"), for: .normal)
 		addToCartButton.imageEdgeInsets.right += 10
 		addToCartButton.titleEdgeInsets.left = 10
-
+		
 		addToCartButton.backgroundColor = K.tintColor
 		addToCartButton.tintColor = .white
 		addToCartButton.layer.cornerRadius = K.cornerRadiusCg
@@ -114,6 +115,8 @@ class AddToCartViewController: UIViewController {
 	@objc func onAddToCartPress() -> Void {
 		Cart.addToCart(foodItem: foodItem, fromStall: stall)
 		self.view.window?.presentToast(message: "Added to Cart 🛒")
-		self.dismiss(animated: true)
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.dismiss(animated: true)
+		}
 	}
 }

@@ -15,44 +15,46 @@ class StallsCollectionViewCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		
 		self.backgroundColor = .secondarySystemBackground
 		self.layer.cornerRadius = K.cornerRadiusCg
 		self.layer.borderWidth = K.borderWidthCg
 		self.layer.borderColor = UIColor.systemFill.cgColor
 		self.clipsToBounds = true
-		
+		setupUi()
+	}
+	
+	required init?(coder: NSCoder) {
+		super.init(coder: coder)
+	}
+	
+	private func setupUi() {
 		let imageView = UIImageView(image: image)
 		self.addSubview(imageView)
+		imageView.translatesAutoresizingMaskIntoConstraints = false
 		self.addConstraints([
 			imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -50),
 			imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
 			imageView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
 			imageView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
 		])
-		imageView.translatesAutoresizingMaskIntoConstraints = false
 		
 		let textView = UIView()
 		self.addSubview(textView)
+		textView.translatesAutoresizingMaskIntoConstraints = false
 		self.addConstraints([
 			textView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
 			textView.heightAnchor.constraint(equalToConstant: 50),
 			textView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
 			textView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
 		])
-		textView.translatesAutoresizingMaskIntoConstraints = false
 		
 		titleLabel.font = .systemFont(ofSize: titleLabel.font.pointSize, weight: .semibold)
 		textView.addSubview(titleLabel)
+		titleLabel.translatesAutoresizingMaskIntoConstraints = false
 		textView.addConstraints([
 			titleLabel.centerYAnchor.constraint(equalTo: textView.centerYAnchor),
 			titleLabel.leadingAnchor.constraint(equalTo: textView.leadingAnchor, constant: 10),
 			titleLabel.trailingAnchor.constraint(equalTo: textView.trailingAnchor, constant: 10),
 		])
-		titleLabel.translatesAutoresizingMaskIntoConstraints = false
-	}
-	
-	required init?(coder: NSCoder) {
-		super.init(coder: coder)
 	}
 }

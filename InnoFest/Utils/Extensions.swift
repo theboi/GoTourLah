@@ -12,7 +12,7 @@ extension UIWindow {
 	func presentToast(message: String, duration: Double = 0.5, delay: Double = 4.0) {
 		let toastLabel = UILabel()
 		self.addSubview(toastLabel)
-		toastLabel.backgroundColor = .secondarySystemBackground
+		toastLabel.backgroundColor = .tertiarySystemBackground
 		toastLabel.textColor = .label
 		toastLabel.textAlignment = .center;
 		toastLabel.text = message
@@ -24,20 +24,29 @@ extension UIWindow {
 		
 		toastLabel.translatesAutoresizingMaskIntoConstraints = false
 		self.addConstraints([
-			toastLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: -100),
+			toastLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 100),
 			toastLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
 			toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + K.marginCg*2*2),
 			toastLabel.heightAnchor.constraint(equalToConstant: 50),
 		])
 		toastLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
 
+		toastLabel.isUserInteractionEnabled = true
+//		toastLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSwipe(_:))))
 		
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-			toastLabel.transform = CGAffineTransform(translationX: 0, y: 170).scaledBy(x: 1.0, y: 1.0)
+			toastLabel.transform = CGAffineTransform(translationX: 0, y: -170).scaledBy(x: 1.0, y: 1.0)
 		}, completion: nil)
 		
 		UIView.animate(withDuration: duration, delay: duration + delay, options: .curveEaseInOut, animations: {
-			toastLabel.transform = CGAffineTransform(translationX: 0, y: -170).scaledBy(x: 0.8, y: 0.8)
+			toastLabel.transform = CGAffineTransform(translationX: 0, y: 170).scaledBy(x: 0.8, y: 0.8)
 		}, completion: nil)
 	}
+	
+//	@objc func handleSwipe(_ sender: UITapGestureRecognizer) {
+//		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
+//			toastLabel.transform = CGAffineTransform(translationX: 0, y: 170).scaledBy(x: 1.0, y: 1.0)
+//		}, completion: nil)
+//	}
+	
 }
