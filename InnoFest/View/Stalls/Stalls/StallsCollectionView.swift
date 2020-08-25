@@ -9,9 +9,10 @@
 import UIKit
 
 class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
+	var searchString: String = ""
+	
 	var viewController: StallsViewController!
-//	let headers = ["Favourites", "Stalls"]
-	var stalls = [
+	var stallsData = [
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
@@ -37,12 +38,16 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 		]),
-		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+		Stall(name: "Chinese Noodles", desc: "Yummy overpriced food", model: .set, foodItems: [
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
 		]),
 	]
+	
+	var filteredStallsData: [Stall] {
+		return stallsData.filter { searchString == "" ? true : $0.name.contains(searchString) }
+	}
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
@@ -50,7 +55,6 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 		self.dataSource = self
 		self.delegate = self
 		self.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
-//		self.register(StallsCollectionReusableView.self, forSupplementaryViewOfKind: "header", withReuseIdentifier: "stallsCollectionViewCell")
 	}
 	
 	required init?(coder: NSCoder) {
@@ -58,27 +62,16 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return stalls.count
+		return filteredStallsData.count
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionViewCell
-		cell.titleLabel.text = stalls[indexPath.row].name
-		
+		cell.titleLabel.text = filteredStallsData[indexPath.row].name
 		return cell
 	}
 	
-//	func numberOfSections(in collectionView: UICollectionView) -> Int {
-//		return 1
-//	}
-//
-//	func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//		let view = collectionView.dequeueReusableSupplementaryView(ofKind: "header", withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionReusableView
-//		view.label.text = headers[indexPath.section]
-//		return view
-//	}
-	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		viewController.presentFoodItemsViewController(for: stalls[indexPath.row])
+		viewController.presentFoodItemsViewController(for: filteredStallsData[indexPath.row])
 	}
 }

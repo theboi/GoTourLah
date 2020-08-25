@@ -8,13 +8,11 @@
 
 import UIKit
 
-class StallsViewController: UIViewController {
-	
-	let margin: CGFloat = 20
-	
+class StallsViewController: UIViewController, UISearchBarDelegate {
+		
 	lazy var collectionView = StallsCollectionView(frame: UIScreen.main.bounds, collectionViewLayout: createGridLayout())
 	
-	lazy var searchBar = UISearchBar()
+	lazy var searchController = UISearchController()
 	
 	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
 		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -28,29 +26,28 @@ class StallsViewController: UIViewController {
 		super.viewDidLoad()
 		self.title = "Stalls"
 		self.view.backgroundColor = .systemBackground
-		self.navigationItem.searchController = UISearchController()
+		self.navigationItem.searchController = searchController
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
-		self.view.addSubview(collectionView)
 		collectionView.viewController = self
+		self.view.addSubview(collectionView)
+		searchController.searchBar.delegate = self
 	}
 	
 	func createGridLayout() -> UICollectionViewLayout {
 		let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-			let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-self.margin*3)/2), heightDimension: .fractionalHeight(1.0))
+			let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.marginCg*3)/2), heightDimension: .fractionalHeight(1.0))
 			
 			let item = NSCollectionLayoutItem(layoutSize: itemSize)
 			
 			let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(220))
 			
 			let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-			group.interItemSpacing = NSCollectionLayoutSpacing.fixed(self.margin)
+			group.interItemSpacing = NSCollectionLayoutSpacing.fixed(K.marginCg)
 			
 			let section = NSCollectionLayoutSection(group: group)
-			section.interGroupSpacing = self.margin
+			section.interGroupSpacing = K.marginCg
 			
-			section.contentInsets = NSDirectionalEdgeInsets(top: self.margin, leading: self.margin, bottom: self.margin, trailing: self.margin)
-			//			let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(self.supplementaryViewHeight))
-			//			section.boundarySupplementaryItems = [NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: "header", alignment: .top)]
+			section.contentInsets = NSDirectionalEdgeInsets(top: K.marginCg, leading: K.marginCg, bottom: K.marginCg, trailing: K.marginCg)
 			return section
 		}
 		return layout
@@ -65,6 +62,11 @@ class StallsViewController: UIViewController {
 	func presentFoodItemsViewController(for stall: Stall) {
 		let foodItemsViewController = FoodItemsViewController(for: stall)
 		self.navigationController?.pushViewController(foodItemsViewController, animated: true)
+	}
+	
+	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+		collectionView.searchString = searchText
+		collectionView.reloadData()
 	}
 }
 
