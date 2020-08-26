@@ -14,6 +14,8 @@ class AddToCartViewController: UIViewController {
 	var stall: Stall!
 	var foodItem: FoodItem!
 	
+	var foodItemsViewController: FoodItemsViewController!
+	
 	init(stall: Stall, foodItem: FoodItem) {
 		super.init(nibName: nil, bundle: nil)
 		self.stall = stall
@@ -116,6 +118,7 @@ class AddToCartViewController: UIViewController {
 		Cart.addToCart(foodItem: foodItem, fromStall: stall)
 		self.view.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.foodItemsViewController?.navigationController?.popToRootViewController(animated: true)
 			self.dismiss(animated: true)
 		}
 	}
