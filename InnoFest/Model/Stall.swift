@@ -16,7 +16,6 @@ struct FoodItem {
 	var name: String
 	var desc: String
 	var price: Double
-	var isFavourite: Bool
 	var stallName: String
 }
 

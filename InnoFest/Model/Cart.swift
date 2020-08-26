@@ -9,8 +9,8 @@
 import Foundation
 
 class Cart {
-	static func getCart() {
-		
+	var cart: [String] {
+		return [""]
 	}
 	
 	static func addToCart(foodItem: FoodItem, fromStall: Stall) {

@@ -14,34 +14,34 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 	var viewController: StallsViewController!
 	var stallsData = [
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
 		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
-		Stall(name: "Chinese Noodles", desc: "Yummy overpriced food", model: .set, foodItems: [
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		Stall(name: "Chinese Rice", desc: "Yummy overpriced food", model: .set, foodItems: [
+			FoodItem(name: "Chicken w Ve", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+			FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 		]),
 	]
 	

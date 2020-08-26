@@ -31,6 +31,7 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 		collectionView.viewController = self
 		self.view.addSubview(collectionView)
 		searchController.searchBar.delegate = self
+		searchController.obscuresBackgroundDuringPresentation = false
 	}
 	
 	func createGridLayout() -> UICollectionViewLayout {
@@ -66,6 +67,11 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 	
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
 		collectionView.searchString = searchText
+		collectionView.reloadData()
+	}
+	
+	func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
+		collectionView.searchString = ""
 		collectionView.reloadData()
 	}
 }

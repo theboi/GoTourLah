@@ -13,9 +13,9 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	var viewController: CartViewController!
 	
 	var data: [FoodItem] = [
-		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
-		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, isFavourite: false, stallName: "Chicken Rice"),
+		FoodItem(name: "Chicken w Vg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
+		FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
 	]
 	
 	override init(frame: CGRect, style: UITableView.Style) {

@@ -20,7 +20,7 @@ class AddToCartViewController: UIViewController {
 		self.foodItem = foodItem
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
-		self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: foodItem.isFavourite ? "heart.fill" : "heart"), style: .plain, target: self, action: nil)
+		self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: getIsFavorite() ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(toggleFavorite))
 		setupUi()
 	}
 	
@@ -118,5 +118,25 @@ class AddToCartViewController: UIViewController {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.dismiss(animated: true)
 		}
+	}
+	
+	@objc func toggleFavorite() {
+		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
+			UserDefaults.standard.set([], forKey: "favorites")
+		}
+		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
+		var newFavorites = favorites
+		if favorites.contains(where: { $0 == "\(foodItem.stallName): \(foodItem.name)" }) {
+			newFavorites.removeAll { $0 == "\(foodItem.stallName): \(foodItem.name)" }
+		} else {
+			newFavorites.append("\(foodItem.stallName): \(foodItem.name)")
+		}
+		UserDefaults.standard.set(newFavorites, forKey: "favorites")
+		self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: getIsFavorite() ? "heart.fill" : "heart")
+	}
+	
+	func getIsFavorite() -> Bool {
+		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
+		return favorites.contains { $0 == "\(foodItem.stallName): \(foodItem.name)" }
 	}
 }

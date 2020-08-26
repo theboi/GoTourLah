@@ -1,5 +1,5 @@
 //
-//  Extensions.swift
+//  UIWindow.swift
 //  InnoFest
 //
 //  Created by Ryan The on 24/8/20.
@@ -9,6 +9,7 @@
 import UIKit
 
 extension UIWindow {
+	
 	func presentToast(message: String, duration: Double = 0.5, delay: Double = 4.0) {
 		let toastLabel = UILabel()
 		self.addSubview(toastLabel)
@@ -30,23 +31,13 @@ extension UIWindow {
 			toastLabel.heightAnchor.constraint(equalToConstant: 50),
 		])
 		toastLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
-
-		toastLabel.isUserInteractionEnabled = true
-//		toastLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSwipe(_:))))
 		
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-			toastLabel.transform = CGAffineTransform(translationX: 0, y: -170).scaledBy(x: 1.0, y: 1.0)
+			toastLabel.transform = CGAffineTransform(translationX: 0, y: -230).scaledBy(x: 1.0, y: 1.0)
 		}, completion: nil)
 		
 		UIView.animate(withDuration: duration, delay: duration + delay, options: .curveEaseInOut, animations: {
-			toastLabel.transform = CGAffineTransform(translationX: 0, y: 170).scaledBy(x: 0.8, y: 0.8)
+			toastLabel.transform = CGAffineTransform(translationX: 0, y: 230).scaledBy(x: 0.8, y: 0.8)
 		}, completion: nil)
 	}
-	
-//	@objc func handleSwipe(_ sender: UITapGestureRecognizer) {
-//		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-//			toastLabel.transform = CGAffineTransform(translationX: 0, y: 170).scaledBy(x: 1.0, y: 1.0)
-//		}, completion: nil)
-//	}
-	
 }
