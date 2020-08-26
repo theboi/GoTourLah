@@ -23,12 +23,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let stallsTab = UINavigationController(rootViewController: StallsViewController())
 		stallsTab.navigationBar.prefersLargeTitles = true
 		
-		let meTab = UINavigationController(rootViewController: MeViewController())
+		let meTab = UINavigationController(rootViewController: SettingsViewController(list: nil))
 
 		tabBarController.setViewControllers([exploreTab, stallsTab, meTab], animated: true)
 		tabBarController.selectedIndex = 1
 		let images = ["map", "bag", "person.crop.circle"]
-		let titles = ["Explore", "Stalls", "Me"]
+		let titles = ["Explore", "Order", "Settings"]
 		for (index, item) in tabBarController.tabBar.items!.enumerated() {
 			item.image = UIImage(systemName: images[index])
 			item.title = titles[index]

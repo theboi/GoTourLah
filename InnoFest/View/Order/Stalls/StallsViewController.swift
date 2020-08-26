@@ -24,7 +24,7 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.title = "Stalls"
+		self.title = "Order"
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.searchController = searchController
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
@@ -66,7 +66,7 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 	}
 	
 	func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-		collectionView.searchString = searchText
+		collectionView.searchString = searchText.lowercased()
 		collectionView.reloadData()
 	}
 	

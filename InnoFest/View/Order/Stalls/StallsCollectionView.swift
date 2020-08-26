@@ -46,7 +46,7 @@ class StallsCollectionView: UICollectionView, UICollectionViewDataSource, UIColl
 	]
 	
 	var filteredStallsData: [Stall] {
-		return stallsData.filter { searchString == "" ? true : $0.name.contains(searchString) }
+		return stallsData.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
 	}
 	
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
