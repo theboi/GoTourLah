@@ -139,6 +139,9 @@ class AddToCartViewController: UIViewController {
 	}
 	
 	func getIsFavorite() -> Bool {
+		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
+			UserDefaults.standard.set([], forKey: "favorites")
+		}
 		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
 		return favorites.contains { $0 == "\(foodItem.stallName): \(foodItem.name)" }
 	}

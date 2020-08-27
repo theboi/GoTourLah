@@ -15,10 +15,8 @@ class StallsCollectionViewCell: UICollectionViewCell {
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
-		self.backgroundColor = .secondarySystemBackground
+		self.backgroundColor = .secondarySystemGroupedBackground
 		self.layer.cornerRadius = K.cornerRadiusCg
-		self.layer.borderWidth = K.borderWidthCg
-		self.layer.borderColor = UIColor.systemFill.cgColor
 		self.clipsToBounds = true
 		setupUi()
 	}

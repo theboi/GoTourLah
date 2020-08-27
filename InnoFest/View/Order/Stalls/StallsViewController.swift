@@ -25,7 +25,7 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.title = "Order"
-		self.view.backgroundColor = .systemBackground
+		self.view.backgroundColor = .systemGroupedBackground
 		self.navigationItem.searchController = searchController
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
 		collectionView.viewController = self

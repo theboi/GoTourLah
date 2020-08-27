@@ -9,17 +9,22 @@
 import UIKit
 
 struct SettingsTableItem {
-	//	var items: [MeTableNode?]
 	var title: String
+	var image: UIImage?
+	var height: CGFloat?
 	var viewController: UIViewController?
 	var accessoryView: UIView?
 }
 
 let defaultList = [
 	[
-		SettingsTableItem(title: "Account", viewController: SettingsViewController(list: [[
+		SettingsTableItem(title: "Account", image: K.placeholderImage, height: 100, viewController: SettingsViewController(list: [[
 			SettingsTableItem(title: "Sign-In Again"),
-			SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch())
+			SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch()),
+			SettingsTableItem(title: "Account", viewController: SettingsViewController(list: [[
+				SettingsTableItem(title: "Sign-In Again"),
+				SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch())
+				]])),
 			]])),
 	],
 	[
@@ -57,14 +62,23 @@ class SettingsViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cellData = listData[indexPath.section][indexPath.row]
 		let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath)
-		cell.textLabel?.text = listData[indexPath.section][indexPath.row].title
-		if let accessoryView = listData[indexPath.section][indexPath.row].accessoryView {
+		cell.textLabel?.text = cellData.title
+		if let accessoryView = cellData.accessoryView {
 			cell.accessoryView = accessoryView
-		} else if listData[indexPath.section][indexPath.row].viewController != nil {
+			cell.selectionStyle = .none
+		} else if cellData.viewController != nil {
 			cell.accessoryType = .disclosureIndicator
+		} else {
+			cell.selectionStyle = .none
 		}
+		cell.imageView?.image = cellData.image
 		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return listData[indexPath.section][indexPath.row].height ?? tableView.rowHeight
 	}
 	
 	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
