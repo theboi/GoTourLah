@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */; };
 		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
 		AA07077624F245830074D347 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA07077524F245830074D347 /* Cart.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
@@ -33,8 +32,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
-		A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AA07077524F245830074D347 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -49,7 +46,7 @@
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
 		AA893DDB24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
-		AAADC1B424E50C2700B62170 /* InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InnoFest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barg-InnoFest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAADC1B924E50C2700B62170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AAADC1BB24E50C2700B62170 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -59,7 +56,6 @@
 		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionView.swift; sourceTree = "<group>"; };
-		E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InnoFest.debug.xcconfig"; path = "Target Support Files/Pods-InnoFest/Pods-InnoFest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,21 +63,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				25DB9213AAA9E9C0203E3E7E /* Pods_InnoFest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		6DFCF0A66A92CC207801FD72 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				A80BAA9D07BE9A91E6423912 /* Pods_InnoFest.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		AA02F67D24F161840042C8CF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,22 +138,21 @@
 		AAADC1AB24E50C2700B62170 = {
 			isa = PBXGroup;
 			children = (
-				AAADC1B624E50C2700B62170 /* InnoFest */,
+				AAADC1B624E50C2700B62170 /* Barg-InnoFest */,
 				AAADC1B524E50C2700B62170 /* Products */,
 				B700D5499F091F324A7B06CF /* Pods */,
-				6DFCF0A66A92CC207801FD72 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		AAADC1B524E50C2700B62170 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AAADC1B424E50C2700B62170 /* InnoFest.app */,
+				AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAADC1B624E50C2700B62170 /* InnoFest */ = {
+		AAADC1B624E50C2700B62170 /* Barg-InnoFest */ = {
 			isa = PBXGroup;
 			children = (
 				AA02F67D24F161840042C8CF /* Utils */,
@@ -179,7 +165,7 @@
 				AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */,
 				AAADC1C524E50C2A00B62170 /* Info.plist */,
 			);
-			path = InnoFest;
+			path = "Barg-InnoFest";
 			sourceTree = "<group>";
 		};
 		AAADC1CB24E50C9900B62170 /* Model */ = {
@@ -213,8 +199,6 @@
 		B700D5499F091F324A7B06CF /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */,
-				A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -222,11 +206,10 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AAADC1B324E50C2700B62170 /* InnoFest */ = {
+		AAADC1B324E50C2700B62170 /* Barg-InnoFest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AAADC1C824E50C2A00B62170 /* Build configuration list for PBXNativeTarget "InnoFest" */;
+			buildConfigurationList = AAADC1C824E50C2A00B62170 /* Build configuration list for PBXNativeTarget "Barg-InnoFest" */;
 			buildPhases = (
-				3FF228C285175A09C24D8D2C /* [CP] Check Pods Manifest.lock */,
 				AAADC1B024E50C2700B62170 /* Sources */,
 				AAADC1B124E50C2700B62170 /* Frameworks */,
 				AAADC1B224E50C2700B62170 /* Resources */,
@@ -235,9 +218,9 @@
 			);
 			dependencies = (
 			);
-			name = InnoFest;
+			name = "Barg-InnoFest";
 			productName = InnoFest;
-			productReference = AAADC1B424E50C2700B62170 /* InnoFest.app */;
+			productReference = AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -255,7 +238,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AAADC1AF24E50C2700B62170 /* Build configuration list for PBXProject "InnoFest" */;
+			buildConfigurationList = AAADC1AF24E50C2700B62170 /* Build configuration list for PBXProject "Barg-InnoFest" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -268,7 +251,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AAADC1B324E50C2700B62170 /* InnoFest */,
+				AAADC1B324E50C2700B62170 /* Barg-InnoFest */,
 			);
 		};
 /* End PBXProject section */
@@ -284,31 +267,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		3FF228C285175A09C24D8D2C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-InnoFest-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		AAADC1B024E50C2700B62170 /* Sources */ = {
@@ -402,7 +360,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -456,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -468,18 +426,17 @@
 		};
 		AAADC1C924E50C2A00B62170 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E18F92826860BEC3B3ED52BB /* Pods-InnoFest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66HB97DLV4;
-				INFOPLIST_FILE = InnoFest/Info.plist;
+				INFOPLIST_FILE = "Barg-InnoFest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanthe.InnoFest;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ryanthe.Barg-InnoFest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -488,18 +445,17 @@
 		};
 		AAADC1CA24E50C2A00B62170 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A3CA0EA18B2E535DFBE9312D /* Pods-InnoFest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66HB97DLV4;
-				INFOPLIST_FILE = InnoFest/Info.plist;
+				INFOPLIST_FILE = "Barg-InnoFest/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.ryanthe.InnoFest;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ryanthe.Barg-InnoFest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -509,7 +465,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AAADC1AF24E50C2700B62170 /* Build configuration list for PBXProject "InnoFest" */ = {
+		AAADC1AF24E50C2700B62170 /* Build configuration list for PBXProject "Barg-InnoFest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAADC1C624E50C2A00B62170 /* Debug */,
@@ -518,7 +474,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AAADC1C824E50C2A00B62170 /* Build configuration list for PBXNativeTarget "InnoFest" */ = {
+		AAADC1C824E50C2A00B62170 /* Build configuration list for PBXNativeTarget "Barg-InnoFest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAADC1C924E50C2A00B62170 /* Debug */,
