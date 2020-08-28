@@ -73,3 +73,6 @@ profile
 Pods/
 Podfile.lock
 !Podfile
+
+# Google Firebase
+GoogleService-Info.plist
