@@ -34,6 +34,7 @@
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
 		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
+		AAB6356124FA1EE900754A01 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6356024FA1EE900754A01 /* UIView.swift */; };
 		AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* UIWindow.swift */; };
 		AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
+		AAB6356024FA1EE900754A01 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,6 +92,7 @@
 				AA80E57624F6099B00723015 /* Utils.swift */,
 				AA02F67E24F161AA0042C8CF /* GradientView.swift */,
 				AAEF73F924F367C300C31BE0 /* UIWindow.swift */,
+				AAB6356024FA1EE900754A01 /* UIView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -294,6 +297,7 @@
 			files = (
 				AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */,
 				AA07077624F245830074D347 /* Cart.swift in Sources */,
+				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
 				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
 				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
