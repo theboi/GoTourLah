@@ -42,9 +42,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         GIDSignIn.sharedInstance().presentingViewController = tabBarController
 
         if true {
-            let introViewController = ModalActionViewController(title: "Welcome to Barg", actions: [
+            let contentView = UIView()
+            
+            let headerLabel = UILabel()
+            contentView.addSubview(headerLabel)
+            headerLabel.text = "Welcome To Barg"
+            headerLabel.textAlignment = .center
+            headerLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+            headerLabel.translatesAutoresizingMaskIntoConstraints = false
+            contentView.addConstraints([
+                headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+                headerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+                headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
+            ])
+            
+            let introViewController = ModalActionViewController(contentView: contentView, actions: [
                 IntroAction(title: "Sign In", action: #selector(signInWithGoogle), isPrimary: true),
-                IntroAction(title: "Sign In", action: #selector(signInWithGoogle)),
+                IntroAction(title: "Skip for Now", action: #selector(signInWithGoogle)),
             ], target: self)
             window?.rootViewController?.present(introViewController, animated: true)
         }

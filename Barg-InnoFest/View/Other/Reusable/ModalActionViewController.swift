@@ -16,22 +16,10 @@ struct IntroAction {
 
 class ModalActionViewController: UIViewController {
 
-    init(title: String, actions: [IntroAction], target: Any?, contentView: UIView? = nil) {
+    init(contentView: UIView? = nil, actions: [IntroAction], target: Any?) {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .systemBackground
         self.isModalInPresentation = true
-        
-        let headerLabel = UILabel()
-        self.view.addSubview(headerLabel)
-        headerLabel.text = title
-        headerLabel.textAlignment = .center
-        headerLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-        headerLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.view.addConstraints([
-            headerLabel.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            headerLabel.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            headerLabel.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 100),
-        ])
         
         let actionButtons = actions.map { (introAction) -> UIButton in
             let button = UIButton(type: .roundedRect)
@@ -44,15 +32,29 @@ class ModalActionViewController: UIViewController {
             button.layer.cornerRadius = K.cornerRadiusCg
             return button
         }
+        
         let stackView = UIStackView(arrangedSubviews: actionButtons)
         self.view.addSubview(stackView)
         stackView.axis = .vertical
+        stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints([
             stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: K.marginCg),
             stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -K.marginCg),
             stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -K.marginCg),
         ])
+        
+        if let contentView = contentView {
+            self.view.addSubview(contentView)
+            contentView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addConstraints([
+                contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+                contentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+                contentView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -K.marginCg),
+                contentView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            ])
+        }
+        
     }
     
     required init?(coder: NSCoder) {
