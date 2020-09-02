@@ -15,8 +15,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 	func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 		guard let windowScene = (scene as? UIWindowScene) else { return }
+        
 		window = UIWindow(frame: UIScreen.main.bounds)
+        (UIApplication.shared.delegate as! AppDelegate).window = window
 		window?.windowScene = windowScene
+        
 		let tabBarController = UITabBarController(nibName: nil, bundle: nil)
 
         let exploreTab = UINavigationController(rootViewController: StallsViewController())
@@ -40,8 +43,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.makeKeyAndVisible()
         
         GIDSignIn.sharedInstance().presentingViewController = tabBarController
-
-        if true {
+        
+        UserDefaults.standard.setValue(0.0, forKey: "timeSinceAppLastOpened")
+        if UserDefaults.standard.double(forKey: "timeSinceAppLastOpened") == 0.0 {
             let contentView = UIView()
             
             let headerLabel = UILabel()
@@ -58,7 +62,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let introViewController = ModalActionViewController(contentView: contentView, actions: [
                 IntroAction(title: "Sign In", action: #selector(signInWithGoogle), isPrimary: true),
-                IntroAction(title: "Skip for Now", action: #selector(signInWithGoogle)),
+                IntroAction(title: "Skip for Now", action: #selector(skipSignIn)),
             ], target: self)
             window?.rootViewController?.present(introViewController, animated: true)
         }
@@ -66,5 +70,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     @objc func signInWithGoogle() {
         GIDSignIn.sharedInstance().signIn()
+    }
+    
+    @objc func skipSignIn() {
+        let timeInterval = Date().timeIntervalSince1970
+        UserDefaults.standard.setValue(timeInterval, forKey: "timeSinceAppLastOpened")
+        window?.rootViewController?.dismiss(animated: true)
     }
 }

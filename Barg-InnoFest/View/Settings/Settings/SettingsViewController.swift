@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 struct SettingsTableItem {
     var title: String
@@ -17,30 +18,33 @@ struct SettingsTableItem {
     var viewController: UIViewController?
 }
 
-let defaultList = [
-    [
-        SettingsTableItem(title: "Account", image: K.placeholderImage, height: 100, customCell: createProfileCell(), viewController: SettingsViewController(list: [[
-            SettingsTableItem(title: "Sign-In Again"),
-            SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch()),
-            SettingsTableItem(title: "Account", viewController: SettingsViewController(list: [[
-                SettingsTableItem(title: "Sign-In Again"),
-                SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch())
-            ]])),
-        ]])),
-    ],
-//    [
-//        SettingsTableItem(title: "History", viewController: UIViewController()),
-//        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
-//    ],
-]
-
-func createProfileCell() -> UITableViewCell {
-    let cell = SettingsProfileTableViewCell(style: .subtitle, reuseIdentifier: "settingsProfileTableViewCell")
-    cell.detailTextLabel?.text = "email.address@gmail.com"
-    return cell
-}
-
 class SettingsViewController: UITableViewController {
+    
+    var defaultList: [[SettingsTableItem]] {
+        [
+            [
+                SettingsTableItem(title: Auth.auth().currentUser?.displayName ?? "Not Signed In", image: K.placeholderImage, height: 100, customCell: createProfileCell(), viewController: SettingsViewController(list: [[
+                    SettingsTableItem(title: "Sign-In Again"),
+                    SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch()),
+                    SettingsTableItem(title: "Account", viewController: SettingsViewController(list: [[
+                        SettingsTableItem(title: "Sign-In Again"),
+                        SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch())
+                    ]])),
+                ]])),
+            ],
+        //    [
+        //        SettingsTableItem(title: "History", viewController: UIViewController()),
+        //        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
+        //    ],
+        ]
+    }
+
+    func createProfileCell() -> UITableViewCell {
+        let cell = SettingsProfileTableViewCell(style: .subtitle, reuseIdentifier: "settingsProfileTableViewCell")
+        let currentUser = Auth.auth().currentUser
+        cell.detailTextLabel?.text = currentUser?.email
+        return cell
+    }
     
     var listData: [[SettingsTableItem]] = [[]]
     

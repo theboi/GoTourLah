@@ -54,7 +54,6 @@ class ModalActionViewController: UIViewController {
                 contentView.topAnchor.constraint(equalTo: self.view.topAnchor),
             ])
         }
-        
     }
     
     required init?(coder: NSCoder) {
