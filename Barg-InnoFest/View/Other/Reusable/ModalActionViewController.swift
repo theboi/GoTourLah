@@ -1,5 +1,5 @@
 //
-//  WhatsNewViewController.swift
+//  ModalActionViewController.swift
 //  Barg-InnoFest
 //
 //  Created by Ryan The on 1/9/20.
