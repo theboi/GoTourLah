@@ -24,33 +24,34 @@ struct SettingsTableItem {
 
 class SettingsViewController: UITableViewController {
     
-    let authSignOut = {
-        do {
-            try Auth.auth().signOut()
-            print("Success")
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
+    var profileTableItem: SettingsTableItem {
+        let cellHeight: CGFloat = 100
+        let currentUser = Auth.auth().currentUser
+        if let displayName = currentUser?.displayName, let email = currentUser?.email {
+            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), viewController: SettingsViewController(list: [[
+                SettingsTableItem(title: "Sign Out", action: User.signOut),
+                //                    SettingsTableItem(title: "", accessoryView: UISwitch()),
+            ]]))
+        } else {
+            return SettingsTableItem(title: "Sign In With Google", image: UIImage(named: "ProfilePlaceholder"), height: cellHeight, customCell: createProfileCell(style: .default), action: User.signIn)
         }
-        return
+        
     }
     
     var defaultList: [[SettingsTableItem]] {
         [
             [
-                SettingsTableItem(title: Auth.auth().currentUser?.displayName ?? "Not Signed In", image: K.placeholderImage, height: 100, customCell: createProfileCell(), viewController: SettingsViewController(list: [[
-                    SettingsTableItem(title: "Sign Out", action: authSignOut),
-                    //                    SettingsTableItem(title: "", accessoryView: UISwitch()),
-                ]])),
+                profileTableItem,
             ],
-            //    [
-            //        SettingsTableItem(title: "History", viewController: UIViewController()),
-            //        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
-            //    ],
+//                [
+//                    SettingsTableItem(title: "History", viewController: UIViewController()),
+//                    SettingsTableItem(title: "Privacy", viewController: UIViewController()),
+//                ],
         ]
     }
     
-    func createProfileCell() -> UITableViewCell {
-        let cell = SettingsProfileTableViewCell(style: .subtitle, reuseIdentifier: "settingsProfileTableViewCell")
+    func createProfileCell(style: SettingsProfileTableViewCell.CellStyle) -> UITableViewCell {
+        let cell = SettingsProfileTableViewCell(style: style, reuseIdentifier: "settingsProfileTableViewCell")
         let currentUser = Auth.auth().currentUser
         cell.detailTextLabel?.text = currentUser?.email
         return cell

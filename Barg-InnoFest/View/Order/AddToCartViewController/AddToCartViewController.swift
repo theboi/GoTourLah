@@ -94,7 +94,7 @@ class AddToCartViewController: ModalActionViewController {
 		])
 	}
 
-	@objc private func dismissCartViewController() -> Void {
+	@objc private func dismissCartViewController() {
 		self.dismiss(animated: true)
 	}
 
@@ -107,7 +107,7 @@ class AddToCartViewController: ModalActionViewController {
 		}
 	}
 
-	@objc func toggleFavorite() {
+	@objc private func toggleFavorite() {
 		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
 			UserDefaults.standard.set([], forKey: "favorites")
 		}

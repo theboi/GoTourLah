@@ -60,17 +60,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ])
             
             let introViewController = ModalActionViewController(contentView: contentView, actions: [
-                IntroAction(title: "Sign In", action: #selector(signInWithGoogle), isPrimary: true),
+                IntroAction(title: "Sign In", action: #selector(User.signIn), isPrimary: true),
                 IntroAction(title: "Skip for Now", action: #selector(skipSignIn)),
             ], target: self)
             introViewController.isModalInPresentation = true
             window?.rootViewController?.present(introViewController, animated: true)
         }
 	}
-    
-    @objc func signInWithGoogle() {
-        GIDSignIn.sharedInstance().signIn()
-    }
     
     @objc func skipSignIn() {
         let timeInterval = Date().timeIntervalSince1970
