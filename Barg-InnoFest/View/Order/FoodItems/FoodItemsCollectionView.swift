@@ -9,7 +9,6 @@
 import UIKit
 
 class FoodItemsCollectionView: UICollectionView, UICollectionViewDataSource, UICollectionViewDelegate {
-
 	
 	var viewController: FoodItemsViewController!
 	var stall: Stall!

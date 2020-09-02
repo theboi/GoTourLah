@@ -77,7 +77,7 @@ class AddToCartViewController: UIViewController {
 			addToCartButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -K.marginCg),
 			addToCartButton.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: K.marginCg),
 			addToCartButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -K.marginCg),
-			addToCartButton.heightAnchor.constraint(equalToConstant: 50),
+            addToCartButton.heightAnchor.constraint(equalToConstant: K.buttonHeight),
 		])
 		addToCartButton.addTarget(self, action: #selector(onAddToCartPress), for: .touchUpInside)
 		
@@ -110,11 +110,11 @@ class AddToCartViewController: UIViewController {
 		])
 	}
 	
-	@objc func dismissCartViewController() -> Void {
+	@objc private func dismissCartViewController() -> Void {
 		self.dismiss(animated: true)
 	}
 	
-	@objc func onAddToCartPress() -> Void {
+	@objc private func onAddToCartPress() -> Void {
 		Cart.addToCart(foodItem: foodItem, fromStall: stall)
 		self.view.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -123,7 +123,7 @@ class AddToCartViewController: UIViewController {
 		}
 	}
 	
-	@objc func toggleFavorite() {
+	@objc private func toggleFavorite() {
 		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
 			UserDefaults.standard.set([], forKey: "favorites")
 		}
@@ -138,7 +138,7 @@ class AddToCartViewController: UIViewController {
 		self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: getIsFavorite() ? "heart.fill" : "heart")
 	}
 	
-	func getIsFavorite() -> Bool {
+	private func getIsFavorite() -> Bool {
 		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
 			UserDefaults.standard.set([], forKey: "favorites")
 		}

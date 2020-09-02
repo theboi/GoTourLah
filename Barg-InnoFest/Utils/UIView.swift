@@ -10,16 +10,13 @@ import UIKit
 
 extension UIView {
 
-    // In order to create computed properties for extensions, we need a key to
-    // store and access the stored property
-    fileprivate struct AssociatedObjectKeys {
-        static var gestureRecognizer = "MediaViewerAssociatedObjectKey_mediaViewer"
+    private struct AssociatedObjectKeys {
+        static var gestureRecognizer = "gestureRecognizer"
     }
 
-    fileprivate typealias Action = ((_ sender: UIGestureRecognizer) -> Void)?
+    private typealias Action = ((_ sender: UIGestureRecognizer) -> Void)?
     
-    // Set our computed property type to a closure
-    fileprivate var gestureRecognizerAction: Action? {
+    private var gestureRecognizerAction: Action? {
         set {
             if let newValue = newValue {
                 // Computed properties get stored as associated objects
@@ -32,8 +29,6 @@ extension UIView {
         }
     }
 
-    // This is the meat of the sauce, here we create the tap gesture recognizer and
-    // store the closure the user passed to us in the associated object we declared above
     public func addGestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, action: ((_ sender: UIGestureRecognizer) -> Void)?) {
         self.isUserInteractionEnabled = true
         self.gestureRecognizerAction = action
@@ -41,13 +36,9 @@ extension UIView {
         self.addGestureRecognizer(gestureRecognizer)
     }
 
-    // Every time the user taps on the UIImageView, this function gets called,
-    // which triggers the closure we stored
-    @objc fileprivate func handleGesture(sender: UIGestureRecognizer) {
+    @objc private func handleGesture(sender: UIGestureRecognizer) {
         if let action = self.gestureRecognizerAction {
             action?(sender)
-        } else {
-            print("no action")
         }
     }
 

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class StallsViewController: UIViewController, UISearchBarDelegate {
 		
@@ -32,7 +33,7 @@ class StallsViewController: UIViewController, UISearchBarDelegate {
 		self.view.addSubview(collectionView)
 		searchController.searchBar.delegate = self
 		searchController.obscuresBackgroundDuringPresentation = false
-	}
+    }
 	
 	func createGridLayout() -> UICollectionViewLayout {
 		let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in

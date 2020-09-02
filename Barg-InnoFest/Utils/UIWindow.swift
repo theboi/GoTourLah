@@ -10,7 +10,7 @@ import UIKit
 
 extension UIWindow {
     
-    func presentToast(message: String, duration: Double = 0.5, delay: Double = 4.0) {
+    public func presentToast(message: String, duration: Double = 0.5, delay: Double = 4.0) {
         let toastLabel = UILabel()
         self.addSubview(toastLabel)
         toastLabel.backgroundColor = .tertiarySystemGroupedBackground

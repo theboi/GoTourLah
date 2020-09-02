@@ -12,6 +12,7 @@ class K {
 	static let marginCg: CGFloat = 20
 	static let cornerRadiusCg: CGFloat = 15
 	static let borderWidthCg: CGFloat = 1
+    static let buttonHeight: CGFloat = 50
 	static let tintColor = UIColor.link
-	static let placeholderImage = UIImage(named: "image")
+	static let placeholderImage = UIImage(named: "food")
 }

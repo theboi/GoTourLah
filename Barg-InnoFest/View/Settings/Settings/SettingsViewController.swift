@@ -28,10 +28,10 @@ let defaultList = [
             ]])),
         ]])),
     ],
-    [
-        SettingsTableItem(title: "History", viewController: UIViewController()),
-        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
-    ],
+//    [
+//        SettingsTableItem(title: "History", viewController: UIViewController()),
+//        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
+//    ],
 ]
 
 func createProfileCell() -> UITableViewCell {

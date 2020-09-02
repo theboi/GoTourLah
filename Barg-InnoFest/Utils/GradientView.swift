@@ -14,7 +14,7 @@ class GradientView: UIView {
         return super.layer as! CAGradientLayer
     }
 	
-	init(topColor: UIColor, bottomColor: UIColor) {
+    init(topColor: UIColor, bottomColor: UIColor) {
 		super.init(frame: .zero)
 
         backgroundColor = .clear
@@ -32,5 +32,4 @@ class GradientView: UIView {
     override class var layerClass: AnyClass {
         return CAGradientLayer.self
     }
-
 }

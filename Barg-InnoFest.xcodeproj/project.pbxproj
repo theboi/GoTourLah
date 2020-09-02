@@ -3,18 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
 		AA07077624F245830074D347 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA07077524F245830074D347 /* Cart.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
-		AA24C93324F906100020EBEA /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = AA24C93224F906100020EBEA /* FirebaseAnalytics */; };
-		AA24C93524F906100020EBEA /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = AA24C93424F906100020EBEA /* FirebaseFirestoreSwift */; };
-		AA24C93724F906100020EBEA /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = AA24C93624F906100020EBEA /* FirebaseAuth */; };
-		AA24C93924F906100020EBEA /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = AA24C93824F906100020EBEA /* FirebaseCore */; };
-		AA24C93B24F906100020EBEA /* Firebase in Frameworks */ = {isa = PBXBuildFile; productRef = AA24C93A24F906100020EBEA /* Firebase */; };
 		AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */; };
 		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
 		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
@@ -30,16 +25,19 @@
 		AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
-		AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1BB24E50C2700B62170 /* ViewController.swift */; };
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
 		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
 		AAB6356124FA1EE900754A01 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6356024FA1EE900754A01 /* UIView.swift */; };
+		AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */; };
 		AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* UIWindow.swift */; };
 		AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */; };
+		EF9DCE077463522185DBEFE3 /* Pods_Barg_InnoFest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44ED743ABC27D8B594E45221 /* Pods_Barg_InnoFest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44ED743ABC27D8B594E45221 /* Pods_Barg_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barg_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7E1F7976D93C56BA13B8566B /* Pods-Barg-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barg-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		AA07077524F245830074D347 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
@@ -59,14 +57,15 @@
 		AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barg-InnoFest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAADC1B924E50C2700B62170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		AAADC1BB24E50C2700B62170 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AAADC1C024E50C2A00B62170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		AAB6356024FA1EE900754A01 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalActionViewController.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
 		AAF086B824EE467C00A5146D /* FoodItemsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionView.swift; sourceTree = "<group>"; };
+		AC82108DEC3ECB54ABEEB02A /* Pods-Barg-InnoFest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barg-InnoFest.debug.xcconfig"; path = "Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,17 +73,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AA24C93B24F906100020EBEA /* Firebase in Frameworks */,
-				AA24C93324F906100020EBEA /* FirebaseAnalytics in Frameworks */,
-				AA24C93724F906100020EBEA /* FirebaseAuth in Frameworks */,
-				AA24C93924F906100020EBEA /* FirebaseCore in Frameworks */,
-				AA24C93524F906100020EBEA /* FirebaseFirestoreSwift in Frameworks */,
+				EF9DCE077463522185DBEFE3 /* Pods_Barg_InnoFest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		77CA85D28A2350F47506B640 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AC82108DEC3ECB54ABEEB02A /* Pods-Barg-InnoFest.debug.xcconfig */,
+				7E1F7976D93C56BA13B8566B /* Pods-Barg-InnoFest.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		AA02F67D24F161840042C8CF /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,6 +162,8 @@
 			children = (
 				AAADC1B624E50C2700B62170 /* Barg-InnoFest */,
 				AAADC1B524E50C2700B62170 /* Products */,
+				77CA85D28A2350F47506B640 /* Pods */,
+				F3F2D0BA37BCDD1F81FF4CF3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,7 +183,6 @@
 				AAADC1CB24E50C9900B62170 /* Model */,
 				AAADC1B724E50C2700B62170 /* AppDelegate.swift */,
 				AAADC1B924E50C2700B62170 /* SceneDelegate.swift */,
-				AAADC1BB24E50C2700B62170 /* ViewController.swift */,
 				AAADC1C024E50C2A00B62170 /* Assets.xcassets */,
 				AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */,
 				AAADC1C524E50C2A00B62170 /* Info.plist */,
@@ -198,10 +203,27 @@
 		AAADC1CC24E50C9D00B62170 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AAC6EE2D24FDEE0A00A458B9 /* Other */,
 				AA41A8CD24F4B6300051DDAF /* Settings */,
 				AA41A8CC24F4B6140051DDAF /* Order */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AAC6EE2D24FDEE0A00A458B9 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				AAC6EE2E24FDEE1600A458B9 /* Reusable */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		AAC6EE2E24FDEE1600A458B9 /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */,
+			);
+			path = Reusable;
 			sourceTree = "<group>";
 		};
 		AACF43CE24E6443000FF6A71 /* Stalls */ = {
@@ -214,6 +236,14 @@
 			path = Stalls;
 			sourceTree = "<group>";
 		};
+		F3F2D0BA37BCDD1F81FF4CF3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				44ED743ABC27D8B594E45221 /* Pods_Barg_InnoFest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -221,22 +251,18 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAADC1C824E50C2A00B62170 /* Build configuration list for PBXNativeTarget "Barg-InnoFest" */;
 			buildPhases = (
+				7C18FFF8EDC322B45C1318E2 /* [CP] Check Pods Manifest.lock */,
 				AAADC1B024E50C2700B62170 /* Sources */,
 				AAADC1B124E50C2700B62170 /* Frameworks */,
 				AAADC1B224E50C2700B62170 /* Resources */,
+				CE1ABAA9D0253BB7D91F9EB2 /* [CP] Embed Pods Frameworks */,
+				9A693B07963AD6DC43C1A99E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = "Barg-InnoFest";
-			packageProductDependencies = (
-				AA24C93224F906100020EBEA /* FirebaseAnalytics */,
-				AA24C93424F906100020EBEA /* FirebaseFirestoreSwift */,
-				AA24C93624F906100020EBEA /* FirebaseAuth */,
-				AA24C93824F906100020EBEA /* FirebaseCore */,
-				AA24C93A24F906100020EBEA /* Firebase */,
-			);
 			productName = InnoFest;
 			productReference = AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */;
 			productType = "com.apple.product-type.application";
@@ -265,9 +291,6 @@
 				Base,
 			);
 			mainGroup = AAADC1AB24E50C2700B62170;
-			packageReferences = (
-				AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
-			);
 			productRefGroup = AAADC1B524E50C2700B62170 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -290,6 +313,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7C18FFF8EDC322B45C1318E2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Barg-InnoFest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A693B07963AD6DC43C1A99E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CE1ABAA9D0253BB7D91F9EB2 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AAADC1B024E50C2700B62170 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -299,10 +381,10 @@
 				AA07077624F245830074D347 /* Cart.swift in Sources */,
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
-				AAADC1BC24E50C2700B62170 /* ViewController.swift in Sources */,
 				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
 				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
+				AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */,
 				AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */,
 				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
 				AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */,
@@ -450,6 +532,7 @@
 		};
 		AAADC1C924E50C2A00B62170 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AC82108DEC3ECB54ABEEB02A /* Pods-Barg-InnoFest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -460,7 +543,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ryanthe.Barg-InnoFest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -470,6 +553,7 @@
 		};
 		AAADC1CA24E50C2A00B62170 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7E1F7976D93C56BA13B8566B /* Pods-Barg-InnoFest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -480,7 +564,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				OTHER_LDFLAGS = "-ObjC";
+				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.ryanthe.Barg-InnoFest";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -510,45 +594,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/firebase/firebase-ios-sdk.git";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		AA24C93224F906100020EBEA /* FirebaseAnalytics */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAnalytics;
-		};
-		AA24C93424F906100020EBEA /* FirebaseFirestoreSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseFirestoreSwift;
-		};
-		AA24C93624F906100020EBEA /* FirebaseAuth */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseAuth;
-		};
-		AA24C93824F906100020EBEA /* FirebaseCore */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = FirebaseCore;
-		};
-		AA24C93A24F906100020EBEA /* Firebase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = AA24C93124F906100020EBEA /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
-			productName = Firebase;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = AAADC1AC24E50C2700B62170 /* Project object */;
 }

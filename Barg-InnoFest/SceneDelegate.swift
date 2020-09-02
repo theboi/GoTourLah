@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GoogleSignIn
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -33,8 +34,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			item.image = UIImage(systemName: images[index])
 			item.title = titles[index]
 		}
+        
 		window?.tintColor = K.tintColor
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
+        
+        GIDSignIn.sharedInstance().presentingViewController = tabBarController
+
+        if true {
+            let introViewController = ModalActionViewController(title: "Welcome to Barg", actions: [
+                IntroAction(title: "Sign In", action: #selector(signInWithGoogle), isPrimary: true),
+                IntroAction(title: "Sign In", action: #selector(signInWithGoogle)),
+            ], target: self)
+            window?.rootViewController?.present(introViewController, animated: true)
+        }
 	}
+    
+    @objc func signInWithGoogle() {
+        GIDSignIn.sharedInstance().signIn()
+    }
 }
