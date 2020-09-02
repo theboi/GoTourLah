@@ -8,6 +8,9 @@
 
 import UIKit
 import Firebase
+import GoogleSignIn
+
+typealias SettingsAction = () -> Void
 
 struct SettingsTableItem {
     var title: String
@@ -16,29 +19,36 @@ struct SettingsTableItem {
     var customCell: UITableViewCell?
     var accessoryView: UIView?
     var viewController: UIViewController?
+    var action: SettingsAction?
 }
 
 class SettingsViewController: UITableViewController {
+    
+    let authSignOut = {
+        do {
+            try Auth.auth().signOut()
+            print("Success")
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+        return
+    }
     
     var defaultList: [[SettingsTableItem]] {
         [
             [
                 SettingsTableItem(title: Auth.auth().currentUser?.displayName ?? "Not Signed In", image: K.placeholderImage, height: 100, customCell: createProfileCell(), viewController: SettingsViewController(list: [[
-                    SettingsTableItem(title: "Sign-In Again"),
-                    SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch()),
-                    SettingsTableItem(title: "Account", viewController: SettingsViewController(list: [[
-                        SettingsTableItem(title: "Sign-In Again"),
-                        SettingsTableItem(title: "Is Enabled", accessoryView: UISwitch())
-                    ]])),
+                    SettingsTableItem(title: "Sign Out", action: authSignOut),
+                    //                    SettingsTableItem(title: "", accessoryView: UISwitch()),
                 ]])),
             ],
-        //    [
-        //        SettingsTableItem(title: "History", viewController: UIViewController()),
-        //        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
-        //    ],
+            //    [
+            //        SettingsTableItem(title: "History", viewController: UIViewController()),
+            //        SettingsTableItem(title: "Privacy", viewController: UIViewController()),
+            //    ],
         ]
     }
-
+    
     func createProfileCell() -> UITableViewCell {
         let cell = SettingsProfileTableViewCell(style: .subtitle, reuseIdentifier: "settingsProfileTableViewCell")
         let currentUser = Auth.auth().currentUser
@@ -82,6 +92,7 @@ class SettingsViewController: UITableViewController {
             cell.selectionStyle = .none
         } else if cellData.viewController != nil {
             cell.accessoryType = .disclosureIndicator
+        } else if cellData.action != nil {
         } else {
             cell.selectionStyle = .none
         }
@@ -95,11 +106,13 @@ class SettingsViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cellData = listData[indexPath.section][indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
-        guard let nextViewController = listData[indexPath.section][indexPath.row].viewController else {
+        cellData.action?()
+        guard let nextViewController = cellData.viewController else {
             return
         }
-        nextViewController.title = listData[indexPath.section][indexPath.row].title
+        nextViewController.title = cellData.title
         self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }
