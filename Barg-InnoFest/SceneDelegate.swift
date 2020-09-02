@@ -44,7 +44,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         GIDSignIn.sharedInstance().presentingViewController = tabBarController
         
-        UserDefaults.standard.setValue(0.0, forKey: "timeSinceAppLastOpened")
         if UserDefaults.standard.double(forKey: "timeSinceAppLastOpened") == 0.0 {
             let contentView = UIView()
             
@@ -64,6 +63,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 IntroAction(title: "Sign In", action: #selector(signInWithGoogle), isPrimary: true),
                 IntroAction(title: "Skip for Now", action: #selector(skipSignIn)),
             ], target: self)
+            introViewController.isModalInPresentation = true
             window?.rootViewController?.present(introViewController, animated: true)
         }
 	}

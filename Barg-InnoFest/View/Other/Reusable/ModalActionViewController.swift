@@ -11,17 +11,32 @@ import UIKit
 struct IntroAction {
     var title: String
     var action: Selector
+    var image: UIImage?
     var isPrimary: Bool? = false
 }
 
 class ModalActionViewController: UIViewController {
 
-    init(contentView: UIView? = nil, actions: [IntroAction], target: Any?) {
+    var contentView: UIView!
+    var actions: [IntroAction]!
+    var target: Any?
+    
+    init(contentView: UIView? = UIView(), actions: [IntroAction], target: Any?) {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .systemBackground
-        self.isModalInPresentation = true
+        self.contentView = contentView
+        self.actions = actions
+        self.target = target
         
-        let actionButtons = actions.map { (introAction) -> UIButton in
+        setupUi()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    private func setupUi() {
+        let actionButtons = actions?.map { (introAction) -> UIButton in
             let button = UIButton(type: .roundedRect)
             button.backgroundColor = introAction.isPrimary! ? .link : .none
             button.tintColor = introAction.isPrimary! ? .white : .link
@@ -30,10 +45,15 @@ class ModalActionViewController: UIViewController {
             button.addTarget(target, action: introAction.action, for: .touchUpInside)
             button.heightAnchor.constraint(equalToConstant: K.buttonHeight).isActive = true
             button.layer.cornerRadius = K.cornerRadiusCg
+            if let image = introAction.image {
+                button.setImage(image, for: .normal)
+                button.imageEdgeInsets.right += 10
+                button.titleEdgeInsets.left = 10
+            }
             return button
         }
         
-        let stackView = UIStackView(arrangedSubviews: actionButtons)
+        let stackView = UIStackView(arrangedSubviews: actionButtons!)
         self.view.addSubview(stackView)
         stackView.axis = .vertical
         stackView.spacing = 10
@@ -54,9 +74,6 @@ class ModalActionViewController: UIViewController {
                 contentView.topAnchor.constraint(equalTo: self.view.topAnchor),
             ])
         }
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+        
     }
 }
