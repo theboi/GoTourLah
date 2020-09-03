@@ -216,17 +216,17 @@
 		AAC6EE2D24FDEE0A00A458B9 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				AAC6EE2E24FDEE1600A458B9 /* Reusable */,
+				AAC6EE2E24FDEE1600A458B9 /* ModalAction */,
 			);
 			path = Other;
 			sourceTree = "<group>";
 		};
-		AAC6EE2E24FDEE1600A458B9 /* Reusable */ = {
+		AAC6EE2E24FDEE1600A458B9 /* ModalAction */ = {
 			isa = PBXGroup;
 			children = (
 				AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */,
 			);
-			path = Reusable;
+			path = ModalAction;
 			sourceTree = "<group>";
 		};
 		AACF43CE24E6443000FF6A71 /* Stalls */ = {

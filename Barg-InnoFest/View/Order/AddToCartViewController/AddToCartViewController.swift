@@ -17,7 +17,7 @@ class AddToCartViewController: ModalActionViewController {
 
 	init(stall: Stall, foodItem: FoodItem) {
 		super.init(actions: [
-            IntroAction(title: "Add To Cart", action: #selector(addToCart), image: UIImage(systemName: "cart.badge.plus"), isPrimary: true)
+            ModalActionAction(title: "Add To Cart", action: #selector(addToCart), image: UIImage(systemName: "cart.badge.plus"), isPrimary: true)
         ], target: nil)
         self.target = self
 		self.stall = stall

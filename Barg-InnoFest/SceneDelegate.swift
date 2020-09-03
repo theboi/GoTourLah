@@ -44,6 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         GIDSignIn.sharedInstance().presentingViewController = tabBarController
         
+        UserDefaults.standard.setValue(0.0, forKey: "timeSinceAppLastOpened")
         if UserDefaults.standard.double(forKey: "timeSinceAppLastOpened") == 0.0 {
             let contentView = UIView()
             
@@ -60,8 +61,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             ])
             
             let introViewController = ModalActionViewController(contentView: contentView, actions: [
-                IntroAction(title: "Sign In", action: #selector(User.signIn), isPrimary: true),
-                IntroAction(title: "Skip for Now", action: #selector(skipSignIn)),
+                ModalActionAction(title: "Sign In", action: #selector(signIn), isPrimary: true),
+                ModalActionAction(title: "Skip for Now", action: #selector(skipSignIn)),
             ], target: self)
             introViewController.isModalInPresentation = true
             window?.rootViewController?.present(introViewController, animated: true)
@@ -72,5 +73,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let timeInterval = Date().timeIntervalSince1970
         UserDefaults.standard.setValue(timeInterval, forKey: "timeSinceAppLastOpened")
         window?.rootViewController?.dismiss(animated: true)
+    }
+    
+    @objc func signIn() {
+        User.signIn()
     }
 }

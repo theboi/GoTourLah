@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct IntroAction {
+struct ModalActionAction {
     var title: String
     var action: Selector
     var image: UIImage?
@@ -18,10 +18,10 @@ struct IntroAction {
 class ModalActionViewController: UIViewController {
 
     var contentView: UIView!
-    var actions: [IntroAction]!
+    var actions: [ModalActionAction]!
     var target: Any?
     
-    init(contentView: UIView? = UIView(), actions: [IntroAction], target: Any?) {
+    init(contentView: UIView? = UIView(), actions: [ModalActionAction], target: Any?) {
         super.init(nibName: nil, bundle: nil)
         self.view.backgroundColor = .systemBackground
         self.contentView = contentView

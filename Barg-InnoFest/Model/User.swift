@@ -11,11 +11,11 @@ import Firebase
 import GoogleSignIn
 
 class User {
-    @objc static func signIn() {
+    static func signIn() {
         GIDSignIn.sharedInstance().signIn()
     }
     
-    @objc static func signOut() {
+    static func signOut() {
         do {
             try Auth.auth().signOut()
             print("Success")
