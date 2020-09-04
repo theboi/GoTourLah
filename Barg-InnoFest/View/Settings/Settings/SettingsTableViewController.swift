@@ -22,13 +22,13 @@ struct SettingsTableItem {
     var action: SettingsAction?
 }
 
-class SettingsViewController: UITableViewController {
+class SettingsTableViewController: UITableViewController {
     
     var profileTableItem: SettingsTableItem {
         let cellHeight: CGFloat = 100
         let currentUser = Auth.auth().currentUser
         if let displayName = currentUser?.displayName, let email = currentUser?.email {
-            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), viewController: SettingsViewController(list: {[[
+            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), viewController: SettingsTableViewController(list: {[[
                 SettingsTableItem(title: "Sign Out", action: {
                     User.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
@@ -55,7 +55,6 @@ class SettingsViewController: UITableViewController {
     
     func createProfileCell(style: SettingsProfileTableViewCell.CellStyle) -> UITableViewCell {
         let cell = SettingsProfileTableViewCell(style: style, reuseIdentifier: "settingsProfileTableViewCell")
-        print("custom cell")
         let currentUser = Auth.auth().currentUser
         cell.detailTextLabel?.text = currentUser?.email
         return cell

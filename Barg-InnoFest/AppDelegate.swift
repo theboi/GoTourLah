@@ -15,29 +15,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     
-    //	func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -> UIInterfaceOrientationMask {
-    //
-    //		if let rootViewController = self.topViewControllerWithRootViewController(rootViewController: window?.rootViewController), rootViewController.responds(to: Selector(("canRotate"))) {
-    //			return .landscape;
-    //		}
-    //		return .allButUpsideDown;
-    //	}
-    //
-    //	private func topViewControllerWithRootViewController(rootViewController: UIViewController!) -> UIViewController? {
-    //		guard rootViewController != nil else { return nil }
-    //
-    //		guard !(rootViewController.isKind(of: (UITabBarController).self)) else{
-    //			return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UITabBarController).selectedViewController)
-    //		}
-    //		guard !(rootViewController.isKind(of:(UINavigationController).self)) else{
-    //			return topViewControllerWithRootViewController(rootViewController: (rootViewController as! UINavigationController).visibleViewController)
-    //		}
-    //		guard !(rootViewController.presentedViewController != nil) else{
-    //			return topViewControllerWithRootViewController(rootViewController: rootViewController.presentedViewController)
-    //		}
-    //		return rootViewController
-    //	}
-    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         FirebaseApp.configure()
         GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
@@ -49,9 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         return GIDSignIn.sharedInstance().handle(url)
     }
-    
-    // MARK: UISceneSession Lifecycle
-    
+        
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.

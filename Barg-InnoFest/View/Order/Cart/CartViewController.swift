@@ -8,28 +8,35 @@
 
 import UIKit
 
-class CartViewController: UIViewController {
-	lazy var tableView = CartTableView(frame: UIScreen.main.bounds, style: .plain)
-	
-	lazy var searchBar = UISearchBar()
-	
-	override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-		super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-	}
-	
+class CartViewController: ModalActionViewController {
+    var tableView = CartTableView(frame: CGRect(), style: .insetGrouped)
+		
+    init() {
+        super.init(actions: [
+            ModalActionAction(title: "Proceed To Payment", action: #selector(proceedToPayment), image: UIImage(systemName: "dollarsign.circle"), isPrimary: true),
+        ], target: nil)
+        self.target = self
+        self.title = "Cart"
+        self.view.backgroundColor = .systemBackground
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
+        setupUi()
+    }
+    
 	required init?(coder: NSCoder) {
 		super.init(coder: coder)
 	}
 	
-	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.title = "Cart"
-		self.view.backgroundColor = .systemBackground
-		self.navigationItem.searchController = UISearchController()
-		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
-		self.view.addSubview(tableView)
-		tableView.viewController = self
-	}
+    private func setupUi() {
+        self.contentView.addSubview(tableView)
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addConstraints([
+            tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            tableView.topAnchor.constraint(equalTo: contentView.safeAreaLayoutGuide.topAnchor),
+            tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+        ])
+        tableView.viewController = self
+    }
 	
 	func presentCartItemViewController() {
 		let cartItemViewController = UIViewController()
@@ -40,4 +47,8 @@ class CartViewController: UIViewController {
 	@objc func dismissCartViewController() {
 		self.dismiss(animated: true)
 	}
+    
+    @objc func proceedToPayment() {
+        
+    }
 }

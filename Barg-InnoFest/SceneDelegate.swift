@@ -22,12 +22,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		let tabBarController = UITabBarController(nibName: nil, bundle: nil)
 
-        let exploreTab = UINavigationController(rootViewController: StallsViewController())
+        let exploreTab = UINavigationController(rootViewController: ExploreViewController())
 
         let stallsTab = UINavigationController(rootViewController: StallsViewController())
 		stallsTab.navigationBar.prefersLargeTitles = true
 		
-		let meTab = UINavigationController(rootViewController: SettingsViewController(list: nil))
+		let meTab = UINavigationController(rootViewController: SettingsTableViewController(list: nil))
 
 		tabBarController.setViewControllers([exploreTab, stallsTab, meTab], animated: true)
 		tabBarController.selectedIndex = 1
@@ -44,7 +44,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         GIDSignIn.sharedInstance().presentingViewController = tabBarController
         
-        UserDefaults.standard.setValue(0.0, forKey: "timeSinceAppLastOpened")
+//        UserDefaults.standard.setValue(0.0, forKey: "timeSinceAppLastOpened")
         if UserDefaults.standard.double(forKey: "timeSinceAppLastOpened") == 0.0 {
             let contentView = UIView()
             
