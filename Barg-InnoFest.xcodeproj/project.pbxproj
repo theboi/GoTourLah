@@ -8,28 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
-		AA07077624F245830074D347 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA07077524F245830074D347 /* Cart.swift */; };
 		AA08A0A12500E8EC0064A730 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
 		AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */; };
+		AA26DC89250BAF3000756FF6 /* FoodItem+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26DC87250BAF3000756FF6 /* FoodItem+CoreDataProperties.swift */; };
+		AA26DC8A250BAF3000756FF6 /* FoodItem+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA26DC88250BAF3000756FF6 /* FoodItem+CoreDataClass.swift */; };
+		AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */; };
 		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
 		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
 		AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */; };
 		AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */; };
+		AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA950250C7F710068D80C /* StallsViewController.swift */; };
 		AA41A8CF24F4B6400051DDAF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */; };
 		AA578CBD24F7823A004B27D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */; };
 		AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5819C924ECC7AF00DCDD68 /* FoodItemsViewController.swift */; };
-		AA5D021424FFDE0600CA2E45 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D021324FFDE0600CA2E45 /* User.swift */; };
+		AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D021324FFDE0600CA2E45 /* UserAuth.swift */; };
 		AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */; };
 		AA80E57724F6099B00723015 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA80E57624F6099B00723015 /* Utils.swift */; };
 		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
 		AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA893DDB24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift */; };
 		AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */; };
+		AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F04F3250245A0002B5EE9 /* Cart.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
-		AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsViewController.swift */; };
+		AAADC1D224E50CD300B62170 /* StallsTempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */; };
 		AAB6356124FA1EE900754A01 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6356024FA1EE900754A01 /* UIView.swift */; };
 		AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */; };
 		AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* UIWindow.swift */; };
@@ -41,30 +45,34 @@
 		44ED743ABC27D8B594E45221 /* Pods_Barg_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barg_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1F7976D93C56BA13B8566B /* Pods-Barg-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barg-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		AA07077524F245830074D347 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableViewCell.swift; sourceTree = "<group>"; };
+		AA26DC87250BAF3000756FF6 /* FoodItem+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodItem+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		AA26DC88250BAF3000756FF6 /* FoodItem+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FoodItem+CoreDataClass.swift"; sourceTree = "<group>"; };
+		AA2EFE3D25076776001309CB /* Barg-InnoFest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Barg-InnoFest.xcdatamodel"; sourceTree = "<group>"; };
 		AA37F8E724E83BC600DE51AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AA37F8E924E83C4900DE51AD /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
 		AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionView.swift; sourceTree = "<group>"; };
+		AA3CA950250C7F710068D80C /* StallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA5819C924ECC7AF00DCDD68 /* FoodItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsViewController.swift; sourceTree = "<group>"; };
-		AA5D021324FFDE0600CA2E45 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		AA5D021324FFDE0600CA2E45 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA80E57624F6099B00723015 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
 		AA893DDB24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
+		AA9F04F3250245A0002B5EE9 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barg-InnoFest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAADC1B924E50C2700B62170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		AAADC1C024E50C2A00B62170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAADC1CF24E50CD300B62170 /* StallsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
+		AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTempViewController.swift; sourceTree = "<group>"; };
 		AAB6356024FA1EE900754A01 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalActionViewController.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -111,6 +119,15 @@
 				AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */,
 			);
 			path = Explore;
+			sourceTree = "<group>";
+		};
+		AA2B789D2507928F00B966E6 /* FoodItem */ = {
+			isa = PBXGroup;
+			children = (
+				AA26DC88250BAF3000756FF6 /* FoodItem+CoreDataClass.swift */,
+				AA26DC87250BAF3000756FF6 /* FoodItem+CoreDataProperties.swift */,
+			);
+			path = FoodItem;
 			sourceTree = "<group>";
 		};
 		AA37F8E624E83B6A00DE51AD /* Cart */ = {
@@ -172,7 +189,7 @@
 		AAADC1AB24E50C2700B62170 = {
 			isa = PBXGroup;
 			children = (
-				AAADC1B624E50C2700B62170 /* Barg-InnoFest */,
+				AAADC1B624E50C2700B62170 /* Source */,
 				AAADC1B524E50C2700B62170 /* Products */,
 				77CA85D28A2350F47506B640 /* Pods */,
 				F3F2D0BA37BCDD1F81FF4CF3 /* Frameworks */,
@@ -187,7 +204,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		AAADC1B624E50C2700B62170 /* Barg-InnoFest */ = {
+		AAADC1B624E50C2700B62170 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				AA02F67D24F161840042C8CF /* Utils */,
@@ -200,15 +217,17 @@
 				AAADC1C524E50C2A00B62170 /* Info.plist */,
 				AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */,
 			);
-			path = "Barg-InnoFest";
+			path = Source;
 			sourceTree = "<group>";
 		};
 		AAADC1CB24E50C9900B62170 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				AA2B789D2507928F00B966E6 /* FoodItem */,
+				AA9F04F3250245A0002B5EE9 /* Cart.swift */,
 				AA844F9F24E78DC000D99C48 /* Stall.swift */,
-				AA07077524F245830074D347 /* Cart.swift */,
-				AA5D021324FFDE0600CA2E45 /* User.swift */,
+				AA5D021324FFDE0600CA2E45 /* UserAuth.swift */,
+				AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -243,9 +262,10 @@
 		AACF43CE24E6443000FF6A71 /* Stalls */ = {
 			isa = PBXGroup;
 			children = (
-				AAADC1CF24E50CD300B62170 /* StallsViewController.swift */,
+				AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */,
 				AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */,
 				AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */,
+				AA3CA950250C7F710068D80C /* StallsViewController.swift */,
 			);
 			path = Stalls;
 			sourceTree = "<group>";
@@ -392,13 +412,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */,
-				AA07077624F245830074D347 /* Cart.swift in Sources */,
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
+				AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
-				AAADC1D224E50CD300B62170 /* StallsViewController.swift in Sources */,
+				AAADC1D224E50CD300B62170 /* StallsTempViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
+				AA26DC8A250BAF3000756FF6 /* FoodItem+CoreDataClass.swift in Sources */,
 				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
 				AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */,
+				AA26DC89250BAF3000756FF6 /* FoodItem+CoreDataProperties.swift in Sources */,
 				AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */,
 				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
 				AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */,
@@ -408,13 +430,15 @@
 				AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */,
 				AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */,
 				AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */,
+				AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */,
 				AA80E57724F6099B00723015 /* Utils.swift in Sources */,
 				AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */,
+				AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */,
 				AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */,
 				AA08A0A12500E8EC0064A730 /* ExploreViewController.swift in Sources */,
 				AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */,
 				AA844FA024E78DC000D99C48 /* Stall.swift in Sources */,
-				AA5D021424FFDE0600CA2E45 /* User.swift in Sources */,
+				AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -553,7 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66HB97DLV4;
-				INFOPLIST_FILE = "Barg-InnoFest/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -574,7 +598,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 66HB97DLV4;
-				INFOPLIST_FILE = "Barg-InnoFest/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -610,6 +634,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				AA2EFE3D25076776001309CB /* Barg-InnoFest.xcdatamodel */,
+			);
+			currentVersion = AA2EFE3D25076776001309CB /* Barg-InnoFest.xcdatamodel */;
+			path = "Barg-InnoFest.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = AAADC1AC24E50C2700B62170 /* Project object */;
 }

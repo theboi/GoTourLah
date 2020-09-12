@@ -25,16 +25,16 @@ extension UIWindow {
         
         toastLabel.translatesAutoresizingMaskIntoConstraints = false
         self.addConstraints([
-            toastLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 100),
+            toastLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             toastLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
             toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + K.marginCg*2*2),
             toastLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
-        toastLabel.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        toastLabel.transform = CGAffineTransform(translationX: 0, y: 200).scaledBy(x: 0.8, y: 0.8)
                 
         func animateAway() {
             UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseInOut], animations: {
-                toastLabel.transform = CGAffineTransform(translationX: 0, y: 230).scaledBy(x: 0.8, y: 0.8)
+                toastLabel.transform = CGAffineTransform(translationX: 0, y: 200).scaledBy(x: 0.8, y: 0.8)
             })
         }
         
@@ -45,7 +45,7 @@ extension UIWindow {
         }
         
         UIView.animate(withDuration: duration, delay: 0, options: [.curveEaseInOut], animations: {
-            toastLabel.transform = CGAffineTransform(translationX: 0, y: -230).scaledBy(x: 1.0, y: 1.0)
+            toastLabel.transform = CGAffineTransform(translationX: 0, y: 0).scaledBy(x: 1.0, y: 1.0)
         }, completion: {_ in
             Timer.scheduledTimer(withTimeInterval: delay, repeats: false) { _ in animateAway()}
         })

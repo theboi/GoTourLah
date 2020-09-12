@@ -76,6 +76,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     @objc func signIn() {
-        User.signIn()
+        UserAuth.signIn()
     }
 }

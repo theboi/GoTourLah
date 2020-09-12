@@ -13,7 +13,7 @@ class CartViewController: ModalActionViewController {
 		
     init() {
         super.init(actions: [
-            ModalActionAction(title: "Proceed To Payment", action: #selector(proceedToPayment), image: UIImage(systemName: "dollarsign.circle"), isPrimary: true),
+            ModalActionAction(title: "Proceed to Checkout", action: #selector(proceedToPayment), image: UIImage(systemName: "dollarsign.circle"), isPrimary: true),
         ], target: nil)
         self.target = self
         self.title = "Cart"

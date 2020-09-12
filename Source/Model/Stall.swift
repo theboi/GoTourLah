@@ -7,16 +7,14 @@
 //
 
 import Foundation
+import FirebaseFirestore
 
 enum StallModelType {
 	case select, set
 }
 
-struct FoodItem {
-	var name: String
-	var desc: String
-	var price: Double
-	var stallName: String
+struct FoodItemDetails {
+    
 }
 
 class Stall {
@@ -33,6 +31,13 @@ class Stall {
 	}
 	
 	static func getStalls() {
-		
+        
 	}
+    
+    static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
+        return snapshot.documents.map { (document) -> Stall in
+            let dictionary = document.data()
+            return Stall(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, model: dictionary["model"] as! StallModelType, foodItems: dictionary["foodItems"] as! [FoodItem])
+        }
+    }
 }

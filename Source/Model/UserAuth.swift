@@ -1,5 +1,5 @@
 //
-//  User.swift
+//  UserAuth.swift
 //  Barg-InnoFest
 //
 //  Created by Ryan The on 2/9/20.
@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import GoogleSignIn
 
-class User {
+class UserAuth {
     static func signIn() {
         GIDSignIn.sharedInstance().signIn()
     }

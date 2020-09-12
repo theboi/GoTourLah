@@ -99,7 +99,7 @@ class AddToCartViewController: ModalActionViewController {
 	}
 
 	@objc func addToCart() {
-		Cart.addToCart(foodItem: foodItem, fromStall: stall)
+        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem: foodItem, fromStall: stall)
 		self.contentView.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.foodItemsViewController?.navigationController?.popToRootViewController(animated: true)
@@ -113,10 +113,10 @@ class AddToCartViewController: ModalActionViewController {
 		}
 		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
 		var newFavorites = favorites
-		if favorites.contains(where: { $0 == "\(foodItem.stallName): \(foodItem.name)" }) {
-			newFavorites.removeAll { $0 == "\(foodItem.stallName): \(foodItem.name)" }
+		if favorites.contains(where: { $0 == foodItem.name }) {
+			newFavorites.removeAll { $0 == foodItem.name }
 		} else {
-			newFavorites.append("\(foodItem.stallName): \(foodItem.name)")
+            newFavorites.append(foodItem.name)
 		}
 		UserDefaults.standard.set(newFavorites, forKey: "favorites")
 		self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: getIsFavorite() ? "heart.fill" : "heart")
@@ -127,6 +127,6 @@ class AddToCartViewController: ModalActionViewController {
 			UserDefaults.standard.set([], forKey: "favorites")
 		}
 		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
-		return favorites.contains { $0 == "\(foodItem.stallName): \(foodItem.name)" }
+		return favorites.contains { $0 == foodItem.name }
 	}
 }

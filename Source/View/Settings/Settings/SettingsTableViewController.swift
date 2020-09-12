@@ -30,12 +30,12 @@ class SettingsTableViewController: UITableViewController {
         if let displayName = currentUser?.displayName, let email = currentUser?.email {
             return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), viewController: SettingsTableViewController(list: {[[
                 SettingsTableItem(title: "Sign Out", action: {
-                    User.signOut()
+                    UserAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
                 }),
             ]]}))
         } else {
-            return SettingsTableItem(title: "Sign In With Google", image: UIImage(named: "ProfilePlaceholder"), height: cellHeight, customCell: createProfileCell(style: .default), action: User.signIn)
+            return SettingsTableItem(title: "Sign In With Google", image: UIImage(named: "ProfilePlaceholder"), height: cellHeight, customCell: createProfileCell(style: .default), action: UserAuth.signIn)
         }
     }
     

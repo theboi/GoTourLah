@@ -12,11 +12,9 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	
 	var viewController: CartViewController!
 	
-	var data: [FoodItem] = [
-		FoodItem(name: "Chicken w Vg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
-		FoodItem(name: "Chicken w Veg", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
-		FoodItem(name: "Chicken w Vege", desc: "Uhh some desc here", price: 1.00, stallName: "Chicken Rice"),
-	]
+    var data: [FoodItem] {
+        (UIApplication.shared.delegate as! AppDelegate).cart.getContext()
+    }
 	
 	override init(frame: CGRect, style: UITableView.Style) {
 		super.init(frame: frame, style: style)
@@ -35,11 +33,14 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath)
-		
-		// Configure the cell’s contents.
-		cell.textLabel!.text = data[indexPath.row].stallName
+        cell.textLabel!.text = data[indexPath.row].name
+        cell.imageView?.image = K.placeholderImage
 		return cell
 	}
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)

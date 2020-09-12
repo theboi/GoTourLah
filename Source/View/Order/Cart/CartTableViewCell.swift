@@ -10,6 +10,9 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
 
+    var priceLabel = UILabel()
+    var quantityLabel = UILabel()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
