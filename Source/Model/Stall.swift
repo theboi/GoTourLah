@@ -69,4 +69,13 @@ class Stall {
         }
         UserDefaults.standard.set(newFavorites, forKey: "favorites")
     }
+    
+    static func getIsFoodItemStar(for foodItem: FoodItem) -> Bool {
+        if (UserDefaults.standard.array(forKey: "favorites") == nil) {
+            UserDefaults.standard.set([], forKey: "favorites")
+        }
+        let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
+        return favorites.contains { $0 == foodItem.name }
+    }
+    
 }

@@ -59,10 +59,11 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let star = UIContextualAction(style: .normal, title: "Star") { (_,_,_) in
+        let star = UIContextualAction(style: .normal, title: Stall.getIsFoodItemStar(for: data[indexPath.row]) ? "Unstar" : "Star") { (_, _, completionHandler) in
             Stall.toggleFoodItemStar(for: self.data[indexPath.row])
+            completionHandler(true)
         }
-        star.image = UIImage(systemName: "star.fill")
+        star.image = UIImage(systemName: Stall.getIsFoodItemStar(for: data[indexPath.row]) ? "star.slash.fill" : "star.fill")
         star.backgroundColor = .link
         
         return UISwipeActionsConfiguration(actions: [star])
