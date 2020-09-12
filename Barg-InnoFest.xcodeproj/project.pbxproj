@@ -17,7 +17,6 @@
 		AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E724E83BC600DE51AD /* CartViewController.swift */; };
 		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
 		AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */; };
-		AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */; };
 		AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA950250C7F710068D80C /* StallsViewController.swift */; };
 		AA41A8CF24F4B6400051DDAF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */; };
 		AA578CBD24F7823A004B27D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */; };
@@ -33,7 +32,6 @@
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
-		AAADC1D224E50CD300B62170 /* StallsTempViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */; };
 		AAB6356124FA1EE900754A01 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6356024FA1EE900754A01 /* UIView.swift */; };
 		AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */; };
 		AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* UIWindow.swift */; };
@@ -54,7 +52,6 @@
 		AA37F8E724E83BC600DE51AD /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
 		AA37F8E924E83C4900DE51AD /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
 		AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
-		AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionView.swift; sourceTree = "<group>"; };
 		AA3CA950250C7F710068D80C /* StallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
 		AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -72,7 +69,6 @@
 		AAADC1C024E50C2A00B62170 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AAADC1C324E50C2A00B62170 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StallsTempViewController.swift; sourceTree = "<group>"; };
 		AAB6356024FA1EE900754A01 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalActionViewController.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -262,10 +258,8 @@
 		AACF43CE24E6443000FF6A71 /* Stalls */ = {
 			isa = PBXGroup;
 			children = (
-				AAADC1CF24E50CD300B62170 /* StallsTempViewController.swift */,
-				AA37F8ED24E83D6400DE51AD /* StallsCollectionView.swift */,
-				AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */,
 				AA3CA950250C7F710068D80C /* StallsViewController.swift */,
+				AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */,
 			);
 			path = Stalls;
 			sourceTree = "<group>";
@@ -415,7 +409,6 @@
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
 				AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
-				AAADC1D224E50CD300B62170 /* StallsTempViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
 				AA26DC8A250BAF3000756FF6 /* FoodItem+CoreDataClass.swift in Sources */,
 				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
@@ -434,7 +427,6 @@
 				AA80E57724F6099B00723015 /* Utils.swift in Sources */,
 				AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */,
 				AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */,
-				AA37F8EE24E83D6400DE51AD /* StallsCollectionView.swift in Sources */,
 				AA08A0A12500E8EC0064A730 /* ExploreViewController.swift in Sources */,
 				AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */,
 				AA844FA024E78DC000D99C48 /* Stall.swift in Sources */,

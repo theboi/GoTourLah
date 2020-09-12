@@ -9,21 +9,23 @@
 import Foundation
 import FirebaseFirestore
 
-enum StallModelType {
-	case select, set
+enum StallModelType: String {
+	case select = "select", set = "set"
 }
 
 struct FoodItemDetails {
-    
+    var name: String
+    var desc: String
+    var price: Double
 }
 
 class Stall {
 	var name: String
 	var desc: String
 	var model: StallModelType
-	var foodItems: [FoodItem]
+	var foodItems: [FoodItemDetails]
 	
-	init(name: String, desc: String, model: StallModelType, foodItems: [FoodItem]) {
+	init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
 		self.name = name
 		self.desc = desc
 		self.model = model
@@ -36,8 +38,15 @@ class Stall {
     
     static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
         return snapshot.documents.map { (document) -> Stall in
-            let dictionary = document.data()
-            return Stall(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, model: dictionary["model"] as! StallModelType, foodItems: dictionary["foodItems"] as! [FoodItem])
+            let documentData = document.data()
+//            print("%@", documentData["foodItems"] as! [FoodItemDetails])
+            
+            let foodItems = (documentData["foodItems"] as! [[String: Any]]).map { (foodItem) -> FoodItemDetails in
+                return FoodItemDetails(name: foodItem["name"] as! String, desc: foodItem["desc"] as! String, price: foodItem["price"] as! Double)
+            }
+            
+//            return Stall(name: "", desc: "", model: .select, foodItems: [])
+            return Stall(name: documentData["name"] as! String, desc: documentData["desc"] as! String, model: StallModelType(rawValue: documentData["model"] as! String) ?? .select, foodItems: foodItems)
         }
     }
 }

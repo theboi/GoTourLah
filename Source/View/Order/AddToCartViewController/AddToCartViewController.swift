@@ -12,10 +12,10 @@ class AddToCartViewController: ModalActionViewController {
 	
 	var image: UIImage!
 	var stall: Stall!
-	var foodItem: FoodItem!
+	var foodItem: FoodItemDetails!
 	var foodItemsViewController: FoodItemsViewController!
 
-	init(stall: Stall, foodItem: FoodItem) {
+	init(stall: Stall, foodItem: FoodItemDetails) {
 		super.init(actions: [
             ModalActionAction(title: "Add To Cart", action: #selector(addToCart), image: UIImage(systemName: "cart.badge.plus"), isPrimary: true)
         ], target: nil)
@@ -99,7 +99,7 @@ class AddToCartViewController: ModalActionViewController {
 	}
 
 	@objc func addToCart() {
-        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem: foodItem, fromStall: stall)
+//        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem: foodItem, fromStall: stall)
 		self.contentView.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.foodItemsViewController?.navigationController?.popToRootViewController(animated: true)

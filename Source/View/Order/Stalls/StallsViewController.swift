@@ -12,14 +12,14 @@ import GoogleSignIn
 private let reuseIdentifier = "Cell"
 
 class StallsViewController: UICollectionViewController, UISearchBarDelegate {
-
+    
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     
     var searchString: String = ""
     
     lazy var searchController = UISearchController()
-
-    var stallsData: [Stall] = [Stall(name: "hello", desc: "djwanjdn", model: .select, foodItems: [])]
+    
+    var stallsData: [Stall] = []
     
     var filteredStallsData: [Stall] {
         return stallsData.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
@@ -32,26 +32,13 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
             }
             if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
                 self.stallsData = Stall.fromQuerySnapshot(querySnapshot)
+                print("CALL RELOAD")
+                self.collectionView.reloadData()
             }
         })
     }
     
-    // MARK: UIViewController
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        self.title = "Order"
-//        self.collectionView.backgroundColor = .none
-        self.view.backgroundColor = .systemGroupedBackground
-        self.navigationItem.searchController = searchController
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
-        self.view.addSubview(collectionView)
-        searchController.searchBar.delegate = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        
-        self.collectionView.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
-    }
+    // MARK: UICollectionViewController
     
     init() {
         func createGridLayout() -> UICollectionViewLayout {
@@ -80,7 +67,25 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
-
+    
+    // MARK: UIViewController
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.title = "Order"
+        self.view.backgroundColor = .systemGroupedBackground
+        self.navigationItem.searchController = searchController
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
+        self.view.addSubview(collectionView)
+        searchController.searchBar.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
+        
+        self.collectionView.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
+        
+        refreshStallsData()
+        
+    }
+    
     @objc func presentCartViewController() {
         let cartViewController = CartViewController()
         let cartNavigationController = UINavigationController(rootViewController: cartViewController)
@@ -93,7 +98,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     }
     
     // MARK: UICollectionViewDataSource
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return filteredStallsData.count
     }
@@ -103,27 +108,12 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
         cell.titleLabel.text = filteredStallsData[indexPath.row].name
         return cell
     }
-
+    
     // MARK: UICollectionViewDelegate
-
-    
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
-
-    
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         self.presentFoodItemsViewController(for: filteredStallsData[indexPath.row])
     }
-    
     
     // MARK: UISearchBarDelegate
     
