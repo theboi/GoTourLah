@@ -49,6 +49,17 @@ class CartViewController: ModalActionViewController {
 	}
     
     @objc func proceedToPayment() {
-        
+        let alert = UIAlertController(title: "Proceed to Payment", message: "You will be directed to your payment application.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Confirm", style: .default, handler: { (_) in
+        }))
+        self.present(alert, animated: true)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            let successAlert = UIAlertController(title: "Payment Success", message: "Your payment was successfully received.", preferredStyle: .alert)
+            successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
+                self.dismiss(animated: true)
+            }))
+            self.present(successAlert, animated: true)
+        }
     }
 }

@@ -130,6 +130,7 @@
 		AA41A8CC24F4B6140051DDAF /* Order */ = {
 			isa = PBXGroup;
 			children = (
+				AAFF1296250D02D600E1FA48 /* Checkout */,
 				AA98766C24EF940800FE6F16 /* AddToCartViewController */,
 				AA5819C824ECC79300DCDD68 /* FoodItems */,
 				AA37F8E624E83B6A00DE51AD /* Cart */,
@@ -262,6 +263,13 @@
 				AAFF1290250CE49C00E1FA48 /* FoodItemEntity+CoreDataProperties.swift */,
 			);
 			path = CoreData;
+			sourceTree = "<group>";
+		};
+		AAFF1296250D02D600E1FA48 /* Checkout */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Checkout;
 			sourceTree = "<group>";
 		};
 		F3F2D0BA37BCDD1F81FF4CF3 /* Frameworks */ = {

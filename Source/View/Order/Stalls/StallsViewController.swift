@@ -19,10 +19,10 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     var searchController = UISearchController()
     
-    var stallsData: [Stall] = []
+    var data: [Stall] = []
     
     var filteredStallsData: [Stall] {
-        return stallsData.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
+        return data.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
     }
     
     func refreshStallsData() {
@@ -31,7 +31,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
                 fatalError("ERROR: %@ \(error)")
             }
             if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                self.stallsData = Stall.fromQuerySnapshot(querySnapshot)
+                self.data = Stall.fromQuerySnapshot(querySnapshot)
                 print("CALL RELOAD")
                 self.collectionView.reloadData()
             }
