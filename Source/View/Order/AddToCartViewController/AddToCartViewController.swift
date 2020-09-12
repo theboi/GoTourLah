@@ -99,7 +99,7 @@ class AddToCartViewController: ModalActionViewController {
 	}
 
 	@objc func addToCart() {
-//        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem: foodItem, fromStall: stall)
+        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem)
 		self.contentView.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.foodItemsViewController?.navigationController?.popToRootViewController(animated: true)

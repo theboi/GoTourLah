@@ -11,12 +11,10 @@ import CoreData
 
 class Cart {
     
-//	var cart: [String] {
-//		return [""]
-//	}
+    var foodItems: [FoodItemDetails] = []
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let container = NSPersistentContainer(name: "Cart")
+        let container = NSPersistentContainer(name: "Barg-InnoFest")
         container.loadPersistentStores { (storeDescription, error) in
             if let error = error as NSError? {
                 fatalError("ERROR: %@ \(error)")
@@ -26,7 +24,7 @@ class Cart {
     }()
     
     func saveContext() {
-        let context = (UIApplication.shared.delegate as! AppDelegate).cart.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
                 try context.save()
@@ -37,7 +35,8 @@ class Cart {
     }
     
     func getContext() -> [FoodItem] {
-        let context = (UIApplication.shared.delegate as! AppDelegate).cart.persistentContainer.viewContext
+        let context = persistentContainer.viewContext
+        
         var cart: [FoodItem]
         do {
             cart = try context.fetch(FoodItem.fetchRequest())
@@ -46,10 +45,23 @@ class Cart {
         }
         return cart
     }
-	
-    func addToCart(foodItem: FoodItem, fromStall: Stall) {
-        NSManagedObject(entity: foodItem.entity, insertInto: persistentContainer.viewContext)
-	}
+    
+    func addToCart(_ foodItemDetails: FoodItemDetails) {
+        let managedContext = persistentContainer.viewContext
+        print("managedContext", managedContext)
+        let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: managedContext)!
+        let foodItem = FoodItem(entity: entity, insertInto: managedContext)
+        foodItem.name = foodItemDetails.name
+        foodItem.desc = foodItemDetails.desc
+        foodItem.price = foodItemDetails.price
+        
+        do {
+            try managedContext.save()
+            self.foodItems.append(foodItemDetails)
+        } catch let error as NSError {
+            fatalError("ERROR: %@ \(error)")
+        }
+    }
     
     func getFoodItems() {
         

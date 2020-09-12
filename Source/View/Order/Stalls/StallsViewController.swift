@@ -17,7 +17,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     var searchString: String = ""
     
-    lazy var searchController = UISearchController()
+    var searchController = UISearchController()
     
     var stallsData: [Stall] = []
     
@@ -73,7 +73,8 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Order"
-        self.view.backgroundColor = .systemGroupedBackground
+        self.collectionView.backgroundColor = .systemGroupedBackground
+
         self.navigationItem.searchController = searchController
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
         self.view.addSubview(collectionView)
