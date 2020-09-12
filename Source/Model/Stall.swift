@@ -13,7 +13,13 @@ enum StallModelType: String {
 	case select = "select", set = "set"
 }
 
-struct FoodItemDetails {
+protocol FoodItem {
+    var name: String { get set }
+    var desc: String { get set }
+    var price: Double { get set }
+}
+
+struct FoodItemDetails: FoodItem {
     var name: String
     var desc: String
     var price: Double
@@ -48,5 +54,19 @@ class Stall {
 //            return Stall(name: "", desc: "", model: .select, foodItems: [])
             return Stall(name: documentData["name"] as! String, desc: documentData["desc"] as! String, model: StallModelType(rawValue: documentData["model"] as! String) ?? .select, foodItems: foodItems)
         }
+    }
+    
+    static func toggleFoodItemStar(for foodItem: FoodItem) {
+        if (UserDefaults.standard.array(forKey: "favorites") == nil) {
+            UserDefaults.standard.set([], forKey: "favorites")
+        }
+        let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
+        var newFavorites = favorites
+        if favorites.contains(where: { $0 == foodItem.name }) {
+            newFavorites.removeAll { $0 == foodItem.name }
+        } else {
+            newFavorites.append(foodItem.name)
+        }
+        UserDefaults.standard.set(newFavorites, forKey: "favorites")
     }
 }

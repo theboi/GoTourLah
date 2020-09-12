@@ -99,7 +99,7 @@ class AddToCartViewController: ModalActionViewController {
 	}
 
 	@objc func addToCart() {
-        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(foodItem)
+        (UIApplication.shared.delegate as! AppDelegate).cart.addToCart(with: foodItem)
 		self.contentView.window?.presentToast(message: "Added to Cart 🛒")
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.foodItemsViewController?.navigationController?.popToRootViewController(animated: true)
@@ -108,17 +108,7 @@ class AddToCartViewController: ModalActionViewController {
 	}
 
 	@objc private func toggleFavorite() {
-		if (UserDefaults.standard.array(forKey: "favorites") == nil) {
-			UserDefaults.standard.set([], forKey: "favorites")
-		}
-		let favorites = UserDefaults.standard.array(forKey: "favorites")! as! [String]
-		var newFavorites = favorites
-		if favorites.contains(where: { $0 == foodItem.name }) {
-			newFavorites.removeAll { $0 == foodItem.name }
-		} else {
-            newFavorites.append(foodItem.name)
-		}
-		UserDefaults.standard.set(newFavorites, forKey: "favorites")
+        Stall.toggleFoodItemStar(for: foodItem)
 		self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: getIsFavorite() ? "heart.fill" : "heart")
 	}
 

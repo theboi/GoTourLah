@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         firestoreDb = Firestore.firestore()
         
+        _ = cart.loadCart()
+        
         return true
     }
     

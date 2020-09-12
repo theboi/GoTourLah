@@ -10,9 +10,7 @@ import UIKit
 import CoreData
 
 class Cart {
-    
-    var foodItems: [FoodItemDetails] = []
-    
+        
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Barg-InnoFest")
         container.loadPersistentStores { (storeDescription, error) in
@@ -33,34 +31,35 @@ class Cart {
             }
         }
     }
-    
-    func getContext() -> [FoodItem] {
-        let context = persistentContainer.viewContext
         
-        var cart: [FoodItem]
+    func loadCart() -> [FoodItemEntity] {
+        let context = persistentContainer.viewContext
+        var foodItems: [FoodItemEntity]
         do {
-            cart = try context.fetch(FoodItem.fetchRequest())
+            foodItems = try context.fetch(FoodItemEntity.fetchRequest())
         } catch let error as NSError {
             fatalError("ERROR: %@ \(error)")
         }
-        return cart
+        return foodItems
     }
     
-    func addToCart(_ foodItemDetails: FoodItemDetails) {
-        let managedContext = persistentContainer.viewContext
-        print("managedContext", managedContext)
-        let entity = NSEntityDescription.entity(forEntityName: "FoodItem", in: managedContext)!
-        let foodItem = FoodItem(entity: entity, insertInto: managedContext)
+    func addToCart(with foodItemDetails: FoodItemDetails) {
+        let context = persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "FoodItemEntity", in: context)!
+        let foodItem = FoodItemEntity(entity: entity, insertInto: context)
+        
         foodItem.name = foodItemDetails.name
         foodItem.desc = foodItemDetails.desc
         foodItem.price = foodItemDetails.price
         
-        do {
-            try managedContext.save()
-            self.foodItems.append(foodItemDetails)
-        } catch let error as NSError {
-            fatalError("ERROR: %@ \(error)")
-        }
+        saveContext()
+    }
+    
+    func removeFromCart(_ foodItem: FoodItemEntity) {
+        let context = persistentContainer.viewContext
+        context.delete(foodItem)
+        
+        saveContext()
     }
     
     func getFoodItems() {
