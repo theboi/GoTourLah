@@ -9,8 +9,13 @@
 import UIKit
 
 class CartViewController: ModalActionViewController {
+    
+    var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+
     var tableView = CartTableView(frame: CGRect(), style: .insetGrouped)
 		
+    var data: [FoodItemEntity] = (UIApplication.shared.delegate as! AppDelegate).cart.loadCart()
+    
     init() {
         super.init(actions: [
             ModalActionAction(title: "Proceed to Checkout", action: #selector(proceedToPayment), image: UIImage(systemName: "dollarsign.circle"), isPrimary: true),
@@ -55,9 +60,18 @@ class CartViewController: ModalActionViewController {
         }))
         self.present(alert, animated: true)
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let successAlert = UIAlertController(title: "Payment Success", message: "Your payment was successfully received.", preferredStyle: .alert)
+            let successAlert = UIAlertController(title: "Payment Success", message: "Your payment was successfully received. You may proceed to collect your meal now. ", preferredStyle: .alert)
             successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                self.dismiss(animated: true)
+                Stall.sendTransactionRequest(self.data) { (didSuccess) in
+                    if didSuccess {
+                        self.appDelegate.cart.clearCart()
+                        self.dismiss(animated: true)
+                    } else {
+                        let failAlert = UIAlertController(title: "Transaction Failed", message: "Say bye to your money!", preferredStyle: .alert)
+                        failAlert.addAction(UIAlertAction(title: "Cry", style: .destructive))
+                        self.present(failAlert, animated: true)
+                    }
+                }
             }))
             self.present(successAlert, animated: true)
         }

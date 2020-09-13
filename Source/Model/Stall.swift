@@ -37,21 +37,15 @@ class Stall {
 		self.model = model
 		self.foodItems = foodItems
 	}
-	
-	static func getStalls() {
-        
-	}
     
     static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
         return snapshot.documents.map { (document) -> Stall in
             let documentData = document.data()
-//            print("%@", documentData["foodItems"] as! [FoodItemDetails])
             
             let foodItems = (documentData["foodItems"] as! [[String: Any]]).map { (foodItem) -> FoodItemDetails in
                 return FoodItemDetails(name: foodItem["name"] as! String, desc: foodItem["desc"] as! String, price: foodItem["price"] as! Double)
             }
             
-//            return Stall(name: "", desc: "", model: .select, foodItems: [])
             return Stall(name: documentData["name"] as! String, desc: documentData["desc"] as! String, model: StallModelType(rawValue: documentData["model"] as! String) ?? .select, foodItems: foodItems)
         }
     }
@@ -70,7 +64,7 @@ class Stall {
         UserDefaults.standard.set(newFavorites, forKey: "favorites")
     }
     
-    static func getIsFoodItemStar(for foodItem: FoodItem) -> Bool {
+    static func isFoodItemStar(for foodItem: FoodItem) -> Bool {
         if (UserDefaults.standard.array(forKey: "favorites") == nil) {
             UserDefaults.standard.set([], forKey: "favorites")
         }
@@ -78,4 +72,10 @@ class Stall {
         return favorites.contains { $0 == foodItem.name }
     }
     
+    static func sendTransactionRequest(_ foodItems: [FoodItem], completionHandler: @escaping (_ didSuccess: Bool) -> Void) {
+        for foodItem in foodItems {
+            print(foodItem.name)
+        }
+        completionHandler(true)
+    }
 }

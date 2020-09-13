@@ -11,10 +11,17 @@ import UIKit
 class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-    
+
     var viewController: CartViewController!
     
-    var data: [FoodItemEntity] = (UIApplication.shared.delegate as! AppDelegate).cart.loadCart()
+    var data: [FoodItemEntity] {
+        get {
+            viewController.data
+        }
+        set(newData) {
+            viewController.data = newData
+        }
+    }
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -59,11 +66,11 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        let star = UIContextualAction(style: .normal, title: Stall.getIsFoodItemStar(for: data[indexPath.row]) ? "Unstar" : "Star") { (_, _, completionHandler) in
+        let star = UIContextualAction(style: .normal, title: Stall.isFoodItemStar(for: data[indexPath.row]) ? "Unstar" : "Star") { (_, _, completionHandler) in
             Stall.toggleFoodItemStar(for: self.data[indexPath.row])
             completionHandler(true)
         }
-        star.image = UIImage(systemName: Stall.getIsFoodItemStar(for: data[indexPath.row]) ? "star.slash.fill" : "star.fill")
+        star.image = UIImage(systemName: Stall.isFoodItemStar(for: data[indexPath.row]) ? "star.slash.fill" : "star.fill")
         star.backgroundColor = .link
         
         return UISwipeActionsConfiguration(actions: [star])

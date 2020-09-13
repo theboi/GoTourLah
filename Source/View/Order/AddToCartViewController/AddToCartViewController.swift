@@ -24,7 +24,7 @@ class AddToCartViewController: ModalActionViewController {
 		self.foodItem = foodItem
 		self.view.backgroundColor = .systemBackground
 		self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(dismissCartViewController))
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Stall.getIsFoodItemStar(for: foodItem) ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(toggleFavorite))
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: Stall.isFoodItemStar(for: foodItem) ? "heart.fill" : "heart"), style: .plain, target: self, action: #selector(toggleFavorite))
         
 		setupUi()
 	}
@@ -109,7 +109,7 @@ class AddToCartViewController: ModalActionViewController {
 
 	@objc private func toggleFavorite() {
         Stall.toggleFoodItemStar(for: foodItem)
-        self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: Stall.getIsFoodItemStar(for: foodItem) ? "heart.fill" : "heart")
+        self.navigationItem.leftBarButtonItem?.image = UIImage(systemName: Stall.isFoodItemStar(for: foodItem) ? "heart.fill" : "heart")
 	}
 
 	

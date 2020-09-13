@@ -42,7 +42,7 @@ class Cart {
         }
         return foodItems
     }
-    
+        
     func addToCart(with foodItemDetails: FoodItemDetails) {
         let context = persistentContainer.viewContext
         let entity = NSEntityDescription.entity(forEntityName: "FoodItemEntity", in: context)!
@@ -62,7 +62,14 @@ class Cart {
         saveContext()
     }
     
-    func getFoodItems() {
-        
+    func clearCart() {
+        let context = persistentContainer.viewContext
+        let deleteReq = NSBatchDeleteRequest(fetchRequest: FoodItemEntity.fetchRequest())
+        do {
+            try context.execute(deleteReq)
+        } catch let error as NSError {
+            fatalError("ERROR: %@ \(error)")
+        }
     }
+
 }
