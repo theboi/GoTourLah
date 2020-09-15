@@ -11,6 +11,7 @@ import Firebase
 import GoogleSignIn
 
 class UserAuth {
+        
     static func signIn() {
         GIDSignIn.sharedInstance().signIn()
     }

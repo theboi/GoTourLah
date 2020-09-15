@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let stallsTab = UINavigationController(rootViewController: StallsViewController())
 		stallsTab.navigationBar.prefersLargeTitles = true
 		
-		let meTab = UINavigationController(rootViewController: SettingsTableViewController(list: nil))
+		let meTab = UINavigationController(rootViewController: SettingsViewController(list: nil))
 
 		tabBarController.setViewControllers([exploreTab, stallsTab, meTab], animated: true)
 		tabBarController.selectedIndex = 1

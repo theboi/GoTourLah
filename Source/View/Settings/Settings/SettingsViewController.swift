@@ -18,19 +18,21 @@ struct SettingsTableItem {
     var height: CGFloat?
     var customCell: UITableViewCell?
     var accessoryView: UIView?
-    var viewController: UIViewController?
+    var pushViewController: UIViewController?
+    var presentViewController: UIViewController?
     var action: SettingsAction?
 }
 
 class SettingsViewController: UITableViewController {
     
     var listData: SettingsList!
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     var profileTableItem: SettingsTableItem {
         let cellHeight: CGFloat = 100
         let currentUser = Auth.auth().currentUser
         if let displayName = currentUser?.displayName {
-            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), viewController: SettingsViewController(list: {[[
+            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), pushViewController: SettingsViewController(list: {[[
                 SettingsTableItem(title: "Sign Out", action: {
                     UserAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
@@ -41,15 +43,15 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    let adminConsole = { () -> [SettingsTableItem] in
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        print(appDelegate.admin.isAdmin)
-        if appDelegate.admin.isAdmin {
-            return [
-                SettingsTableItem(title: "Admin Console", viewController: SettingsViewController()),
-            ]
+    var adminConsole: () -> [SettingsTableItem] {
+        { () -> [SettingsTableItem] in
+            if self.appDelegate.admin.isAdmin {
+                return [
+                    SettingsTableItem(title: "Admin Mode", accessoryView: self.createAdminSwitch()),
+                ]
+            }
+            return []
         }
-        return []
     }
     
     var defaultList: SettingsList {
@@ -59,12 +61,27 @@ class SettingsViewController: UITableViewController {
                     self.profileTableItem,
                 ],
                 [
-                    SettingsTableItem(title: "History", viewController: UIViewController()),
-                    SettingsTableItem(title: "Privacy", viewController: UIViewController()),
+                    SettingsTableItem(title: "History", pushViewController: UIViewController()),
+                    SettingsTableItem(title: "Privacy", presentViewController: { () -> UIAlertController in
+                        let privacyAlert = UIAlertController(title: "Privacy", message: "Your data will be kept private and confidential... hopefully...", preferredStyle: .alert)
+                        privacyAlert.addAction(UIAlertAction(title: "OK", style: .default))
+                        return privacyAlert
+                    }()),
                 ],
                 self.adminConsole()
             ]
         }
+    }
+    
+    @objc func toggleAdminMode(sender: UISwitch) {
+        appDelegate.admin.isAdminModeOn = sender.isOn
+        NotificationCenter.default.post(Notification(name: .AdminModeDidChange))
+    }
+    
+    func createAdminSwitch() -> UISwitch {
+        let adminSwitch = UISwitch()
+        adminSwitch.addTarget(self, action: #selector(toggleAdminMode(sender:)), for: .touchUpInside)
+        return adminSwitch
     }
     
     func createProfileCell(style: SettingsProfileTableViewCell.CellStyle) -> UITableViewCell {
@@ -73,7 +90,7 @@ class SettingsViewController: UITableViewController {
         cell.detailTextLabel?.text = currentUser?.email
         return cell
     }
-        
+    
     init(list: SettingsList?) {
         super.init(nibName: nil, bundle: nil)
         self.title = "Settings"
@@ -113,7 +130,7 @@ class SettingsViewController: UITableViewController {
         if let accessoryView = cellData.accessoryView {
             cell.accessoryView = accessoryView
             cell.selectionStyle = .none
-        } else if cellData.viewController != nil {
+        } else if cellData.pushViewController != nil || cellData.presentViewController != nil {
             cell.accessoryType = .disclosureIndicator
         } else if cellData.action != nil {
         } else {
@@ -132,10 +149,11 @@ class SettingsViewController: UITableViewController {
         let cellData = listData()[indexPath.section][indexPath.row]
         tableView.deselectRow(at: indexPath, animated: true)
         cellData.action?()
-        guard let nextViewController = cellData.viewController else {
-            return
+        if let nextViewController = cellData.pushViewController {
+            nextViewController.title = cellData.title
+            self.navigationController?.pushViewController(nextViewController, animated: true)
+        } else if let nextViewController = cellData.presentViewController {
+            self.navigationController?.present(nextViewController, animated: true)
         }
-        nextViewController.title = cellData.title
-        self.navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

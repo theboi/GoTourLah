@@ -16,7 +16,7 @@
 		AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8E924E83C4900DE51AD /* CartTableView.swift */; };
 		AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */; };
 		AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA950250C7F710068D80C /* StallsViewController.swift */; };
-		AA41A8CF24F4B6400051DDAF /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */; };
+		AA41A8CF24F4B6400051DDAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41A8CE24F4B6400051DDAF /* SettingsViewController.swift */; };
 		AA578CBD24F7823A004B27D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */; };
 		AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5819C924ECC7AF00DCDD68 /* FoodItemsViewController.swift */; };
 		AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D021324FFDE0600CA2E45 /* UserAuth.swift */; };
@@ -26,6 +26,9 @@
 		AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA893DDB24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift */; };
 		AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */; };
 		AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F04F3250245A0002B5EE9 /* Cart.swift */; };
+		AA9F19D0250F19840088B811 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F19CF250F19840088B811 /* Admin.swift */; };
+		AA9F19D4250F210B0088B811 /* AdminListingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F19D3250F210B0088B811 /* AdminListingViewController.swift */; };
+		AAA6E85D25108D75009E4507 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E85C25108D75009E4507 /* Notification.Name.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
 		AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B924E50C2700B62170 /* SceneDelegate.swift */; };
 		AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C024E50C2A00B62170 /* Assets.xcassets */; };
@@ -51,7 +54,7 @@
 		AA37F8E924E83C4900DE51AD /* CartTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableView.swift; sourceTree = "<group>"; };
 		AA37F8EB24E83C8200DE51AD /* CartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartTableViewCell.swift; sourceTree = "<group>"; };
 		AA3CA950250C7F710068D80C /* StallsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsViewController.swift; sourceTree = "<group>"; };
-		AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
+		AA41A8CE24F4B6400051DDAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA5819C924ECC7AF00DCDD68 /* FoodItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsViewController.swift; sourceTree = "<group>"; };
 		AA5D021324FFDE0600CA2E45 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -61,6 +64,9 @@
 		AA893DDB24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodItemsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		AA9F04F3250245A0002B5EE9 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
+		AA9F19CF250F19840088B811 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
+		AA9F19D3250F210B0088B811 /* AdminListingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminListingViewController.swift; sourceTree = "<group>"; };
+		AAA6E85C25108D75009E4507 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barg-InnoFest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAADC1B724E50C2700B62170 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAADC1B924E50C2700B62170 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +111,7 @@
 				AA02F67E24F161AA0042C8CF /* GradientView.swift */,
 				AAEF73F924F367C300C31BE0 /* UIWindow.swift */,
 				AAB6356024FA1EE900754A01 /* UIView.swift */,
+				AAA6E85C25108D75009E4507 /* Notification.Name.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -150,7 +157,7 @@
 		AA41A8D024F4B6440051DDAF /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				AA41A8CE24F4B6400051DDAF /* SettingsTableViewController.swift */,
+				AA41A8CE24F4B6400051DDAF /* SettingsViewController.swift */,
 				AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */,
 			);
 			path = Settings;
@@ -172,6 +179,22 @@
 				AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */,
 			);
 			path = AddToCartViewController;
+			sourceTree = "<group>";
+		};
+		AA9F19D1250F1DE10088B811 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F19D2250F1DE60088B811 /* Listing */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		AA9F19D2250F1DE60088B811 /* Listing */ = {
+			isa = PBXGroup;
+			children = (
+				AA9F19D3250F210B0088B811 /* AdminListingViewController.swift */,
+			);
+			path = Listing;
 			sourceTree = "<group>";
 		};
 		AAADC1AB24E50C2700B62170 = {
@@ -215,6 +238,7 @@
 				AA9F04F3250245A0002B5EE9 /* Cart.swift */,
 				AA844F9F24E78DC000D99C48 /* Stall.swift */,
 				AA5D021324FFDE0600CA2E45 /* UserAuth.swift */,
+				AA9F19CF250F19840088B811 /* Admin.swift */,
 				AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */,
 			);
 			path = Model;
@@ -223,6 +247,7 @@
 		AAADC1CC24E50C9D00B62170 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				AA9F19D1250F1DE10088B811 /* Admin */,
 				AAC6EE2D24FDEE0A00A458B9 /* Other */,
 				AA08A09D2500E8170064A730 /* Explore */,
 				AA41A8CC24F4B6140051DDAF /* Order */,
@@ -415,6 +440,7 @@
 			files = (
 				AA893DDC24EF5A6700FB57EA /* FoodItemsCollectionViewCell.swift in Sources */,
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
+				AA9F19D4250F210B0088B811 /* AdminListingViewController.swift in Sources */,
 				AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */,
 				AA5819CA24ECC7AF00DCDD68 /* FoodItemsViewController.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
@@ -423,15 +449,17 @@
 				AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */,
 				AA37F8E824E83BC600DE51AD /* CartViewController.swift in Sources */,
 				AAF086B924EE467C00A5146D /* FoodItemsCollectionView.swift in Sources */,
-				AA41A8CF24F4B6400051DDAF /* SettingsTableViewController.swift in Sources */,
+				AA41A8CF24F4B6400051DDAF /* SettingsViewController.swift in Sources */,
 				AA37F8EA24E83C4900DE51AD /* CartTableView.swift in Sources */,
 				AA12885224E940B900DD5459 /* Constants.swift in Sources */,
 				AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */,
 				AA37F8EC24E83C8200DE51AD /* CartTableViewCell.swift in Sources */,
+				AAA6E85D25108D75009E4507 /* Notification.Name.swift in Sources */,
 				AAFF1293250CE49D00E1FA48 /* FoodItemEntity+CoreDataClass.swift in Sources */,
 				AAADC1BA24E50C2700B62170 /* SceneDelegate.swift in Sources */,
 				AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */,
 				AA80E57724F6099B00723015 /* Utils.swift in Sources */,
+				AA9F19D0250F19840088B811 /* Admin.swift in Sources */,
 				AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */,
 				AAFF1292250CE49D00E1FA48 /* FoodItemEntity+CoreDataProperties.swift in Sources */,
 				AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */,
