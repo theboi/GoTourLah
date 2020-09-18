@@ -19,7 +19,9 @@ class K {
 	static let cornerRadiusCg: CGFloat = 15
 	static let borderWidthCg: CGFloat = 1
     static let buttonHeight: CGFloat = 50
-	static let placeholderImage = UIImage(named: "food")
+	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")
+    static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")
+    static let profilePlaceholderImage = UIImage(named: "ProfilePlaceholder")
     
     static let dbCollectionNames = DbCollectionNames()
     

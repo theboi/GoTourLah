@@ -13,14 +13,17 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
     
-    var searchString: String = ""
-    
+    var searchString = ""
     var searchController = UISearchController()
     
-    var data: [Stall] = []
+    var stall: Stall?
 
-    var filteredStallsData: [Stall] {
-        return data.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
+    var data: [Stall] = []
+    var filterStallData: [Stall] {
+        data.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
+    }
+    var filterFoodItemData: [FoodItem] {
+        return stall?.foodItems.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) } ?? []
     }
     
     func refreshStallsData() {
@@ -30,9 +33,20 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
         })
     }
     
+    @objc func presentCartViewController() {
+        let cartViewController = CartViewController()
+        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
+        self.navigationController?.present(cartNavigationController, animated: true, completion: nil)
+    }
+    
+    func presentFoodItemsViewController(for stall: Stall) {
+        let foodItemsViewController = StallsViewController(for: stall)
+        self.navigationController?.pushViewController(foodItemsViewController, animated: true)
+    }
+    
     // MARK: UICollectionViewController
     
-    init() {
+    init(for stall: Stall? = nil) {
         func createGridLayout() -> UICollectionViewLayout {
             let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
                 let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.marginCg*3)/2), heightDimension: .fractionalHeight(1.0))
@@ -52,7 +66,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
             }
             return layout
         }
-        
+        self.stall = stall
         super.init(collectionViewLayout: createGridLayout())
     }
     
@@ -64,7 +78,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = "Order"
+        self.title = stall?.name ?? "Order"
         self.collectionView.backgroundColor = .systemGroupedBackground
         
         self.navigationItem.searchController = searchController
@@ -78,33 +92,29 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
         refreshStallsData()
     }
     
-    @objc func presentCartViewController() {
-        let cartViewController = CartViewController()
-        let cartNavigationController = UINavigationController(rootViewController: cartViewController)
-        self.navigationController?.present(cartNavigationController, animated: true, completion: nil)
-    }
-    
-    func presentFoodItemsViewController(for stall: Stall) {
-        let foodItemsViewController = FoodItemsViewController(for: stall)
-        self.navigationController?.pushViewController(foodItemsViewController, animated: true)
-    }
-    
     // MARK: UICollectionViewDataSource
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return filteredStallsData.count
+        return stall == nil ? filterStallData.count : filterFoodItemData.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "stallsCollectionViewCell", for: indexPath) as! StallsCollectionViewCell
-        cell.titleLabel.text = filteredStallsData[indexPath.row].name
+        cell.titleLabel.text = stall == nil ? filterStallData[indexPath.row].name : filterFoodItemData[indexPath.row].name
         return cell
     }
     
     // MARK: UICollectionViewDelegate
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.presentFoodItemsViewController(for: filteredStallsData[indexPath.row])
+        if let stall = stall {
+            let addToCartViewController = AddToCartViewController(stall: stall, foodItem: stall.foodItems[indexPath.row])
+            let navigationController = UINavigationController(rootViewController: addToCartViewController)
+            addToCartViewController.presentingStallsViewController = self
+            self.navigationController?.present(navigationController, animated: true)
+        } else {
+            self.presentFoodItemsViewController(for: filterStallData[indexPath.row])
+        }
     }
     
     // MARK: UISearchBarDelegate

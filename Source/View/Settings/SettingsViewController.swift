@@ -32,7 +32,7 @@ class SettingsViewController: UITableViewController {
         let cellHeight: CGFloat = 100
         let currentUser = Auth.auth().currentUser
         if let displayName = currentUser?.displayName {
-            return SettingsTableItem(title: displayName, image: K.placeholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), pushViewController: SettingsViewController(list: {[[
+            return SettingsTableItem(title: displayName, image: K.profilePlaceholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), pushViewController: SettingsViewController(list: {[[
                 SettingsTableItem(title: "Sign Out", action: {
                     UserAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)

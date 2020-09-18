@@ -36,7 +36,7 @@ class Stall {
     var name: String
     var desc: String
     var model: StallModelType
-    var foodItems: [FoodItemDetails]
+    var foodItems: [FoodItem]
     
     init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
         self.name = name

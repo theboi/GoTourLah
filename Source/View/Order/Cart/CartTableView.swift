@@ -41,7 +41,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MainTableViewCell", for: indexPath)
         cell.textLabel!.text = data[indexPath.row].name
-        cell.imageView?.image = K.placeholderImage
+        cell.imageView?.image = K.foodPlaceholderImage
         return cell
     }
     
