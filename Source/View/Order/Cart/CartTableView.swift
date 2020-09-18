@@ -71,7 +71,7 @@ class CartTableView: UITableView, UITableViewDelegate, UITableViewDataSource {
             completionHandler(true)
         }
         star.image = UIImage(systemName: Stall.isFoodItemStar(for: data[indexPath.row]) ? "star.slash.fill" : "star.fill")
-        star.backgroundColor = .link
+        star.backgroundColor = .accent
         
         return UISwipeActionsConfiguration(actions: [star])
     }

@@ -38,7 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 			item.title = titles[index]
 		}
         
-		window?.tintColor = K.tintColor
+        window?.tintColor = .accent
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         

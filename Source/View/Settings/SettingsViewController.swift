@@ -43,17 +43,6 @@ class SettingsViewController: UITableViewController {
         }
     }
     
-    var adminConsole: () -> [SettingsTableItem] {
-        { () -> [SettingsTableItem] in
-            if self.appDelegate.admin.isAdmin {
-                return [
-                    SettingsTableItem(title: "Admin Mode", accessoryView: self.createAdminSwitch()),
-                ]
-            }
-            return []
-        }
-    }
-    
     var defaultList: SettingsList {
         { () -> [[SettingsTableItem]] in
             return [
@@ -68,7 +57,10 @@ class SettingsViewController: UITableViewController {
                         return privacyAlert
                     }()),
                 ],
-                self.adminConsole()
+                [
+                    SettingsTableItem(title: "My Stall", pushViewController: MyStallViewController(for: "Chinese Rice")),
+                    SettingsTableItem(title: "Orders", pushViewController: UIViewController()),
+                ],
             ]
         }
     }
@@ -109,12 +101,10 @@ class SettingsViewController: UITableViewController {
         self.tableView.reloadData()
     }
     
+    // MARK: UITableViewDataSource
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return listData().count
-    }
-    
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return UIView(frame: .zero)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -140,6 +130,8 @@ class SettingsViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: UITableViewDelegate
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return listData()[indexPath.section][indexPath.row].height ?? tableView.rowHeight

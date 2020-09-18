@@ -38,8 +38,8 @@ class ModalActionViewController: UIViewController {
     private func setupUi() {
         let actionButtons = actions?.map { (introAction) -> UIButton in
             let button = UIButton(type: .roundedRect)
-            button.backgroundColor = introAction.isPrimary! ? .link : .none
-            button.tintColor = introAction.isPrimary! ? .white : .link
+            button.backgroundColor = introAction.isPrimary! ? .accent : .none
+            button.tintColor = introAction.isPrimary! ? .white : .accent
             button.setTitle(introAction.title, for: .normal)
             button.titleLabel?.font = UIFont.systemFont(ofSize: button.titleLabel!.font.pointSize, weight: introAction.isPrimary! ? .medium : .regular)
             button.addTarget(target, action: introAction.action, for: .touchUpInside)

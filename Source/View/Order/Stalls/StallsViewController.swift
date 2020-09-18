@@ -9,8 +9,6 @@
 import UIKit
 import GoogleSignIn
 
-private let reuseIdentifier = "Cell"
-
 class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     var appDelegate = (UIApplication.shared.delegate) as! AppDelegate
@@ -20,21 +18,15 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     var searchController = UISearchController()
     
     var data: [Stall] = []
-    
+
     var filteredStallsData: [Stall] {
         return data.filter { searchString == "" ? true : $0.name.lowercased().contains(searchString) }
     }
     
     func refreshStallsData() {
-        appDelegate.firestoreDb?.collection(K.dbCollectionNames.foodItems).getDocuments(completion: { (querySnapshot, error) in
-            if let error = error {
-                fatalError("ERROR: %@ \(error)")
-            }
-            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                self.data = Stall.fromQuerySnapshot(querySnapshot)
-                print("CALL RELOAD")
-                self.collectionView.reloadData()
-            }
+        Stall.get(completionHandler: { (data) -> Void in
+            self.data = data
+            self.collectionView.reloadData()
         })
     }
     
@@ -74,7 +66,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
         super.viewDidLoad()
         self.title = "Order"
         self.collectionView.backgroundColor = .systemGroupedBackground
-
+        
         self.navigationItem.searchController = searchController
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "cart"), style: .plain, target: self, action: #selector(presentCartViewController))
         self.view.addSubview(collectionView)
@@ -84,7 +76,6 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
         self.collectionView.register(StallsCollectionViewCell.self, forCellWithReuseIdentifier: "stallsCollectionViewCell")
         
         refreshStallsData()
-        
     }
     
     @objc func presentCartViewController() {

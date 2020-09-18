@@ -15,4 +15,6 @@ class Admin {
     }
     
     var isAdminModeOn = false
+    
+    var stallOwner = K.stallOwner
 }

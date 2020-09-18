@@ -1,24 +1,23 @@
 //
-//  AdminListingViewController.swift
+//  MyStallNewViewController.swift
 //  Barg-InnoFest
 //
-//  Created by Ryan The on 14/9/20.
+//  Created by Ryan The on 18/9/20.
 //  Copyright © 2020 Ryan The. All rights reserved.
 //
 
 import UIKit
 
-class AdminListingViewController: UITableViewController {
+class MyStallNewViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationItem.hidesBackButton = true
-//        self.navigationItem.backBarButtonItem = 
-        self.navigationItem.rightBarButtonItems = [
-            UIBarButtonItem(barButtonSystemItem: .add, target: self, action: nil),
-            UIBarButtonItem(image: UIImage(systemName: "slider.horizontal.3"), style: .plain, target: self, action: nil)
-        ]
+        // Uncomment the following line to preserve selection between presentations
+        // self.clearsSelectionOnViewWillAppear = false
+
+        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
+        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     // MARK: - Table view data source

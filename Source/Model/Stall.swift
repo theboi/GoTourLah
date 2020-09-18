@@ -10,8 +10,15 @@ import Foundation
 import FirebaseFirestore
 
 enum StallModelType: String {
-	case select = "select", set = "set"
+    case select = "select", set = "set"
 }
+
+struct StallOwner {
+    var email: String
+    var stallName: StallName
+}
+
+typealias StallName = String
 
 protocol FoodItem {
     var name: String { get set }
@@ -26,17 +33,17 @@ struct FoodItemDetails: FoodItem {
 }
 
 class Stall {
-	var name: String
-	var desc: String
-	var model: StallModelType
-	var foodItems: [FoodItemDetails]
-	
-	init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
-		self.name = name
-		self.desc = desc
-		self.model = model
-		self.foodItems = foodItems
-	}
+    var name: String
+    var desc: String
+    var model: StallModelType
+    var foodItems: [FoodItemDetails]
+    
+    init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
+        self.name = name
+        self.desc = desc
+        self.model = model
+        self.foodItems = foodItems
+    }
     
     static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
         return snapshot.documents.map { (document) -> Stall in
@@ -48,6 +55,18 @@ class Stall {
             
             return Stall(name: documentData["name"] as! String, desc: documentData["desc"] as! String, model: StallModelType(rawValue: documentData["model"] as! String) ?? .select, foodItems: foodItems)
         }
+    }
+    
+    static func get(completionHandler: @escaping (_ data: [Stall]) -> ()) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.firestoreDb?.collection(K.dbCollectionNames.foodItems).getDocuments(completion: { (querySnapshot, error) in
+            if let error = error {
+                fatalError("ERROR: %@ \(error)")
+            }
+            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+                completionHandler(Stall.fromQuerySnapshot(querySnapshot))
+            }
+        })
     }
     
     static func toggleFoodItemStar(for foodItem: FoodItem) {
