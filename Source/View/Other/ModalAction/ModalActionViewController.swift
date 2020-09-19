@@ -21,20 +21,6 @@ class ModalActionViewController: UIViewController {
     var actions: [ModalActionAction]!
     var target: Any?
     
-    init(contentView: UIView? = UIView(), actions: [ModalActionAction], target: Any?) {
-        super.init(nibName: nil, bundle: nil)
-        self.view.backgroundColor = .systemBackground
-        self.contentView = contentView
-        self.actions = actions
-        self.target = target
-        
-        setupUi()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-    }
-    
     private func setupUi() {
         let actionButtons = actions?.map { (introAction) -> UIButton in
             let button = UIButton(type: .roundedRect)
@@ -75,5 +61,31 @@ class ModalActionViewController: UIViewController {
             ])
         }
         
+        let view = UIView()
+        view.backgroundColor = .blue
+        self.view.addSubview(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        self.view.addConstraints([
+//            view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+//            view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            view.heightAnchor.constraint(equalToConstant: 100),
+            view.widthAnchor.constraint(equalToConstant: view.frame.width)
+        ])
+    }
+    
+    // MARK: UIViewController
+    
+    init(contentView: UIView? = UIView(), actions: [ModalActionAction], target: Any?) {
+        super.init(nibName: nil, bundle: nil)
+        self.view.backgroundColor = .systemBackground
+        self.contentView = contentView
+        self.actions = actions
+        self.target = target
+        
+        setupUi()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
     }
 }

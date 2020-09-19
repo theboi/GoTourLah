@@ -97,6 +97,15 @@ class Stall {
         }
     }
     
+    static func add(foodItem: FoodItem, to stallName: StallName, completionHandler: @escaping () -> Void) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.firestoreDb?.collection("stalls").document(stallName).setData(["foodItems": FieldValue.arrayUnion([foodItem.toDictionary])]) { error in
+            if let error = error {
+                fatalError("ERROR: \(error)")
+            }
+        }
+    }
+    
     static func toggleFoodItemStar(for foodItem: FoodItem) {
         if (UserDefaults.standard.array(forKey: "favorites") == nil) {
             UserDefaults.standard.set([], forKey: "favorites")

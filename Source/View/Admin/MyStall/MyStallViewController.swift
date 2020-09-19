@@ -16,7 +16,9 @@ class MyStallViewController: UITableViewController {
     var data: [FoodItem] = []
     
     @objc func addNewFoodItem() {
-        
+        self.present(MyStallAddViewController(), animated: true) {
+            
+        }
     }
     
     func refreshStallsData() {
