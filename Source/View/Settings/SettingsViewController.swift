@@ -50,7 +50,7 @@ class SettingsViewController: UITableViewController {
                     self.profileTableItem,
                 ],
                 [
-                    SettingsTableItem(title: "History", pushViewController: UIViewController()),
+//                    SettingsTableItem(title: "History", pushViewController: UIViewController()),
                     SettingsTableItem(title: "Privacy", presentViewController: { () -> UIAlertController in
                         let privacyAlert = UIAlertController(title: "Privacy", message: "Your data will be kept private and confidential... hopefully...", preferredStyle: .alert)
                         privacyAlert.addAction(UIAlertAction(title: "OK", style: .default))

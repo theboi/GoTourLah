@@ -11,7 +11,7 @@ import Firebase
 import GoogleSignIn
 
 class UserAuth {
-        
+    
     static func signIn() {
         GIDSignIn.sharedInstance().signIn()
     }
@@ -27,13 +27,15 @@ class UserAuth {
     }
     
     var profileImage: UIImage {
-        do {
-            let imageData = try Data(contentsOf: Auth.auth().currentUser!.photoURL!)
-            return UIImage(data: imageData) ?? K.profilePlaceholderImage
-        } catch let error as NSError {
-            print("ERROR: %@\(error)")
-            return K.profilePlaceholderImage
+        if let url = Auth.auth().currentUser?.photoURL {
+            do {
+                let imageData = try Data(contentsOf: url)
+                return UIImage(data: imageData) ?? K.profilePlaceholderImage
+            } catch let error as NSError {
+                print("ERROR: %@\(error)")
+            }
         }
+        return K.profilePlaceholderImage
     }
     
     var isAdmin: Bool {
