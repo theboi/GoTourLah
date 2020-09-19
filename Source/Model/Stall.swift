@@ -24,12 +24,20 @@ protocol FoodItem {
     var name: String { get set }
     var desc: String { get set }
     var price: Double { get set }
+    var toDictionary: [String: Any] { get }
 }
 
 struct FoodItemDetails: FoodItem {
     var name: String
     var desc: String
     var price: Double
+    var toDictionary: [String: Any] {
+        return [
+            "name": self.name,
+            "desc": self.desc,
+            "price": self.price,
+        ]
+    }
 }
 
 class Stall {
@@ -37,6 +45,17 @@ class Stall {
     var desc: String
     var model: StallModelType
     var foodItems: [FoodItem]
+    var toDictionary: [String: Any] {
+        let foodItems = self.foodItems.map { (foodItem) -> [String: Any] in
+            return foodItem.toDictionary
+        }
+        return [
+            "name": self.name,
+            "desc": self.desc,
+            "model": self.model,
+            "foodItems": foodItems,
+        ]
+    }
     
     init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
         self.name = name
@@ -48,7 +67,7 @@ class Stall {
     static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
         return snapshot.documents.map { (document) -> Stall in
             let documentData = document.data()
-            
+
             let foodItems = (documentData["foodItems"] as! [[String: Any]]).map { (foodItem) -> FoodItemDetails in
                 return FoodItemDetails(name: foodItem["name"] as! String, desc: foodItem["desc"] as! String, price: foodItem["price"] as! Double)
             }
@@ -59,7 +78,7 @@ class Stall {
     
     static func get(completionHandler: @escaping (_ data: [Stall]) -> ()) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        appDelegate.firestoreDb?.collection(K.dbCollectionNames.foodItems).getDocuments(completion: { (querySnapshot, error) in
+        appDelegate.firestoreDb?.collection("stalls").getDocuments(completion: { (querySnapshot, error) in
             if let error = error {
                 fatalError("ERROR: %@ \(error)")
             }
@@ -67,6 +86,15 @@ class Stall {
                 completionHandler(Stall.fromQuerySnapshot(querySnapshot))
             }
         })
+    }
+    
+    static func delete(foodItem: FoodItem, from stallName: StallName, completionHandler: @escaping () -> Void) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.firestoreDb?.collection("stalls").document(stallName).updateData(["foodItems": FieldValue.arrayRemove([foodItem.toDictionary])]) { error in
+            if let error = error {
+                fatalError("ERROR: \(error)")
+            }
+        }
     }
     
     static func toggleFoodItemStar(for foodItem: FoodItem) {

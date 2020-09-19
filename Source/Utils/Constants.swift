@@ -8,12 +8,6 @@
 
 import UIKit
 
-struct DbCollectionNames {
-    let foodItems = "stall-foodItems"
-    let orders = "stall-orders"
-    let users = "users"
-}
-
 class K {
 	static let marginCg: CGFloat = 20
 	static let cornerRadiusCg: CGFloat = 15
@@ -22,8 +16,6 @@ class K {
 	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")
     static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")
     static let profilePlaceholderImage = UIImage(named: "ProfilePlaceholder")
-    
-    static let dbCollectionNames = DbCollectionNames()
-    
+        
     static let stallOwner = StallOwner(email: "ryan_theodore_the@s2019.ssts.edu.sg", stallName: "Chinese Rice")
 }

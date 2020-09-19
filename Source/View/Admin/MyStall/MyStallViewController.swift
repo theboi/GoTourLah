@@ -76,6 +76,9 @@ class MyStallViewController: UITableViewController {
                 completionHandler(false)
             }))
             confirmAlert.addAction(UIAlertAction(title: "Delete", style: .destructive, handler: { (alertAction) in
+                Stall.delete(foodItem: self.data[indexPath.row], from: self.stallName) {
+                    
+                }
                 self.data.remove(at: indexPath.row)
                 self.tableView.deleteRows(at: [indexPath], with: .fade)
                 completionHandler(true)
