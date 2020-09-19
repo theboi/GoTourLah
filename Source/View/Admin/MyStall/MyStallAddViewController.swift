@@ -11,22 +11,31 @@ import UIKit
 struct MyStallAddField {
     var name: String
     var placeholder: String
+    var type: InputType = .default
+    var value = ""
 }
 
-class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, UITableViewDataSource {
+class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, UITableViewDataSource, UIGestureRecognizerDelegate {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var tableView = UITableView(frame: CGRect(), style: .insetGrouped)
+    
+    var myStallViewController: MyStallViewController!
     
     let myStallAddCellIdentifier = "myStallAddCell"
     
-    let fields = [
+    var fields = [
         MyStallAddField(name: "Name", placeholder: "Chicken Rice"),
-        MyStallAddField(name: "Description", placeholder: "Classical Singapore Hainanese Chicken Rice"),
-        MyStallAddField(name: "Price", placeholder: "1.50"),
+        MyStallAddField(name: "Description", placeholder: "Delicious Food!"),
+        MyStallAddField(name: "Price", placeholder: "1.50", type: .decimalPad),
     ]
     
-    @objc func createNewFoodItem() {
-        
+    @objc func addNewFoodItem() {
+        Stall.add(foodItem: FoodItemDetails(name: fields[0].value, desc: fields[1].value, price: Double(fields[2].value) ?? 0), to: appDelegate.admin.stallOwner.stallName, completionHandler: {
+            self.myStallViewController.refreshStallsData()
+            self.dismiss(animated: true)
+        })
     }
     
     private func setupUi() {
@@ -52,15 +61,22 @@ class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, 
         ])
     }
     
+    @objc func onTapOutsideField() {
+        view.endEditing(true)
+    }
     // MARK: ModalActionTableViewController
     
     init() {
-        super.init(actions: [ModalActionAction(title: "Add Food Item", action: #selector(createNewFoodItem), isPrimary: true)], target: nil)
+        super.init(actions: [ModalActionAction(title: "Add Food Item", action: #selector(addNewFoodItem), isPrimary: true)], target: nil)
         self.target = self
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(InputTableViewCell.self, forCellReuseIdentifier: myStallAddCellIdentifier)
         
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTapOutsideField))
+        tapGestureRecognizer.cancelsTouchesInView = false
+        tapGestureRecognizer.delegate = self
+        self.contentView.addGestureRecognizer(tapGestureRecognizer)
         setupUi()
     }
     
@@ -75,8 +91,14 @@ class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: myStallAddCellIdentifier, for: indexPath)
-        cell.textLabel?.text = fields[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: myStallAddCellIdentifier, for: indexPath) as! InputTableViewCell
+        let field = fields[indexPath.row]
+        cell.textLabel?.text = field.name
+        cell.placeholder = field.placeholder
+        cell.type = field.type
+        cell.onChange = { (value) -> Void in
+            self.fields[indexPath.row].value = value
+        }
         return cell
     }
     
@@ -88,5 +110,10 @@ class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, 
     
     func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
         return false
+    }
+    
+    // MARK: UIGestureRecognizerDelegate
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        return touch.view === tableView
     }
 }

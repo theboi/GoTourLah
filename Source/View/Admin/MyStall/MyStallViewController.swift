@@ -16,14 +16,14 @@ class MyStallViewController: UITableViewController {
     var data: [FoodItem] = []
     
     @objc func addNewFoodItem() {
-        self.present(MyStallAddViewController(), animated: true) {
-            
-        }
+        let myStallAddViewController = MyStallAddViewController()
+        myStallAddViewController.myStallViewController = self
+        self.present(myStallAddViewController, animated: true)
     }
     
     func refreshStallsData() {
         Stall.get { (stalls) in
-            self.data = stalls.filter({$0.name == self.appDelegate.admin.stallOwner.stallName})[0].foodItems
+            self.data = stalls.filter({$0.name == self.appDelegate.admin.stallOwner.stallName})[safe: 0]?.foodItems ?? []
             self.tableView.reloadData()
         }
     }

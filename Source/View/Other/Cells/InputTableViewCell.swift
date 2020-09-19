@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias InputType = UIKeyboardType
+
 class InputTableViewCell: UITableViewCell {
 
     lazy private var inputField: UITextField = {
@@ -18,8 +20,21 @@ class InputTableViewCell: UITableViewCell {
         return inputField
     }()
     
-    @objc func inputFieldDidChange() {
-        
+    @objc func inputFieldDidChange(sender: UITextField!) {
+        onChange(sender.text ?? "")
+    }
+    
+    public var type: InputType = .default
+    
+    public var onChange: (String) -> Void = {_ in }
+    
+    public var placeholder: String {
+        get {
+            return inputField.placeholder ?? ""
+        }
+        set(value) {
+            inputField.placeholder = value
+        }
     }
     
     // MARK: UITableViewCell
@@ -41,6 +56,7 @@ class InputTableViewCell: UITableViewCell {
     // MARK: UIResponder
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        inputField.keyboardType = self.type
         inputField.becomeFirstResponder()
     }
     

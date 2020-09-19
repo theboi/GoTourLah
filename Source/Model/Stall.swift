@@ -99,10 +99,11 @@ class Stall {
     
     static func add(foodItem: FoodItem, to stallName: StallName, completionHandler: @escaping () -> Void) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
-        appDelegate.firestoreDb?.collection("stalls").document(stallName).setData(["foodItems": FieldValue.arrayUnion([foodItem.toDictionary])]) { error in
+        appDelegate.firestoreDb?.collection("stalls").document(stallName).updateData(["foodItems": FieldValue.arrayUnion([foodItem.toDictionary])]) { error in
             if let error = error {
                 fatalError("ERROR: \(error)")
             }
+            completionHandler()
         }
     }
     
