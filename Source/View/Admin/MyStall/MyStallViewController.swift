@@ -23,7 +23,7 @@ class MyStallViewController: UITableViewController {
     
     func refreshStallsData() {
         Stall.get { (stalls) in
-            self.data = stalls.filter({$0.name == self.appDelegate.admin.stallOwner.stallName})[safe: 0]?.foodItems ?? []
+            self.data = stalls.filter({$0.name == self.appDelegate.admin.stallOwner!.stallName})[safe: 0]?.foodItems ?? []
             self.tableView.reloadData()
         }
     }

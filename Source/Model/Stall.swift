@@ -14,7 +14,7 @@ enum StallModelType: String {
 }
 
 struct StallOwner {
-    var email: String
+    var uid: String
     var stallName: StallName
 }
 

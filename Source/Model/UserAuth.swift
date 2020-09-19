@@ -25,4 +25,22 @@ class UserAuth {
         }
         return
     }
+    
+    var profileImage: UIImage {
+        do {
+            let imageData = try Data(contentsOf: Auth.auth().currentUser!.photoURL!)
+            return UIImage(data: imageData) ?? K.profilePlaceholderImage
+        } catch let error as NSError {
+            print("ERROR: %@\(error)")
+            return K.profilePlaceholderImage
+        }
+    }
+    
+    var isAdmin: Bool {
+        stallOwner != nil
+    }
+    
+    var stallOwner: StallOwner? {
+        K.stallOwners.filter { $0.uid == Auth.auth().currentUser?.uid }[safe: 0] ?? nil
+    }
 }

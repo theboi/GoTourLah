@@ -13,9 +13,11 @@ class K {
 	static let cornerRadiusCg: CGFloat = 15
 	static let borderWidthCg: CGFloat = 1
     static let buttonHeight: CGFloat = 50
-	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")
-    static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")
-    static let profilePlaceholderImage = UIImage(named: "ProfilePlaceholder")
+	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")!
+    static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")!
+    static let profilePlaceholderImage = UIImage(named: "ProfilePlaceholder")!
         
-    static let stallOwner = StallOwner(email: "ryan_theodore_the@s2019.ssts.edu.sg", stallName: "Chinese Rice")
+    static let stallOwners = [
+        StallOwner(uid: "09wDnUIVADRxOk78K09bRAG3QUg1", stallName: "Chinese Rice")
+    ]
 }

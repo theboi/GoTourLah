@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
     
     var window: UIWindow?
     var cart = Cart()
-    var admin = Admin()
+    var admin = UserAuth()
     var firestoreDb: Firestore?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

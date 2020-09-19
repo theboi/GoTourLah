@@ -28,7 +28,6 @@
 		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
 		AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */; };
 		AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F04F3250245A0002B5EE9 /* Cart.swift */; };
-		AA9F19D0250F19840088B811 /* Admin.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F19CF250F19840088B811 /* Admin.swift */; };
 		AA9F19D4250F210B0088B811 /* MyStallViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9F19D3250F210B0088B811 /* MyStallViewController.swift */; };
 		AAA6E85D25108D75009E4507 /* Notification.Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E85C25108D75009E4507 /* Notification.Name.swift */; };
 		AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAADC1B724E50C2700B62170 /* AppDelegate.swift */; };
@@ -67,7 +66,6 @@
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
 		AA98766D24EF9CE300FE6F16 /* AddToCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddToCartViewController.swift; sourceTree = "<group>"; };
 		AA9F04F3250245A0002B5EE9 /* Cart.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
-		AA9F19CF250F19840088B811 /* Admin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Admin.swift; sourceTree = "<group>"; };
 		AA9F19D3250F210B0088B811 /* MyStallViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyStallViewController.swift; sourceTree = "<group>"; };
 		AAA6E85C25108D75009E4507 /* Notification.Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.Name.swift; sourceTree = "<group>"; };
 		AAADC1B424E50C2700B62170 /* Barg-InnoFest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Barg-InnoFest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -231,7 +229,6 @@
 				AA9F04F3250245A0002B5EE9 /* Cart.swift */,
 				AA844F9F24E78DC000D99C48 /* Stall.swift */,
 				AA5D021324FFDE0600CA2E45 /* UserAuth.swift */,
-				AA9F19CF250F19840088B811 /* Admin.swift */,
 				AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */,
 			);
 			path = Model;
@@ -445,7 +442,6 @@
 				AA3CA951250C7F710068D80C /* StallsViewController.swift in Sources */,
 				AA3709E12514A9F9003BBEA4 /* UIColor.swift in Sources */,
 				AA80E57724F6099B00723015 /* Utils.swift in Sources */,
-				AA9F19D0250F19840088B811 /* Admin.swift in Sources */,
 				AA370A0E251649C6003BBEA4 /* Collection.swift in Sources */,
 				AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */,
 				AAFF1292250CE49D00E1FA48 /* FoodItemEntity+CoreDataProperties.swift in Sources */,

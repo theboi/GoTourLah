@@ -32,7 +32,7 @@ class SettingsViewController: UITableViewController {
         let cellHeight: CGFloat = 100
         let currentUser = Auth.auth().currentUser
         if let displayName = currentUser?.displayName {
-            return SettingsTableItem(title: displayName, image: K.profilePlaceholderImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), pushViewController: SettingsViewController(list: {[[
+            return SettingsTableItem(title: displayName, image: appDelegate.admin.profileImage, height: cellHeight, customCell: createProfileCell(style: .subtitle), pushViewController: SettingsViewController(list: {[[
                 SettingsTableItem(title: "Sign Out", action: {
                     UserAuth.signOut()
                     self.navigationController?.popToRootViewController(animated: true)
@@ -57,23 +57,19 @@ class SettingsViewController: UITableViewController {
                         return privacyAlert
                     }()),
                 ],
-                [
-                    SettingsTableItem(title: "My Stall", pushViewController: MyStallViewController(for: "Chinese Rice")),
-                    SettingsTableItem(title: "Orders", pushViewController: UIViewController()),
-                ],
+                self.adminItems()
             ]
         }
     }
     
-    @objc func toggleAdminMode(sender: UISwitch) {
-        appDelegate.admin.isAdminModeOn = sender.isOn
-        NotificationCenter.default.post(Notification(name: .AdminModeDidChange))
-    }
-    
-    func createAdminSwitch() -> UISwitch {
-        let adminSwitch = UISwitch()
-        adminSwitch.addTarget(self, action: #selector(toggleAdminMode(sender:)), for: .touchUpInside)
-        return adminSwitch
+    func adminItems() -> [SettingsTableItem] {
+        if appDelegate.admin.isAdmin {
+            return [
+                SettingsTableItem(title: "My Stall", pushViewController: MyStallViewController(for: "Chinese Rice")),
+                SettingsTableItem(title: "Orders", pushViewController: UIViewController()),
+            ]
+        }
+        return []
     }
     
     func createProfileCell(style: SettingsProfileTableViewCell.CellStyle) -> UITableViewCell {
