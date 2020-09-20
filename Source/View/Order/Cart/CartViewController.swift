@@ -62,16 +62,21 @@ class CartViewController: ModalActionViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             let successAlert = UIAlertController(title: "Payment Success", message: "Your payment was successfully received. You may proceed to collect your meal now. ", preferredStyle: .alert)
             successAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (_) in
-                Stall.sendTransactionRequest(self.data) { (didSuccess) in
-                    if didSuccess {
-                        self.appDelegate.cart.clearCart()
-                        self.dismiss(animated: true)
-                    } else {
-                        let failAlert = UIAlertController(title: "Transaction Failed", message: "Say bye to your money!", preferredStyle: .alert)
-                        failAlert.addAction(UIAlertAction(title: "Cry", style: .destructive))
-                        self.present(failAlert, animated: true)
+                self.data.forEach { (foodItem) in
+                    Stall.sendTransactionRequest(foodItem: foodItem, for: foodItem.stallName) {
+                        
                     }
                 }
+//                Stall.sendTransactionRequest() { (didSuccess) in
+//                    if didSuccess {
+//                        self.appDelegate.cart.clearCart()
+//                        self.dismiss(animated: true)
+//                    } else {
+//                        let failAlert = UIAlertController(title: "Transaction Failed", message: "Say bye to your money!", preferredStyle: .alert)
+//                        failAlert.addAction(UIAlertAction(title: "Cry", style: .destructive))
+//                        self.present(failAlert, animated: true)
+//                    }
+//                }
             }))
             self.present(successAlert, animated: true)
         }

@@ -2,7 +2,7 @@
 //  FoodItemEntity+CoreDataProperties.swift
 //  
 //
-//  Created by Ryan The on 12/9/20.
+//  Created by Ryan The on 20/9/20.
 //
 //
 
@@ -19,5 +19,6 @@ extension FoodItemEntity {
     @NSManaged public var desc: String
     @NSManaged public var name: String
     @NSManaged public var price: Double
+    @NSManaged public var stallName: String
 
 }

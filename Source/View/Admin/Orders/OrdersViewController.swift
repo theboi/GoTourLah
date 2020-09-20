@@ -1,32 +1,19 @@
 //
-//  AdminListingViewController.swift
+//  OrdersViewController.swift
 //  Barg-InnoFest
 //
-//  Created by Ryan The on 14/9/20.
+//  Created by Ryan The on 20/9/20.
 //  Copyright © 2020 Ryan The. All rights reserved.
 //
 
 import UIKit
 
-class MyStallViewController: UITableViewController {
-    
+class OrdersViewController: UITableViewController {
+
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var stallName: StallName!
     var data: [FoodItem] = []
-    
-    @objc func addNewFoodItem() {
-        let myStallAddViewController = MyStallAddViewController()
-        myStallAddViewController.myStallViewController = self
-        self.present(myStallAddViewController, animated: true)
-    }
-    
-    func refreshStallsData() {
-        Stall.getStalls { (stalls) in
-            self.data = stalls.filter({$0.name == self.appDelegate.admin.stallOwner!.stallName})[safe: 0]?.foodItems ?? []
-            self.tableView.reloadData()
-        }
-    }
     
     // MARK: UITableViewController
     
@@ -45,11 +32,12 @@ class MyStallViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView = UITableView(frame: CGRect(), style: .insetGrouped)
         
-        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addNewFoodItem))
-        
         self.tableView.register(UITableViewCell.self, forCellReuseIdentifier: "myStallFoodItemCell")
-        
-        refreshStallsData()
+                
+        Stall.getOrders(for: stallName) { (foodItems) in
+            self.data = foodItems
+            self.tableView.reloadData()
+        }
     }
     
     // MARK: UITableViewDataSource
@@ -89,4 +77,5 @@ class MyStallViewController: UITableViewController {
         }
         return UISwipeActionsConfiguration(actions: [delete])
     }
+    
 }

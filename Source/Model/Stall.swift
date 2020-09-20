@@ -24,19 +24,26 @@ protocol FoodItem {
     var name: String { get set }
     var desc: String { get set }
     var price: Double { get set }
+    var stallName: String { get set }
     var toDictionary: [String: Any] { get }
+    static func fromDictionary(_: [String: Any], stallName: StallName) -> FoodItem
 }
 
 struct FoodItemDetails: FoodItem {
     var name: String
     var desc: String
     var price: Double
+    var stallName: String
     var toDictionary: [String: Any] {
         return [
             "name": self.name,
             "desc": self.desc,
             "price": self.price,
+            "stallName": self.stallName,
         ]
+    }
+    static func fromDictionary(_ dictionary: [String: Any], stallName: StallName) -> FoodItem {
+        return FoodItemDetails(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, price: dictionary["price"] as! Double, stallName: stallName)
     }
 }
 
@@ -56,39 +63,35 @@ class Stall {
             "foodItems": foodItems,
         ]
     }
+    static func fromDictionary(_ dictionary: [String: Any]) -> Stall {
+        let foodItems = (dictionary["foodItems"] as! [[String: Any]]).map { FoodItemDetails.fromDictionary($0, stallName: dictionary["name"] as! String) }
+        
+        return Stall(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, model: StallModelType(rawValue: dictionary["model"] as! String) ?? .select, foodItems: foodItems)
+    }
     
-    init(name: String, desc: String, model: StallModelType, foodItems: [FoodItemDetails]) {
+    init(name: String, desc: String, model: StallModelType, foodItems: [FoodItem]) {
         self.name = name
         self.desc = desc
         self.model = model
         self.foodItems = foodItems
     }
     
-    static func fromQuerySnapshot(_ snapshot: QuerySnapshot) -> [Stall] {
-        return snapshot.documents.map { (document) -> Stall in
-            let documentData = document.data()
-
-            let foodItems = (documentData["foodItems"] as! [[String: Any]]).map { (foodItem) -> FoodItemDetails in
-                return FoodItemDetails(name: foodItem["name"] as! String, desc: foodItem["desc"] as! String, price: foodItem["price"] as! Double)
-            }
-            
-            return Stall(name: documentData["name"] as! String, desc: documentData["desc"] as! String, model: StallModelType(rawValue: documentData["model"] as! String) ?? .select, foodItems: foodItems)
-        }
-    }
-    
-    static func get(completionHandler: @escaping (_ data: [Stall]) -> ()) {
+    static func getStalls(completionHandler: @escaping ([Stall]) -> Void) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         appDelegate.firestoreDb?.collection("stalls").getDocuments(completion: { (querySnapshot, error) in
             if let error = error {
                 fatalError("ERROR: %@ \(error)")
             }
             if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
-                completionHandler(Stall.fromQuerySnapshot(querySnapshot))
+                let stalls = querySnapshot.documents.map { (document) -> Stall in
+                    return Stall.fromDictionary(document.data())
+                }
+                completionHandler(stalls)
             }
         })
     }
     
-    static func delete(foodItem: FoodItem, from stallName: StallName, completionHandler: @escaping () -> Void) {
+    static func deleteStalls(foodItem: FoodItem, from stallName: StallName, completionHandler: @escaping () -> Void) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         appDelegate.firestoreDb?.collection("stalls").document(stallName).updateData(["foodItems": FieldValue.arrayRemove([foodItem.toDictionary])]) { error in
             if let error = error {
@@ -97,9 +100,34 @@ class Stall {
         }
     }
     
-    static func add(foodItem: FoodItem, to stallName: StallName, completionHandler: @escaping () -> Void) {
+    static func addStalls(foodItem: FoodItem, to stallName: StallName, completionHandler: @escaping () -> Void) {
         let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
         appDelegate.firestoreDb?.collection("stalls").document(stallName).updateData(["foodItems": FieldValue.arrayUnion([foodItem.toDictionary])]) { error in
+            if let error = error {
+                fatalError("ERROR: \(error)")
+            }
+            completionHandler()
+        }
+    }
+    
+    static func getOrders(for stallName: StallName, completionHandler: @escaping ([FoodItem]) -> Void) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.firestoreDb?.collection("stalls").document(stallName).collection("orders").addSnapshotListener({ (querySnapshot, error) in
+            if let error = error {
+                fatalError("ERROR: %@ \(error)")
+            }
+            if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
+                let foodItems = querySnapshot.documents.map { (document) -> FoodItem in
+                    return FoodItemDetails.fromDictionary(document.data(), stallName: stallName)
+                }
+                completionHandler(foodItems)
+            }
+        })
+    }
+    
+    static func sendTransactionRequest(foodItem: FoodItem, for stallName: StallName, completionHandler: @escaping () -> Void) {
+        let appDelegate = (UIApplication.shared.delegate) as! AppDelegate
+        appDelegate.firestoreDb?.collection("stalls").document(stallName).collection("orders").addDocument(data: foodItem.toDictionary) { error in
             if let error = error {
                 fatalError("ERROR: \(error)")
             }
@@ -129,10 +157,5 @@ class Stall {
         return favorites.contains { $0 == foodItem.name }
     }
     
-    static func sendTransactionRequest(_ foodItems: [FoodItem], completionHandler: @escaping (_ didSuccess: Bool) -> Void) {
-        for foodItem in foodItems {
-            print(foodItem.name)
-        }
-        completionHandler(true)
-    }
+    
 }

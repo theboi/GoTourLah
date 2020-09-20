@@ -4,8 +4,9 @@
         <attribute name="desc" attributeType="String"/>
         <attribute name="name" attributeType="String"/>
         <attribute name="price" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES"/>
+        <attribute name="stallName" attributeType="String"/>
     </entity>
     <elements>
-        <element name="FoodItemEntity" positionX="-63" positionY="-18" width="128" height="88"/>
+        <element name="FoodItemEntity" positionX="-63" positionY="-18" width="128" height="103"/>
     </elements>
 </model>

@@ -64,9 +64,10 @@ class SettingsViewController: UITableViewController {
     
     func adminItems() -> [SettingsTableItem] {
         if appDelegate.admin.isAdmin {
+            let stallName = appDelegate.admin.stallOwner!.stallName
             return [
-                SettingsTableItem(title: "My Stall", pushViewController: MyStallViewController(for: "Chinese Rice")),
-                SettingsTableItem(title: "Orders", pushViewController: UIViewController()),
+                SettingsTableItem(title: "My Stall", pushViewController: MyStallViewController(for: stallName)),
+                SettingsTableItem(title: "Orders", pushViewController: OrdersViewController(for: stallName)),
             ]
         }
         return []

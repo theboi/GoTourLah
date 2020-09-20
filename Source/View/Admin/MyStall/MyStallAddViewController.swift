@@ -32,7 +32,7 @@ class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, 
     ]
     
     @objc func addNewFoodItem() {
-        Stall.add(foodItem: FoodItemDetails(name: fields[0].value, desc: fields[1].value, price: Double(fields[2].value) ?? 0), to: appDelegate.admin.stallOwner!.stallName, completionHandler: {
+        Stall.addStalls(foodItem: FoodItemDetails(name: fields[0].value, desc: fields[1].value, price: Double(fields[2].value) ?? 0, stallName: myStallViewController.stallName), to: appDelegate.admin.stallOwner!.stallName, completionHandler: {
             self.myStallViewController.refreshStallsData()
             self.dismiss(animated: true)
         })

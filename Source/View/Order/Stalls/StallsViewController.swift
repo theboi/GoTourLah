@@ -27,7 +27,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     }
     
     func refreshStallsData() {
-        Stall.get(completionHandler: { (data) -> Void in
+        Stall.getStalls(completionHandler: { (data) -> Void in
             self.data = data
             self.collectionView.reloadData()
         })

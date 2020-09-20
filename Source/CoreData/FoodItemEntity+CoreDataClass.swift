@@ -16,6 +16,11 @@ public class FoodItemEntity: NSManagedObject, FoodItem {
             "name": self.name,
             "desc": self.desc,
             "model": self.price,
+            "stallName": self.stallName
         ]
+    }
+    
+    static func fromDictionary(_ dictionary: [String: Any], stallName: StallName) -> FoodItem {
+        return FoodItemDetails(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, price: dictionary["price"] as! Double, stallName: stallName)
     }
 }
