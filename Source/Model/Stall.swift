@@ -26,7 +26,7 @@ protocol FoodItem {
     var price: Double { get set }
     var stallName: String { get set }
     var toDictionary: [String: Any] { get }
-    static func fromDictionary(_: [String: Any], stallName: StallName) -> FoodItem
+    static func fromDictionary(_: [String: Any]) -> FoodItem
 }
 
 struct FoodItemDetails: FoodItem {
@@ -42,8 +42,12 @@ struct FoodItemDetails: FoodItem {
             "stallName": self.stallName,
         ]
     }
-    static func fromDictionary(_ dictionary: [String: Any], stallName: StallName) -> FoodItem {
-        return FoodItemDetails(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, price: dictionary["price"] as! Double, stallName: stallName)
+    static func fromDictionary(_ dictionary: [String: Any]) -> FoodItem {
+        let name = dictionary["name"] as! String
+        let desc = dictionary["desc"] as! String
+        let price = dictionary["price"] as! Double
+        let stallName = dictionary["stallName"] as! String
+        return FoodItemDetails(name: name, desc: desc, price: price, stallName: stallName)
     }
 }
 
@@ -64,7 +68,7 @@ class Stall {
         ]
     }
     static func fromDictionary(_ dictionary: [String: Any]) -> Stall {
-        let foodItems = (dictionary["foodItems"] as! [[String: Any]]).map { FoodItemDetails.fromDictionary($0, stallName: dictionary["name"] as! String) }
+        let foodItems = (dictionary["foodItems"] as! [[String: Any]]).map { FoodItemDetails.fromDictionary($0) }
         
         return Stall(name: dictionary["name"] as! String, desc: dictionary["desc"] as! String, model: StallModelType(rawValue: dictionary["model"] as! String) ?? .select, foodItems: foodItems)
     }
@@ -118,7 +122,8 @@ class Stall {
             }
             if let querySnapshot = querySnapshot, !querySnapshot.isEmpty {
                 let foodItems = querySnapshot.documents.map { (document) -> FoodItem in
-                    return FoodItemDetails.fromDictionary(document.data(), stallName: stallName)
+                    print(document.data())
+                    return FoodItemDetails.fromDictionary(document.data())
                 }
                 completionHandler(foodItems)
             }

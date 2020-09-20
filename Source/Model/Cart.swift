@@ -51,6 +51,7 @@ class Cart {
         foodItem.name = foodItemDetails.name
         foodItem.desc = foodItemDetails.desc
         foodItem.price = foodItemDetails.price
+        foodItem.stallName = foodItemDetails.stallName
         
         saveContext()
     }
