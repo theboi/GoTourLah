@@ -30,7 +30,7 @@ class ModalActionViewController: UIViewController {
             button.titleLabel?.font = UIFont.systemFont(ofSize: button.titleLabel!.font.pointSize, weight: introAction.isPrimary! ? .medium : .regular)
             button.addTarget(target, action: introAction.action, for: .touchUpInside)
             button.heightAnchor.constraint(equalToConstant: K.buttonHeight).isActive = true
-            button.layer.cornerRadius = K.cornerRadiusCg
+            button.layer.cornerRadius = K.cornerRadius
             if let image = introAction.image {
                 button.setImage(image, for: .normal)
                 button.imageEdgeInsets.right += 10
@@ -45,9 +45,9 @@ class ModalActionViewController: UIViewController {
         stackView.spacing = 10
         stackView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addConstraints([
-            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: K.marginCg),
-            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -K.marginCg),
-            stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -K.marginCg),
+            stackView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: K.margin),
+            stackView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -K.margin),
+            stackView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -K.margin),
         ])
         
         if let contentView = contentView {
@@ -56,7 +56,7 @@ class ModalActionViewController: UIViewController {
             self.view.addConstraints([
                 contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
                 contentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-                contentView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -K.marginCg),
+                contentView.bottomAnchor.constraint(equalTo: stackView.topAnchor, constant: -K.margin),
                 contentView.topAnchor.constraint(equalTo: self.view.topAnchor),
             ])
         }

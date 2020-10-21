@@ -89,8 +89,8 @@ class AddToCartViewController: ModalActionViewController {
 		self.contentView.addConstraints([
             detailsStackView.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 30),
             detailsStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-			detailsStackView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: K.marginCg),
-			detailsStackView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -K.marginCg),
+			detailsStackView.leadingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.leadingAnchor, constant: K.margin),
+			detailsStackView.trailingAnchor.constraint(equalTo: self.contentView.safeAreaLayoutGuide.trailingAnchor, constant: -K.margin),
 		])
 	}
 

@@ -22,18 +22,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
 		let tabBarController = UITabBarController(nibName: nil, bundle: nil)
 
-        let exploreTab = UINavigationController(rootViewController: ExploreViewController())
+        let eatTab = UINavigationController(rootViewController: StallsViewController())
+        eatTab.navigationBar.prefersLargeTitles = true
         
-        let stallsTab = UINavigationController(rootViewController: StallsViewController())
-		stallsTab.navigationBar.prefersLargeTitles = true
+        let exploreTab = UINavigationController(rootViewController: ExploreViewController())
 		
-		let meTab = UINavigationController(rootViewController: SettingsViewController(list: nil))
-
-		tabBarController.setViewControllers([exploreTab, stallsTab, meTab], animated: true)
-		tabBarController.selectedIndex = 1
+		let profileTab = UINavigationController(rootViewController: SettingsViewController(list: nil))
 		
-        let images = ["map", "bag", "person.crop.circle"]
-        let titles = ["Explore", "Order", "Settings"]
+        let viewControllers = [eatTab, exploreTab, profileTab]
+        let images = ["bag", "map", "person.crop.circle"]
+        let titles = ["Eat", "Explore", "Profile"]
+        
+        tabBarController.setViewControllers(viewControllers, animated: true)
+        tabBarController.selectedIndex = 1
         
 		for (index, item) in tabBarController.tabBar.items!.enumerated() {
 			item.image = UIImage(systemName: images[index])
@@ -52,7 +53,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             
             let headerLabel = UILabel()
             contentView.addSubview(headerLabel)
-            headerLabel.text = "Welcome To Barg"
+            headerLabel.text = "Welcome To \(K.name)"
             headerLabel.textAlignment = .center
             headerLabel.font = UIFont.systemFont(ofSize: 30, weight: .bold)
             headerLabel.translatesAutoresizingMaskIntoConstraints = false

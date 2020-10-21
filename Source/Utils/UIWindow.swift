@@ -18,7 +18,7 @@ extension UIWindow {
         toastLabel.textAlignment = .center;
         toastLabel.text = message
         toastLabel.layer.borderColor = UIColor.systemFill.cgColor
-        toastLabel.layer.borderWidth = K.borderWidthCg
+        toastLabel.layer.borderWidth = K.borderWidth
         toastLabel.layer.cornerRadius = 25
         toastLabel.clipsToBounds = true
         toastLabel.sizeToFit()
@@ -27,7 +27,7 @@ extension UIWindow {
         self.addConstraints([
             toastLabel.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -50),
             toastLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor),
-            toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + K.marginCg*2*2),
+            toastLabel.widthAnchor.constraint(equalToConstant: toastLabel.frame.width + K.margin*2*2),
             toastLabel.heightAnchor.constraint(equalToConstant: 50),
         ])
         toastLabel.transform = CGAffineTransform(translationX: 0, y: 200).scaledBy(x: 0.8, y: 0.8)

@@ -57,7 +57,7 @@ class MyStallAddViewController: ModalActionViewController, UITableViewDelegate, 
             tableView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             tableView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             tableView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            tableView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: K.marginCg)
+            tableView.topAnchor.constraint(equalTo: headerLabel.bottomAnchor, constant: K.margin)
         ])
     }
     

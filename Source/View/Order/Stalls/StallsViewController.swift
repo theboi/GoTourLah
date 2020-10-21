@@ -49,19 +49,19 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     init(for stall: Stall? = nil) {
         func createGridLayout() -> UICollectionViewLayout {
             let layout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
-                let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.marginCg*3)/2), heightDimension: .fractionalHeight(1.0))
+                let itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.margin*3)/2), heightDimension: .fractionalHeight(1.0))
                 
                 let item = NSCollectionLayoutItem(layoutSize: itemSize)
                 
                 let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(220))
                 
                 let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
-                group.interItemSpacing = NSCollectionLayoutSpacing.fixed(K.marginCg)
+                group.interItemSpacing = NSCollectionLayoutSpacing.fixed(K.margin)
                 
                 let section = NSCollectionLayoutSection(group: group)
-                section.interGroupSpacing = K.marginCg
+                section.interGroupSpacing = K.margin
                 
-                section.contentInsets = NSDirectionalEdgeInsets(top: K.marginCg, leading: K.marginCg, bottom: K.marginCg, trailing: K.marginCg)
+                section.contentInsets = NSDirectionalEdgeInsets(top: K.margin, leading: K.margin, bottom: K.margin, trailing: K.margin)
                 return section
             }
             return layout

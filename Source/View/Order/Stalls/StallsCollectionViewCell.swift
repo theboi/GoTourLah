@@ -16,7 +16,7 @@ class StallsCollectionViewCell: UICollectionViewCell {
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		self.backgroundColor = .secondarySystemGroupedBackground
-		self.layer.cornerRadius = K.cornerRadiusCg
+		self.layer.cornerRadius = K.cornerRadius
 		self.clipsToBounds = true
 		setupUi()
 	}

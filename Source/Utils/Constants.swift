@@ -8,10 +8,11 @@
 
 import UIKit
 
-class K {
-	static let marginCg: CGFloat = 20
-	static let cornerRadiusCg: CGFloat = 15
-	static let borderWidthCg: CGFloat = 1
+struct K {
+    static let name = "GoTourLah"
+	static let margin: CGFloat = 20
+	static let cornerRadius: CGFloat = 15
+	static let borderWidth: CGFloat = 1
     static let buttonHeight: CGFloat = 50
 	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")!
     static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")!

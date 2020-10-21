@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA02F67E24F161AA0042C8CF /* GradientView.swift */; };
-		AA08A0A12500E8EC0064A730 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */; };
 		AA12885224E940B900DD5459 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA12885124E940B900DD5459 /* Constants.swift */; };
 		AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */; };
 		AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA2EFE3C25076776001309CB /* Barg-InnoFest.xcdatamodeld */; };
@@ -23,6 +22,8 @@
 		AA41A8CF24F4B6400051DDAF /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA41A8CE24F4B6400051DDAF /* SettingsViewController.swift */; };
 		AA578CBD24F7823A004B27D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */; };
 		AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D021324FFDE0600CA2E45 /* UserAuth.swift */; };
+		AA615676253FEE2300195A54 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA615675253FEE2300195A54 /* ExploreViewController.swift */; };
+		AA615678253FEE5F00195A54 /* ExploreChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA615677253FEE5F00195A54 /* ExploreChallengeViewCell.swift */; };
 		AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */; };
 		AA80E57724F6099B00723015 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA80E57624F6099B00723015 /* Utils.swift */; };
 		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
@@ -47,7 +48,6 @@
 		44ED743ABC27D8B594E45221 /* Pods_Barg_InnoFest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barg_InnoFest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E1F7976D93C56BA13B8566B /* Pods-Barg-InnoFest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Barg-InnoFest.release.xcconfig"; path = "Target Support Files/Pods-Barg-InnoFest/Pods-Barg-InnoFest.release.xcconfig"; sourceTree = "<group>"; };
 		AA02F67E24F161AA0042C8CF /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
-		AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		AA12885124E940B900DD5459 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA24C93C24F927C00020EBEA /* SettingsProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableViewCell.swift; sourceTree = "<group>"; };
 		AA2EFE3D25076776001309CB /* Barg-InnoFest.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Barg-InnoFest.xcdatamodel"; sourceTree = "<group>"; };
@@ -62,6 +62,8 @@
 		AA41A8CE24F4B6400051DDAF /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		AA578CBC24F7823A004B27D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		AA5D021324FFDE0600CA2E45 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		AA615675253FEE2300195A54 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
+		AA615677253FEE5F00195A54 /* ExploreChallengeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreChallengeViewCell.swift; sourceTree = "<group>"; };
 		AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA80E57624F6099B00723015 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
@@ -123,7 +125,8 @@
 		AA08A09D2500E8170064A730 /* Explore */ = {
 			isa = PBXGroup;
 			children = (
-				AA08A0A02500E8EC0064A730 /* ExploreViewController.swift */,
+				AA615675253FEE2300195A54 /* ExploreViewController.swift */,
+				AA615677253FEE5F00195A54 /* ExploreChallengeViewCell.swift */,
 			);
 			path = Explore;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			files = (
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
 				AA9F19D4250F210B0088B811 /* MyStallViewController.swift in Sources */,
+				AA615676253FEE2300195A54 /* ExploreViewController.swift in Sources */,
 				AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
 				AA02F67F24F161AA0042C8CF /* GradientView.swift in Sources */,
@@ -454,12 +458,12 @@
 				AA3709E12514A9F9003BBEA4 /* UIColor.swift in Sources */,
 				AA80E57724F6099B00723015 /* Utils.swift in Sources */,
 				AA370A0E251649C6003BBEA4 /* Collection.swift in Sources */,
+				AA615678253FEE5F00195A54 /* ExploreChallengeViewCell.swift in Sources */,
 				AA24C93D24F927C00020EBEA /* SettingsProfileTableViewCell.swift in Sources */,
 				AAFF1292250CE49D00E1FA48 /* FoodItemEntity+CoreDataProperties.swift in Sources */,
 				AA3709E52515BBF8003BBEA4 /* MyStallAddViewController.swift in Sources */,
 				AA2EFE3E25076776001309CB /* Barg-InnoFest.xcdatamodeld in Sources */,
 				AABDE1C925178C4300D289F4 /* OrdersViewController.swift in Sources */,
-				AA08A0A12500E8EC0064A730 /* ExploreViewController.swift in Sources */,
 				AA98766E24EF9CE300FE6F16 /* AddToCartViewController.swift in Sources */,
 				AA844FA024E78DC000D99C48 /* Stall.swift in Sources */,
 				AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */,
