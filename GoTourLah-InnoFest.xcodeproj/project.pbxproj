@@ -37,6 +37,11 @@
 		AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAADC1C224E50C2A00B62170 /* LaunchScreen.storyboard */; };
 		AAB6356124FA1EE900754A01 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAB6356024FA1EE900754A01 /* UIView.swift */; };
 		AABBB0E725413ACD0092E06D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0E625413ACD0092E06D /* GoogleService-Info.plist */; };
+		AABBB0EE25413C060092E06D /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0EA25413C050092E06D /* Podfile */; };
+		AABBB0EF25413C060092E06D /* Podfile.lock in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0EB25413C060092E06D /* Podfile.lock */; };
+		AABBB0F025413C060092E06D /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0EC25413C060092E06D /* LICENSE */; };
+		AABBB0F125413C060092E06D /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0ED25413C060092E06D /* README.md */; };
+		AABBB0F325413C7F0092E06D /* DISPLAY.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AABBB0F225413C7F0092E06D /* DISPLAY.jpg */; };
 		AABDE1C925178C4300D289F4 /* OrdersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AABDE1C825178C4300D289F4 /* OrdersViewController.swift */; };
 		AAC6EE3024FDEE3300A458B9 /* ModalActionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */; };
 		AAEF73FA24F367C300C31BE0 /* UIWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAEF73F924F367C300C31BE0 /* UIWindow.swift */; };
@@ -80,6 +85,11 @@
 		AAADC1C524E50C2A00B62170 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAB6356024FA1EE900754A01 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		AABBB0E625413ACD0092E06D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		AABBB0EA25413C050092E06D /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		AABBB0EB25413C060092E06D /* Podfile.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile.lock; sourceTree = "<group>"; };
+		AABBB0EC25413C060092E06D /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		AABBB0ED25413C060092E06D /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		AABBB0F225413C7F0092E06D /* DISPLAY.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = DISPLAY.jpg; sourceTree = "<group>"; };
 		AABDE1C825178C4300D289F4 /* OrdersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdersViewController.swift; sourceTree = "<group>"; };
 		AAC6EE2F24FDEE3300A458B9 /* ModalActionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalActionViewController.swift; sourceTree = "<group>"; };
 		AAEF73F924F367C300C31BE0 /* UIWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWindow.swift; sourceTree = "<group>"; };
@@ -211,6 +221,11 @@
 		AAADC1AB24E50C2700B62170 = {
 			isa = PBXGroup;
 			children = (
+				AABBB0EC25413C060092E06D /* LICENSE */,
+				AABBB0EA25413C050092E06D /* Podfile */,
+				AABBB0EB25413C060092E06D /* Podfile.lock */,
+				AABBB0F225413C7F0092E06D /* DISPLAY.jpg */,
+				AABBB0ED25413C060092E06D /* README.md */,
 				AAADC1B624E50C2700B62170 /* Source */,
 				AAADC1B524E50C2700B62170 /* Products */,
 				77CA85D28A2350F47506B640 /* Pods */,
@@ -371,8 +386,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AABBB0EF25413C060092E06D /* Podfile.lock in Resources */,
+				AABBB0EE25413C060092E06D /* Podfile in Resources */,
+				AABBB0F025413C060092E06D /* LICENSE in Resources */,
 				AAADC1C424E50C2A00B62170 /* LaunchScreen.storyboard in Resources */,
+				AABBB0F325413C7F0092E06D /* DISPLAY.jpg in Resources */,
 				AAADC1C124E50C2A00B62170 /* Assets.xcassets in Resources */,
+				AABBB0F125413C060092E06D /* README.md in Resources */,
 				AABBB0E725413ACD0092E06D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
