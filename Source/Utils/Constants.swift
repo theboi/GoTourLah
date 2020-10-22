@@ -17,6 +17,7 @@ struct K {
 	static let foodPlaceholderImage = UIImage(named: "FoodPlaceholder")!
     static let otherPlaceholderImage = UIImage(named: "OtherPlaceholder")!
     static let profilePlaceholderImage = UIImage(named: "ProfilePlaceholder")!
+    static let locationPlaceholderImage = UIImage(named: "LocationPlaceholder")!
         
     static let stallOwners = [
         StallOwner(uid: "09wDnUIVADRxOk78K09bRAG3QUg1", stallName: "Chinese Rice")

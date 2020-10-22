@@ -11,7 +11,9 @@ import UIKit
 class ExploreChallengeViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = .red
+        self.backgroundColor = .secondarySystemGroupedBackground
+        self.layer.cornerRadius = K.cornerRadius
+        self.clipsToBounds = true
     }
     
     required init?(coder: NSCoder) {

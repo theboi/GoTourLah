@@ -8,21 +8,16 @@
 
 import UIKit
 
-enum LayoutGroupType {
-    case horizontal, vertical
-}
-
 struct SectionDetails {
     var name: String
-    var layoutType: LayoutGroupType
 }
 
 private let cellReuseIdentifier = "cellReuseIdentifier"
 private let headerReuseIdentifier = "headerReuseIdentifier"
 
 private let sections = [
-    SectionDetails(name: "Challenges", layoutType: .horizontal),
-    SectionDetails(name: "Tours", layoutType: .vertical),
+    SectionDetails(name: "Challenges"),
+    SectionDetails(name: "Tours"),
 ]
 
 class ExploreViewController: UICollectionViewController {
@@ -38,12 +33,16 @@ class ExploreViewController: UICollectionViewController {
             
             let headerFooterSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(50))
             
-            switch sections[sectionIndex].layoutType {
-            case .horizontal:
+            switch sectionIndex {
+            case 0:
                 itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1.0))
                 groupSize = NSCollectionLayoutSize(widthDimension: .absolute(UIScreen.main.bounds.width-K.margin*3), heightDimension: .absolute(270))
                 scrollBehavior = .continuous
-            case .vertical:
+            case 1:
+                itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.margin*3)/2), heightDimension: .fractionalHeight(1.0))
+                groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(220))
+            default:
+                // same as case 1
                 itemSize = NSCollectionLayoutSize(widthDimension: .absolute((UIScreen.main.bounds.width-K.margin*3)/2), heightDimension: .fractionalHeight(1.0))
                 groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1), heightDimension: .absolute(220))
             }
@@ -53,7 +52,7 @@ class ExploreViewController: UICollectionViewController {
             group.interItemSpacing = NSCollectionLayoutSpacing.fixed(K.margin)
             
             let section = NSCollectionLayoutSection(group: group)
-
+            
             let headerLayout = NSCollectionLayoutBoundarySupplementaryItem(layoutSize: headerFooterSize, elementKind: headerReuseIdentifier, alignment: .top)
             
             section.boundarySupplementaryItems = [headerLayout]
@@ -111,33 +110,96 @@ class ExploreViewController: UICollectionViewController {
     
     // MARK: UICollectionViewDelegate
     
-    /*
-     // Uncomment this method to specify if the specified item should be highlighted during tracking
-     override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let challengeViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask]), locationIsHidden: true), actions: [
+            ModalActionAction(title: "Take Challenge", action: #selector(startChallenge), isPrimary: true),
+            ModalActionAction(title: "Reveal Location", action: #selector(challengeShowAnswer)),
+        ], target: self)
+        
+        let tourViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask])), actions: [
+            ModalActionAction(title: "Begin Tour", action: #selector(startTour), isPrimary: true),
+        ], target: self)
+        
+        
+        switch indexPath.section {
+        case 0:
+            self.present(challengeViewController, animated: true)
+        case 1:
+            self.present(tourViewController, animated: true)
+        default: break
+        }
+    }
     
-    /*
-     // Uncomment this method to specify if the specified item should be selected
-     override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-     return true
-     }
-     */
+    private func createContentView(for location: Location, locationIsHidden: Bool? = false) -> UIView {
+        let view = UIView()
+        let imageView = UIImageView(image: K.locationPlaceholderImage)
+        imageView.contentMode = .scaleAspectFill
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraints([
+            imageView.topAnchor.constraint(equalTo: view.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            imageView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            imageView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+        ])
+        
+        let gradient = GradientView.blackShadowOverlay
+        view.addSubview(gradient)
+        gradient.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraints([
+            gradient.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            gradient.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            gradient.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            gradient.heightAnchor.constraint(equalToConstant: 200),
+        ])
+
+        let spacer = UIView()
+        spacer.setContentHuggingPriority(.defaultLow, for: .vertical)
+        
+        let titleLabel = UILabel()
+        titleLabel.text = (locationIsHidden ?? false) ? "???" : location.name
+        titleLabel.textColor = .white
+        titleLabel.font = UIFont.systemFont(ofSize: 28, weight: .semibold)
+
+//        let priceLabel = UILabel()
+//        priceLabel.text = "S$" + String(format: "%.2f", foodItem.price)
+//        priceLabel.textColor = .secondaryLabel
+//        priceLabel.font = UIFont.systemFont(ofSize: 17, weight: .medium)
+
+        let descLabel = UILabel()
+        descLabel.textColor = .white
+        descLabel.text = location.desc
+        descLabel.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        
+        let detailsView = UIStackView(arrangedSubviews: [spacer, titleLabel, descLabel])
+        view.addSubview(detailsView)
+        detailsView.axis = .vertical
+        detailsView.translatesAutoresizingMaskIntoConstraints = false
+        view.addConstraints([
+            detailsView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -K.margin),
+            detailsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: K.margin),
+            detailsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: K.margin),
+            detailsView.heightAnchor.constraint(equalToConstant: 200),
+        ])
+        
+        return view
+    }
     
-    /*
-     // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-     override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-     return false
-     }
-     
-     override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-     
-     }
-     */
+    @objc func startTour() {
+        
+    }
+    
+    @objc func startChallenge() {
+        let alert = UIAlertController(title: "Initiated on Glass", message: "The challenge has been initiated on Glass.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        self.present(alert, animated: true)
+    }
+    
+    @objc func challengeShowAnswer() {
+        
+        //        self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+    }
     
 }

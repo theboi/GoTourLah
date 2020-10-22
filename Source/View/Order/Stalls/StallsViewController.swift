@@ -78,7 +78,7 @@ class StallsViewController: UICollectionViewController, UISearchBarDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = stall?.name ?? "Order"
+        self.title = stall?.name ?? "Eat"
         self.collectionView.backgroundColor = .systemGroupedBackground
         
         self.navigationItem.searchController = searchController

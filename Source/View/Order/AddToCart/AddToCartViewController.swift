@@ -45,7 +45,7 @@ class AddToCartViewController: ModalActionViewController {
 			imageView.heightAnchor.constraint(equalToConstant: 400),
 		])
 
-		let imageBottomGradient = GradientView(topColor: .clear, bottomColor: UIScreen.main.traitCollection.userInterfaceStyle == .dark ? .secondarySystemBackground : .black)
+        let imageBottomGradient = GradientView.blackShadowOverlay
 		self.contentView.addSubview(imageBottomGradient)
 		imageBottomGradient.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.addConstraints([
@@ -55,7 +55,7 @@ class AddToCartViewController: ModalActionViewController {
 			imageBottomGradient.heightAnchor.constraint(equalToConstant: 150),
 		])
 
-		let imageTopGradient = GradientView(topColor: .secondarySystemBackground, bottomColor: .clear)
+        let imageTopGradient = GradientView.blackShadowOverlay
 		self.contentView.addSubview(imageTopGradient)
 		imageTopGradient.translatesAutoresizingMaskIntoConstraints = false
 		self.contentView.addConstraints([

@@ -32,4 +32,8 @@ class GradientView: UIView {
     override class var layerClass: AnyClass {
         return CAGradientLayer.self
     }
+    
+    class var blackShadowOverlay: GradientView {
+        GradientView(topColor: .clear, bottomColor: UIScreen.main.traitCollection.userInterfaceStyle == .dark ? .secondarySystemBackground : .black)
+    }
 }

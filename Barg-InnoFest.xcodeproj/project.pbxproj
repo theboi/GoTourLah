@@ -24,6 +24,7 @@
 		AA5D021424FFDE0600CA2E45 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5D021324FFDE0600CA2E45 /* UserAuth.swift */; };
 		AA615676253FEE2300195A54 /* ExploreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA615675253FEE2300195A54 /* ExploreViewController.swift */; };
 		AA615678253FEE5F00195A54 /* ExploreChallengeViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA615677253FEE5F00195A54 /* ExploreChallengeViewCell.swift */; };
+		AA61567A25410FBF00195A54 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA61567925410FBF00195A54 /* Location.swift */; };
 		AA8056C624EA0CF300E80187 /* StallsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */; };
 		AA80E57724F6099B00723015 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA80E57624F6099B00723015 /* Utils.swift */; };
 		AA844FA024E78DC000D99C48 /* Stall.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA844F9F24E78DC000D99C48 /* Stall.swift */; };
@@ -64,6 +65,7 @@
 		AA5D021324FFDE0600CA2E45 /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		AA615675253FEE2300195A54 /* ExploreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreViewController.swift; sourceTree = "<group>"; };
 		AA615677253FEE5F00195A54 /* ExploreChallengeViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExploreChallengeViewCell.swift; sourceTree = "<group>"; };
+		AA61567925410FBF00195A54 /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		AA8056C524EA0CF300E80187 /* StallsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StallsCollectionViewCell.swift; sourceTree = "<group>"; };
 		AA80E57624F6099B00723015 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		AA844F9F24E78DC000D99C48 /* Stall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stall.swift; sourceTree = "<group>"; };
@@ -243,6 +245,7 @@
 				AA9F04F3250245A0002B5EE9 /* Cart.swift */,
 				AA844F9F24E78DC000D99C48 /* Stall.swift */,
 				AA5D021324FFDE0600CA2E45 /* UserAuth.swift */,
+				AA61567925410FBF00195A54 /* Location.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -438,6 +441,7 @@
 			files = (
 				AAB6356124FA1EE900754A01 /* UIView.swift in Sources */,
 				AA9F19D4250F210B0088B811 /* MyStallViewController.swift in Sources */,
+				AA61567A25410FBF00195A54 /* Location.swift in Sources */,
 				AA615676253FEE2300195A54 /* ExploreViewController.swift in Sources */,
 				AA9F04F4250245A0002B5EE9 /* Cart.swift in Sources */,
 				AAADC1B824E50C2700B62170 /* AppDelegate.swift in Sources */,
