@@ -22,8 +22,9 @@ private let sections = [
 
 class ExploreViewController: UICollectionViewController {
     
-    
-    
+    var challengeViewController = UIViewController()
+    var tourViewController = UIViewController()
+
     init() {
         let createGridLayout = UICollectionViewCompositionalLayout { (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
@@ -112,12 +113,12 @@ class ExploreViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let challengeViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask]), locationIsHidden: true), actions: [
+        self.challengeViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask]), locationIsHidden: true), actions: [
             ModalActionAction(title: "Take Challenge", action: #selector(startChallenge), isPrimary: true),
             ModalActionAction(title: "Reveal Location", action: #selector(challengeShowAnswer)),
         ], target: self)
         
-        let tourViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask])), actions: [
+        self.tourViewController = ModalActionViewController(contentView: createContentView(for: Location(name: "Sentosa", desc: "Somewhere in Singapore!", advisory: [.mask])), actions: [
             ModalActionAction(title: "Begin Tour", action: #selector(startTour), isPrimary: true),
         ], target: self)
         
@@ -187,19 +188,22 @@ class ExploreViewController: UICollectionViewController {
     }
     
     @objc func startTour() {
-        
+        let alert = UIAlertController(title: "Initiated on Glass", message: "The tour has been initiated on Glass.", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        tourViewController.present(alert, animated: true)
     }
     
     @objc func startChallenge() {
         let alert = UIAlertController(title: "Initiated on Glass", message: "The challenge has been initiated on Glass.", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(UIAlertAction(title: "OK", style: .default))
-        self.present(alert, animated: true)
+        challengeViewController.present(alert, animated: true)
+        self.dismiss(animated: true)
     }
     
     @objc func challengeShowAnswer() {
-        
-        //        self.present(<#T##viewControllerToPresent: UIViewController##UIViewController#>, animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
+        challengeViewController.present(tourViewController, animated: true)
     }
     
 }

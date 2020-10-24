@@ -17,7 +17,7 @@ Sub Themes:
 - Sports & Wellness
 - Rethinking spaces and buildings
 
-Adapted from [Official Site (copy as of 22 Oct 2020 also found in repository)](https://sites.google.com/sst.edu.sg/innofest2020/home)
+Adapted from [Official Site (copy as of 22 Oct 2020 also found in repository)](https://sites.google.com/sst.edu.sg/innofest2020/home).
 
 ## Installation
 

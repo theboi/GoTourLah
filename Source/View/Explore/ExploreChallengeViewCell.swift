@@ -14,6 +14,18 @@ class ExploreChallengeViewCell: UICollectionViewCell {
         self.backgroundColor = .secondarySystemGroupedBackground
         self.layer.cornerRadius = K.cornerRadius
         self.clipsToBounds = true
+        
+        let imageView = UIImageView(image: K.locationPlaceholderImage)
+        self.contentView.addSubview(imageView)
+        imageView.contentMode = .scaleAspectFill
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addConstraints([
+            imageView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor),
+            imageView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor),
+            imageView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+
+        ])
     }
     
     required init?(coder: NSCoder) {
