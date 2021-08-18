@@ -1,25 +1,55 @@
-import socket, time
-import shared.pyrtp as pyrtp
+import sys
+sys.path.append("..")
+
+import cv2, imutils
+import random
 import time
+import socket
+from copy import deepcopy
+from rtp import RTP, Extension, PayloadType
+import shared.k as k
 
-packets = 3
-pkt_delay = 150
-
-s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP
+s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP over IPv4
 s.bind((socket.gethostname(), 1234))
 
 #time_int = random.randint(1,9999)
-packet_seq = 0
+packet_seq = random.randint(1, 9999)
 
-while packets != 0:
-  payload = 'd5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5d5'
-  header_hex = pyrtp.encodePacket({'version' : 2, 'padding' : 0, 'extension' : 0, 'csi_count' : 0, 'marker' : 0, 'payload_type' : 8, 'sequence_number' : packet_seq, 'timestamp' : time.time(), 'ssrc' : 185755418, 'payload' : payload})
+camera = cv2.VideoCapture(0)
 
-  s.sendto(bytes.fromhex(header_hex), (socket.gethostname(), 1447))
-  
-  packets -= 1
+baseRTP = RTP(
+    marker=True,
+    payloadType=PayloadType.L16_2chan,
+    # extension=Extension(
+    #     startBits=0,
+    #     headerExtension=0
+    # ),
+    # ssrc=185755418
+)
+
+while True:
+  isSuccess, image = camera.read()
+  if not isSuccess:
+    print("Camera Error")
+    break
+
+  image = imutils.resize(image, width=k.STREAM_MEDIA_WIDTH)
+  isEncoded, buffer = cv2.imencode('.jpg',image,[cv2.IMWRITE_JPEG_QUALITY,80])
+  if not isEncoded:
+    print("JPG Encoding Error")
+    break
+  payload = bytearray(buffer)
+  print(image)
+
+  nextRTP = deepcopy(baseRTP)
+  nextRTP.sequenceNumber += 1
+  nextRTP.timestamp = int(time.time())
+  nextRTP.payload = payload
+
+  data = nextRTP.toBytearray()
+  s.sendto(data, (socket.gethostname(), 1447))
+
   packet_seq += 1
-  
-  time.sleep(float(pkt_delay * 0.0001))
-s.close()
 
+  time.sleep(5)
+s.close()

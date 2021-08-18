@@ -1,28 +1,23 @@
-import socket
-from shared import pyrtp
+import sys
+sys.path.append("..")
+
+import socket, cv2
+import numpy as np
+from rtp import RTP
+import shared.k as k
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP over IPv4
 s.bind((socket.gethostname(), 1447))
 
 while True:
-  message, address = s.recvfrom(1024)
-  message = message.upper()
-  s.sendto(message, address)
-  print(pyrtp.decodePacket(message.hex()))
+  data, address = s.recvfrom(k.BUFFER_SIZE)
+  s.sendto(data, address)
 
-# s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP over IPv4
+  # print(message)
 
-# if __name__ == '__main__':
-#   for pings in range(10):
-#   s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-#   s.settimeout(1.0)
+  payload = RTP().fromBytes(data).payload
+
+  npdata = np.frombuffer(bytes(payload), dtype=np.uint8)
+  image = cv2.imdecode(npdata, cv2.IMWRITE_JPEG_QUALITY)
+
   
-#   start = time.time()
-#   s.sendto(b'test', (socket.gethostname(), 1234))
-#   try:
-#     data, server = s.recvfrom(1024)
-#     end = time.time()
-#     elapsed = end - start
-#     print(f'{data} {pings} {elapsed}')
-#   except socket.timeout:
-#     print('REQUEST TIMED OUT')
