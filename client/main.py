@@ -15,7 +15,7 @@ s.bind((socket.gethostname(), 1234))
 #time_int = random.randint(1,9999)
 packet_seq = random.randint(1, 9999)
 
-camera = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 baseRTP = RTP(
     marker=True,
@@ -28,18 +28,20 @@ baseRTP = RTP(
 )
 
 while True:
-  isSuccess, image = camera.read()
+  isSuccess, image = cap.read()
   if not isSuccess:
     print("Camera Error")
     break
 
   image = imutils.resize(image, width=k.STREAM_MEDIA_WIDTH)
+  image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+
   isEncoded, buffer = cv2.imencode('.jpg',image,[cv2.IMWRITE_JPEG_QUALITY,80])
   if not isEncoded:
     print("JPG Encoding Error")
     break
+  
   payload = bytearray(buffer)
-  print(image)
 
   nextRTP = deepcopy(baseRTP)
   nextRTP.sequenceNumber += 1
@@ -51,5 +53,7 @@ while True:
 
   packet_seq += 1
 
-  time.sleep(5)
+  time.sleep(0.1)
+
 s.close()
+cap.release()
