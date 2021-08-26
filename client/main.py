@@ -53,7 +53,7 @@ while True:
 
   packet_seq += 1
 
-  time.sleep(0.1)
+  time.sleep(1)
 
 s.close()
 cap.release()
