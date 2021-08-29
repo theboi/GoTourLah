@@ -8,14 +8,18 @@ import socket
 from copy import deepcopy
 from rtp import RTP, Extension, PayloadType
 import shared.k as k
+import numpy as np
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP over IPv4
 s.bind((socket.gethostname(), 1234))
 
 #time_int = random.randint(1,9999)
-packet_seq = random.randint(1, 9999)
+packet_seq = random.randint(1, 9999) # https://en.wikipedia.org/wiki/Real-time_Transport_Protocol
 
 cap = cv2.VideoCapture(0)
+cap.set(cv2.CAP_PROP_FRAME_WIDTH, k.CAMERA_WIDTH)
+cap.set(cv2.CAP_PROP_FRAME_HEIGHT, k.CAMERA_HEIGHT)
+cap.set(cv2.CAP_PROP_FPS, 15)
 
 baseRTP = RTP(
     marker=True,
@@ -28,12 +32,13 @@ baseRTP = RTP(
 )
 
 while True:
+  image: np.ndarray
   isSuccess, image = cap.read()
   if not isSuccess:
     print("Camera Error")
     break
 
-  image = imutils.resize(image, width=k.STREAM_MEDIA_WIDTH)
+  image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
   image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
   isEncoded, buffer = cv2.imencode('.jpg',image,[cv2.IMWRITE_JPEG_QUALITY,80])
