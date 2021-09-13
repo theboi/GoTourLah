@@ -47,11 +47,11 @@ def process_image(interpreter, image, input_index):
   positions = np.squeeze(interpreter.get_tensor(output_details[0]['index']))
   classes = np.squeeze(interpreter.get_tensor(output_details[1]['index']))
   scores = np.squeeze(interpreter.get_tensor(output_details[2]['index']))
-  print(positions, classes, scores)
+  # print(positions, classes, scores)
   result = []
 
   for idx, score in enumerate(scores):
-    if score > 0.5:
+    if score > 0.1:
       result.append({'pos': positions[idx], '_id': classes[idx]})
 
   return result

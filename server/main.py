@@ -8,8 +8,8 @@ from rtp import RTP
 import numpy as np
 import utils
 
-model_path = '../data/obj.tflite'
-label_path = '../data/a.txt'
+model_path = '../data/tower3.tflite'
+label_path = '../data/labels.txt'
 
 interpreter = utils.load_model(model_path)
 labels = utils.load_labels(label_path)
@@ -38,11 +38,12 @@ if __name__ == "__main__":
 
     npdata = np.frombuffer(bytes(payload), dtype=np.uint8)
     # image = cv2.imdecode(npdata, cv2.IMWRITE_JPEG_QUALITY)
-    image = cv2.imread("test4.jpg")
+    image = cv2.imread("../data/elliot/IMG_20210906_095727.jpg")
     image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
-    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
     top_result = utils.process_image(interpreter, image, input_index)
+    print("Top result", top_result)
     utils.display_result(top_result, image, labels)
 
     # cv2.imshow("Image", image)
