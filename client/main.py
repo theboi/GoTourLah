@@ -39,7 +39,7 @@ while True:
     break
 
   image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
-  image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+  # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
   isEncoded, buffer = cv2.imencode('.jpg',image,[cv2.IMWRITE_JPEG_QUALITY,80])
   if not isEncoded:

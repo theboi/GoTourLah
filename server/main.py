@@ -8,7 +8,7 @@ from rtp import RTP
 import numpy as np
 import utils
 
-model_path = '../data/tower3.tflite'
+model_path = '../data/tower8.tflite'
 label_path = '../data/labels.txt'
 
 interpreter = utils.load_model(model_path)
@@ -25,7 +25,7 @@ width = input_shape[2]
 input_index = input_details[0]['index']
 
 if __name__ == "__main__":
-  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)  # RTP over UDP over IPv4
+  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # RTP over UDP over IPv4
   s.bind((socket.gethostname(), 1447))
 
   while True:
@@ -37,8 +37,8 @@ if __name__ == "__main__":
     payload = RTP().fromBytes(data).payload
 
     npdata = np.frombuffer(bytes(payload), dtype=np.uint8)
-    # image = cv2.imdecode(npdata, cv2.IMWRITE_JPEG_QUALITY)
-    image = cv2.imread("../data/elliot/IMG_20210906_095727.jpg")
+    image = cv2.imdecode(npdata, cv2.IMWRITE_JPEG_QUALITY)
+    # image = cv2.imread("../data/trash2_test.jpg")
     image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
