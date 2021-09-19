@@ -20,8 +20,8 @@ height = int(cap.get(4))
 
 print(width, height)
 
-out1 = cv2.VideoWriter('video1_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
-out2 = cv2.VideoWriter('video2_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
+out1 = cv2.VideoWriter("_".join('video1_{}.mp4'.format(str(t))), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
+out2 = cv2.VideoWriter("_".join('video2_{}.mp4'.format(str(t))), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
 
 while True:
     ret, frame = cap.read()
