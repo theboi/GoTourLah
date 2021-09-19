@@ -9,6 +9,7 @@ sys.path.append("..")
 import cv2
 import shared.k as k
 import tensorflow.lite as tflite
+import timeit
 # import tflite_runtime.interpreter as tflite
 
 def load_labels(label_path):
@@ -30,11 +31,14 @@ def load_model(model_path):
 
 def process_image(interpreter, image, input_index):
   r"""Process an image, Return a list of detected class ids and positions"""
+
   input_data = np.expand_dims(image, axis=0)  # expand to 4-dim
 
+# gay
   # Process
   interpreter.set_tensor(input_index, input_data)
-  interpreter.invoke()
+
+  interpreter.invoke() # bottleneck
 
   # Get outputs
   output_details = interpreter.get_output_details()
@@ -47,7 +51,8 @@ def process_image(interpreter, image, input_index):
   positions = np.squeeze(interpreter.get_tensor(output_details[0]['index']))
   classes = np.squeeze(interpreter.get_tensor(output_details[1]['index']))
   scores = np.squeeze(interpreter.get_tensor(output_details[2]['index']))
-  print(positions, classes, scores)
+
+  # print(positions, classes, scores)
   result = []
 
   for idx, score in enumerate(scores):
@@ -58,7 +63,6 @@ def process_image(interpreter, image, input_index):
   #   result.append({'pos': positions[0], '_id': classes})
 
   return result
-
 
 def display_result(result, frame, labels):
   r"""Display Detected Objects"""
