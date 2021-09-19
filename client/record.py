@@ -1,37 +1,32 @@
 import sys
 sys.path.append("..")
 
-import cv2, imutils
-import random
-import time
-import socket
-from copy import deepcopy
-from rtp import RTP, Extension, PayloadType
+import datetime
 import shared.k as k
 import numpy as np
+import os
+import cv2
+
+duration = 60
+frames_per_second = 24.0
+res = '1080p'
+
+t = datetime.datetime.now()
 
 cap = cv2.VideoCapture(0)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, k.CAMERA_WIDTH)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, k.CAMERA_HEIGHT)
-cap.set(cv2.CAP_PROP_FPS, 15)
-
-writer= cv2.VideoWriter('basicvideo.mp4', cv2.VideoWriter_fourcc(*'DIVX'), 20, (k.CAMERA_WIDTH,k.CAMERA_HEIGHT))
+out1 = cv2.VideoWriter('video1_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
+out2 = cv2.VideoWriter('video2_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
 
 while True:
-  image: np.ndarray
-  isSuccess, image = cap.read()
-  if not isSuccess:
-    print("Camera Error")
-    break
-
-  image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
-  # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-
-  isEncoded, buffer = cv2.imencode('.jpg',image,[cv2.IMWRITE_JPEG_QUALITY,80])
-  if not isEncoded:
-    print("JPG Encoding Error")
-    break
-
-  time.sleep(0.1)
+    ret, frame = cap.read()
+    out1.write(frame)
+    out2.write(frame)
+    cv2.imshow('frame',frame)
+    if cv2.waitKey(1) == 27 or datetime.datetime.now().timestamp() - t.timestamp() >= duration:
+        break
+    
 
 cap.release()
+out1.release()
+out2.release()
+cv2.destroyAllWindows()
