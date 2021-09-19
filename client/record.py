@@ -14,8 +14,14 @@ res = '1080p'
 t = datetime.datetime.now()
 
 cap = cv2.VideoCapture(0)
-out1 = cv2.VideoWriter('video1_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
-out2 = cv2.VideoWriter('video2_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
+
+width  = int(cap.get(3))
+height = int(cap.get(4))
+
+print(width, height)
+
+out1 = cv2.VideoWriter('video1_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
+out2 = cv2.VideoWriter('video2_{}.mp4'.format(str(t)), cv2.VideoWriter_fourcc(*'XVID'), 25, (width, height))
 
 while True:
     ret, frame = cap.read()
