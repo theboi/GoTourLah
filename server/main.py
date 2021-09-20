@@ -8,7 +8,7 @@ from rtp import RTP
 import numpy as np
 import utils
 
-model_path = '../data/tower8.tflite'
+model_path = '../data/merlion.tflite'
 label_path = '../data/labels.txt'
 
 interpreter = utils.load_model(model_path)
@@ -38,7 +38,7 @@ if __name__ == "__main__":
 
     npdata = np.frombuffer(bytes(payload), dtype=np.uint8)
     image = cv2.imdecode(npdata, cv2.IMWRITE_JPEG_QUALITY)
-    # image = cv2.imread("../data/trash2_test.jpg")
+    # image = cv2.imread("../data/merlion2.png")
     image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
     # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -47,7 +47,7 @@ if __name__ == "__main__":
     utils.display_result(top_result, image, labels)
 
     # cv2.imshow("Image", image)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(25) & 0xFF == ord('q'):
       break
 
 cv2.destroyAllWindows()

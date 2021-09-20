@@ -16,7 +16,9 @@ s.bind((socket.gethostname(), 1234))
 #time_int = random.randint(1,9999)
 packet_seq = random.randint(1, 9999) # https://en.wikipedia.org/wiki/Real-time_Transport_Protocol
 
-cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture('../data/merlion4.mp4')
+
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, k.CAMERA_WIDTH)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, k.CAMERA_HEIGHT)
 cap.set(cv2.CAP_PROP_FPS, 15)
@@ -37,7 +39,7 @@ while True:
   if not isSuccess:
     print("Camera Error")
     break
-
+  
   image = cv2.resize(image, (k.CAMERA_WIDTH, k.CAMERA_HEIGHT))
   # image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
 
@@ -58,7 +60,7 @@ while True:
 
   packet_seq += 1
 
-  time.sleep(4)
+  time.sleep(0.5)
 
 s.close()
 cap.release()
