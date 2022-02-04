@@ -1,6 +1,5 @@
 import sys
 sys.path.append("..")
-# imutils, python-opencv, numpy, rtp
 import cv2, imutils
 import random
 import time
@@ -16,8 +15,8 @@ s.bind((socket.gethostname(), 1234))
 #time_int = random.randint(1,9999)
 packet_seq = random.randint(1, 9999) # https://en.wikipedia.org/wiki/Real-time_Transport_Protocol
 
-# cap = cv2.VideoCapture(0)
-cap = cv2.VideoCapture('../data/merlion4.mp4')
+cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture('../data/merlion4.mp4')
 
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, k.CAMERA_WIDTH)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, k.CAMERA_HEIGHT)
