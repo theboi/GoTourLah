@@ -1,19 +1,17 @@
 import sys
 sys.path.append("..")
+
+import time
 import cv2, imutils
 import random
-import time
 import socket
-from copy import deepcopy
-from rtp import RTP, Extension, PayloadType
 import shared.k as k
+from shared.rtp import rtp
 import numpy as np
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM) # UDP over IPv4
-s.bind((socket.gethostname(), 1234))
-
-#time_int = random.randint(1,9999)
-packet_seq = random.randint(1, 9999) # https://en.wikipedia.org/wiki/Real-time_Transport_Protocol
+s.bind((socket.gethostname(), k.CLIENT_ADDR))
+cts_packetSeq = random.randint(1, 9999) # https://en.wikipedia.org/wiki/Real-time_Transport_Protocol
 
 cap = cv2.VideoCapture(0)
 # cap = cv2.VideoCapture('../data/merlion4.mp4')
@@ -21,16 +19,6 @@ cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FRAME_WIDTH, k.CAMERA_WIDTH)
 cap.set(cv2.CAP_PROP_FRAME_HEIGHT, k.CAMERA_HEIGHT)
 cap.set(cv2.CAP_PROP_FPS, 15)
-
-baseRTP = RTP(
-    marker=True,
-    payloadType=PayloadType.L16_2chan,
-    # extension=Extension(
-    #     startBits=0,
-    #     headerExtension=0
-    # ),
-    # ssrc=185755418
-)
 
 while True:
   image: np.ndarray
@@ -47,18 +35,15 @@ while True:
     print("JPG Encoding Error")
     break
   
-  payload = bytearray(buffer)
+  cts_payload = bytearray(buffer)
+  rtpData = rtp(cts_payload, cts_packetSeq)
+  cts_data = rtpData.toBytearray()
+  s.sendto(cts_data, (socket.gethostname(), k.SERVER_ADDR))
+  cts_packetSeq += 1
 
-  nextRTP = deepcopy(baseRTP)
-  nextRTP.sequenceNumber += 1
-  nextRTP.timestamp = int(time.time())
-  nextRTP.payload = payload
-
-  data = nextRTP.toBytearray()
-  s.sendto(data, (socket.gethostname(), 1447))
-
-  packet_seq += 1
-
+  stc_data, stc_addr = s.recvfrom(k.BUFFER_SIZE)
+  print(stc_data.decode("utf-8"))
+  
   time.sleep(0.5)
 
 s.close()
